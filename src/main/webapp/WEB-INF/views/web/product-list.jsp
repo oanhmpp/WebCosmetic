@@ -89,7 +89,7 @@
                 <div class="row align-items-center">
                     <div class="col-md-3">
                         <div class="logo">
-                            <a href="<c:url value="/">">
+                            <a href="<c:url value="/"/>">
                                 <img src="<c:url value="/resources/web/img/logo.png"/>" alt="Logo">
                             </a>
                         </div>
@@ -114,6 +114,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
         <!-- Bottom Bar End -->  
         
