@@ -28,18 +28,18 @@
 
             <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                 <div class="navbar-nav mr-auto">
-                    <a href="<c:url value="/WEB-INF/views/web/index.jsp"/>" class="nav-item nav-link active">Home</a>
-                    <a href="<c:url value="#"/>" class="nav-item nav-link">Products</a>
-                    <a href="<c:url value="#"/>" class="nav-item nav-link">Product Detail</a>
-                    <a href="<c:url value="#"/>" class="nav-item nav-link">Cart</a>
-                    <a href="<c:url value="#"/>" class="nav-item nav-link">Checkout</a>
-                    <a href="<c:url value="#"/>" class="nav-item nav-link">My Account</a>
+                    <a href="<c:url value="/"/>" class="nav-item nav-link active">Home</a>
+                    <a href="<c:url value="/product"/>" class="nav-item nav-link">Products</a>
+                    <a href="<c:url value="/productDetail"/>" class="nav-item nav-link">Product Detail</a>
+                    <a href="<c:url value="/cart"/>" class="nav-item nav-link">Cart</a>
+                    <a href="<c:url value="/checkout"/>" class="nav-item nav-link">Checkout</a>
+                    <a href="<c:url value="/myAccount"/>" class="nav-item nav-link">My Account</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">More Pages</a>
                         <div class="dropdown-menu">
-                            <a href="#" class="dropdown-item">Wishlist</a>
-                            <a href="#" class="dropdown-item">Login & Register</a>
-                            <a href="#" class="dropdown-item">Contact Us</a>
+                            <a href="<c:url value="/wishlist"/>" class="dropdown-item">Wishlist</a>
+                            <a href="<c:url value="/loginRegister"/>" class="dropdown-item">Login & Register</a>
+                            <a href="<c:url value="/contact"/>" class="dropdown-item">Contact Us</a>
                         </div>
                     </div>
                 </div>
@@ -47,8 +47,8 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">User Account</a>
                         <div class="dropdown-menu">
-                            <a href="#" class="dropdown-item">Login</a>
-                            <a href="#" class="dropdown-item">Register</a>
+                            <a href="<c:url value="/login"/>" class="dropdown-item">Login</a>
+                            <a href="<c:url value="/register"/>" class="dropdown-item">Register</a>
                         </div>
                     </div>
                 </div>
