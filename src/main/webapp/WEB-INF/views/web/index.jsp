@@ -7,8 +7,7 @@
 </head>
 
 <body>
-<%--    Top bar --%>
-<%--    Navi bar--%>
+<!-- Top bar, Nav Bar, Bottom Bar -->
 <%@include file="/common/web/header.jsp" %>
 
 <!-- Main Slider Start -->
@@ -615,6 +614,7 @@
     </div>
 </div>
 <!-- Review End -->
+<!-- Footer  -->
 <%@include file="/common/web/footer.jsp" %>
 </body>
 </html>
