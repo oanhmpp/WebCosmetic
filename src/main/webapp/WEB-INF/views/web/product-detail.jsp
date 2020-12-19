@@ -18,20 +18,20 @@
                             <div class="row align-items-center">
                                 <div class="col-md-5">
                                     <div class="product-slider-single normal-slider">
-                                        <img src="img/product-1.jpg" alt="Product Image">
-                                        <img src="img/product-3.jpg" alt="Product Image">
-                                        <img src="img/product-5.jpg" alt="Product Image">
-                                        <img src="img/product-7.jpg" alt="Product Image">
-                                        <img src="img/product-9.jpg" alt="Product Image">
-                                        <img src="img/product-10.jpg" alt="Product Image">
+                                        <img src="<c:url value="/resources/web/img/product-1.jpg"/>" alt="Product Image">
+                                        <img src="<c:url value="/resources/web/img/product-2.jpg"/>" alt="Product Image">
+                                        <img src="<c:url value="/resources/web/img/product-3.jpg"/>" alt="Product Image">
+                                        <img src="<c:url value="/resources/web/img/product-4.jpg"/>" alt="Product Image">
+                                        <img src="<c:url value="/resources/web/img/product-5.jpg"/>" alt="Product Image">
+                                        <img src="<c:url value="/resources/web/img/product-6.jpg"/>" alt="Product Image">
                                     </div>
                                     <div class="product-slider-single-nav normal-slider">
-                                        <div class="slider-nav-img"><img src="img/product-1.jpg" alt="Product Image"></div>
-                                        <div class="slider-nav-img"><img src="img/product-3.jpg" alt="Product Image"></div>
-                                        <div class="slider-nav-img"><img src="img/product-5.jpg" alt="Product Image"></div>
-                                        <div class="slider-nav-img"><img src="img/product-7.jpg" alt="Product Image"></div>
-                                        <div class="slider-nav-img"><img src="img/product-9.jpg" alt="Product Image"></div>
-                                        <div class="slider-nav-img"><img src="img/product-10.jpg" alt="Product Image"></div>
+                                        <div class="slider-nav-img"><img src="<c:url value="/resources/web/img/product-1.jpg"/>" alt="Product Image"></div>
+                                        <div class="slider-nav-img"><img src="<c:url value="/resources/web/img/product-6.jpg"/>" alt="Product Image"></div>
+                                        <div class="slider-nav-img"><img src="<c:url value="/resources/web/img/product-7.jpg"/>" alt="Product Image"></div>
+                                        <div class="slider-nav-img"><img src="<c:url value="/resources/web/img/product-8.jpg"/>" alt="Product Image"></div>
+                                        <div class="slider-nav-img"><img src="<c:url value="/resources/web/img/product-10.jpg"/>" alt="Product Image"></div>
+                                        <div class="slider-nav-img"><img src="<c:url value="/resources/web/img/product-9.jpg"/>" alt="Product Image"></div>
                                     </div>
                                 </div>
                                 <div class="col-md-7">

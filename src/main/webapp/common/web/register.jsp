@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<div class="col-lg-6">
+
+<div class="col-lg-6 ">
     <div class="register-form">
         <div class="row">
             <div class="col-md-6">
