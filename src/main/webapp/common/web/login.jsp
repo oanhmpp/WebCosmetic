@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
+<div class="col-lg-6">
     <div class="login-form">
         <div class="row">
             <div class="col-md-6">
@@ -21,3 +21,4 @@
             </div>
         </div>
     </div>
+</div>

@@ -3,11 +3,13 @@
 <head>
     <meta charset="utf-8">
     <title>E Store - eCommerce HTML Template</title>
-    <%@include file="/common/web/head.jsp"%>>
+    <%@include file="/common/web/head.jsp" %>
 </head>
 
 <body>
-<%@include file="/common/web/header.jsp"%>
+<!-- Top bar, Nav Bar, Bottom Bar -->
+<%@include file="/common/web/header.jsp" %>
+
 <!-- Breadcrumb Start -->
 <div class="breadcrumb-wrap">
     <div class="container-fluid">
@@ -19,23 +21,24 @@
     </div>
 </div>
 <!-- Breadcrumb End -->
+
 <!-- Login Start -->
 <div class="login">
     <div class="container-fluid">
 
-        <div class="row">
-            <%--    login--%>
-<center>
-    <div class="col-lg-12">
-            <%@include file="/common/web/login.jsp" %>
-    </div>
-</center>
-            <%--    login--%>
+        <div class="row" style="">
+            <center>
+                <%--    login--%>
+                <%@include file="/common/web/login.jsp" %>
+                <%--    register--%>
+            </center>
         </div>
 
     </div>
 </div>
 <!-- Login End -->
-<%@include file="/common/web/footer.jsp"%>
+
+<!-- Footer -->
+<%@include file="/common/web/footer.jsp" %>
 </body>
 </html>
