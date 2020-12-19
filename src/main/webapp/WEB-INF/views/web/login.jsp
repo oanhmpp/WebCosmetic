@@ -28,9 +28,9 @@
 
         <div class="row" style="">
             <center>
-            <%--    login--%>
-            <%@include file="/common/web/login.jsp" %>
-            <%--    register--%>
+                <%--    login--%>
+                <%@include file="/common/web/login.jsp" %>
+                <%--    register--%>
             </center>
         </div>
 
