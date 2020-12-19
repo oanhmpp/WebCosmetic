@@ -452,12 +452,12 @@
         <div class="brand">
             <div class="container-fluid">
                 <div class="brand-slider">
-                    <div class="brand-item"><img src="img/brand-1.png" alt=""></div>
-                    <div class="brand-item"><img src="img/brand-2.png" alt=""></div>
-                    <div class="brand-item"><img src="img/brand-3.png" alt=""></div>
-                    <div class="brand-item"><img src="img/brand-4.png" alt=""></div>
-                    <div class="brand-item"><img src="img/brand-5.png" alt=""></div>
-                    <div class="brand-item"><img src="img/brand-6.png" alt=""></div>
+                    <div class="brand-item"><img src="<c:url value="/resources/web/img/brand-1.png"/>" alt=""></div>
+                    <div class="brand-item"><img src="<c:url value="/resources/web/img/brand-2.png"/>" alt=""></div>
+                    <div class="brand-item"><img src="<c:url value="/resources/web/img/brand-3.png"/>" alt=""></div>
+                    <div class="brand-item"><img src="<c:url value="/resources/web/img/brand-4.png"/>" alt=""></div>
+                    <div class="brand-item"><img src="<c:url value="/resources/web/img/brand-5.png"/>" alt=""></div>
+                    <div class="brand-item"><img src="<c:url value="/resources/web/img/brand-6.png"/>" alt=""></div>
                 </div>
             </div>
         </div>
