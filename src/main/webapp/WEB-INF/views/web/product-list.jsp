@@ -193,8 +193,8 @@
                                         </div>
                                     </div>
                                     <div class="product-image">
-                                        <a href="product-detail.html">
-                                            <img src="img/product-1.jpg" alt="Product Image">
+                                        <a href="<c:url value="/productDetail"/>">
+                                            <img src="<c:url value="/resources/web/img/product-1.jpg"/>" alt="Product Image">
                                         </a>
                                         <div class="product-action">
                                             <a href="#"><i class="fa fa-cart-plus"></i></a>
@@ -221,8 +221,8 @@
                                         </div>
                                     </div>
                                     <div class="product-image">
-                                        <a href="product-detail.html">
-                                            <img src="img/product-2.jpg" alt="Product Image">
+                                        <a href="<c:url value="/productDetail"/>">
+                                            <img src="<c:url value="/resources/web/img/product-2.jpg"/>" alt="Product Image">
                                         </a>
                                         <div class="product-action">
                                             <a href="#"><i class="fa fa-cart-plus"></i></a>
@@ -249,8 +249,8 @@
                                         </div>
                                     </div>
                                     <div class="product-image">
-                                        <a href="product-detail.html">
-                                            <img src="img/product-3.jpg" alt="Product Image">
+                                        <a href="<c:url value="/productDetail"/>">
+                                            <img src="<c:url value="/resources/web/img/product-3.jpg"/>" alt="Product Image">
                                         </a>
                                         <div class="product-action">
                                             <a href="#"><i class="fa fa-cart-plus"></i></a>
@@ -277,8 +277,8 @@
                                         </div>
                                     </div>
                                     <div class="product-image">
-                                        <a href="product-detail.html">
-                                            <img src="img/product-4.jpg" alt="Product Image">
+                                        <a href="<c:url value="/productDetail"/>">
+                                            <img src="<c:url value="/resources/web/img/product-4.jpg"/>" alt="Product Image">
                                         </a>
                                         <div class="product-action">
                                             <a href="#"><i class="fa fa-cart-plus"></i></a>
@@ -305,8 +305,8 @@
                                         </div>
                                     </div>
                                     <div class="product-image">
-                                        <a href="product-detail.html">
-                                            <img src="img/product-5.jpg" alt="Product Image">
+                                        <a href="<c:url value="/productDetail"/>">
+                                            <img src="<c:url value="/resources/web/img/product-5.jpg"/>" alt="Product Image">
                                         </a>
                                         <div class="product-action">
                                             <a href="#"><i class="fa fa-cart-plus"></i></a>
@@ -361,8 +361,8 @@
                                         </div>
                                     </div>
                                     <div class="product-image">
-                                        <a href="product-detail.html">
-                                            <img src="img/product-7.jpg" alt="Product Image">
+                                        <a href="<c:url value="/productDetail"/>">
+                                            <img src="<c:url value="/resources/web/img/product-6.jpg"/>" alt="Product Image">
                                         </a>
                                         <div class="product-action">
                                             <a href="#"><i class="fa fa-cart-plus"></i></a>
@@ -389,8 +389,8 @@
                                         </div>
                                     </div>
                                     <div class="product-image">
-                                        <a href="product-detail.html">
-                                            <img src="img/product-8.jpg" alt="Product Image">
+                                        <a href="<c:url value="/productDetail"/>">
+                                            <img src="<c:url value="/resources/web/img/product-7.jpg"/>" alt="Product Image">
                                         </a>
                                         <div class="product-action">
                                             <a href="#"><i class="fa fa-cart-plus"></i></a>
@@ -417,8 +417,8 @@
                                         </div>
                                     </div>
                                     <div class="product-image">
-                                        <a href="product-detail.html">
-                                            <img src="img/product-9.jpg" alt="Product Image">
+                                        <a href="<c:url value="/productDetail"/>">
+                                            <img src="<c:url value="/resources/web/img/product-8.jpg"/>" alt="Product Image">
                                         </a>
                                         <div class="product-action">
                                             <a href="#"><i class="fa fa-cart-plus"></i></a>
@@ -492,8 +492,8 @@
                                         </div>
                                     </div>
                                     <div class="product-image">
-                                        <a href="product-detail.html">
-                                            <img src="img/product-10.jpg" alt="Product Image">
+                                        <a href="<c:url value="/productDetail"/>">
+                                            <img src="<c:url value="/resources/web/img/product-9.jpg"/>" alt="Product Image">
                                         </a>
                                         <div class="product-action">
                                             <a href="#"><i class="fa fa-cart-plus"></i></a>
@@ -518,8 +518,8 @@
                                         </div>
                                     </div>
                                     <div class="product-image">
-                                        <a href="product-detail.html">
-                                            <img src="img/product-9.jpg" alt="Product Image">
+                                        <a href="<c:url value="/productDetail"/>">
+                                            <img src="<c:url value="/resources/web/img/product-10.jpg"/>" alt="Product Image">
                                         </a>
                                         <div class="product-action">
                                             <a href="#"><i class="fa fa-cart-plus"></i></a>

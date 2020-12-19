@@ -48,21 +48,21 @@
             <div class="col-md-6">
                 <div class="header-slider normal-slider">
                     <div class="header-slider-item">
-                        <img src="img/slider-1.jpg" alt="Slider Image"/>
+                        <img src="<c:url value="/resources/web/img/slider-1.jpg"/>" alt="Slider Image"/>
                         <div class="header-slider-caption">
                             <p>Some text goes here that describes the image</p>
                             <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Shop Now</a>
                         </div>
                     </div>
                     <div class="header-slider-item">
-                        <img src="img/slider-2.jpg" alt="Slider Image"/>
+                        <img src="<c:url value="/resources/web/img/slider-2.jpg"/>" alt="Slider Image"/>
                         <div class="header-slider-caption">
                             <p>Some text goes here that describes the image</p>
                             <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Shop Now</a>
                         </div>
                     </div>
                     <div class="header-slider-item">
-                        <img src="img/slider-3.jpg" alt="Slider Image"/>
+                        <img src="<c:url value="/resources/web/img/slider-3.jpg"/>" alt="Slider Image"/>
                         <div class="header-slider-caption">
                             <p>Some text goes here that describes the image</p>
                             <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Shop Now</a>
@@ -73,13 +73,13 @@
             <div class="col-md-3">
                 <div class="header-img">
                     <div class="img-item">
-                        <img src="img/category-1.jpg"/>
+                        <img src="<c:url value="/resources/web/img/category-1.jpg"/>"/>
                         <a class="img-text" href="">
                             <p>Some text goes here that describes the image</p>
                         </a>
                     </div>
                     <div class="img-item">
-                        <img src="img/category-2.jpg"/>
+                        <img src="<c:url value="/resources/web/img/category-2.jpg"/>"/>
                         <a class="img-text" href="">
                             <p>Some text goes here that describes the image</p>
                         </a>
@@ -95,12 +95,12 @@
 <div class="brand">
     <div class="container-fluid">
         <div class="brand-slider">
-            <div class="brand-item"><img src="img/brand-1.png" alt=""></div>
-            <div class="brand-item"><img src="img/brand-2.png" alt=""></div>
-            <div class="brand-item"><img src="img/brand-3.png" alt=""></div>
-            <div class="brand-item"><img src="img/brand-4.png" alt=""></div>
-            <div class="brand-item"><img src="img/brand-5.png" alt=""></div>
-            <div class="brand-item"><img src="img/brand-6.png" alt=""></div>
+            <div class="brand-item"><img src="<c:url value="/resources/web/img/brand-1.png"/>" alt=""></div>
+            <div class="brand-item"><img src="<c:url value="/resources/web/img/brand-2.png"/>" alt=""></div>
+            <div class="brand-item"><img src="<c:url value="/resources/web/img/brand-3.png"/>" alt=""></div>
+            <div class="brand-item"><img src="<c:url value="/resources/web/img/brand-4.png"/>" alt=""></div>
+            <div class="brand-item"><img src="<c:url value="/resources/web/img/brand-5.png"/>" alt=""></div>
+            <div class="brand-item"><img src="<c:url value="/resources/web/img/brand-6.png"/>" alt=""></div>
         </div>
     </div>
 </div>
@@ -157,7 +157,7 @@
         <div class="row">
             <div class="col-md-3">
                 <div class="category-item ch-400">
-                    <img src="img/category-3.jpg"/>
+                    <img src="<c:url value="/resources/web/img/category-3.jpg"/>"/>
                     <a class="category-name" href="">
                         <p>Some text goes here that describes the image</p>
                     </a>
@@ -165,13 +165,13 @@
             </div>
             <div class="col-md-3">
                 <div class="category-item ch-250">
-                    <img src="img/category-4.jpg"/>
+                    <img src="<c:url value="/resources/web/img/category-4.jpg"/>"/>
                     <a class="category-name" href="">
                         <p>Some text goes here that describes the image</p>
                     </a>
                 </div>
                 <div class="category-item ch-150">
-                    <img src="img/category-5.jpg"/>
+                    <img src="<c:url value="/resources/web/img/category-5.jpg"/>"/>
                     <a class="category-name" href="">
                         <p>Some text goes here that describes the image</p>
                     </a>
@@ -179,13 +179,13 @@
             </div>
             <div class="col-md-3">
                 <div class="category-item ch-150">
-                    <img src="img/category-6.jpg"/>
+                    <img src="<c:url value="/resources/web/img/category-6.jpg"/>"/>
                     <a class="category-name" href="">
                         <p>Some text goes here that describes the image</p>
                     </a>
                 </div>
                 <div class="category-item ch-250">
-                    <img src="img/category-7.jpg"/>
+                    <img src="<c:url value="/resources/web/img/category-7.jpg"/>"/>
                     <a class="category-name" href="">
                         <p>Some text goes here that describes the image</p>
                     </a>
@@ -193,7 +193,7 @@
             </div>
             <div class="col-md-3">
                 <div class="category-item ch-400">
-                    <img src="img/category-8.jpg"/>
+                    <img src="<c:url value="/resources/web/img/category-8.jpg"/>"/>
                     <a class="category-name" href="">
                         <p>Some text goes here that describes the image</p>
                     </a>
@@ -239,8 +239,8 @@
                         </div>
                     </div>
                     <div class="product-image">
-                        <a href="product-detail.html">
-                            <img src="img/product-1.jpg" alt="Product Image">
+                        <a href="<c:url value="/productDetail"/>">
+                            <img src="<c:url value="/resources/web/img/product-1.jpg"/>" alt="Product Image">
                         </a>
                         <div class="product-action">
                             <a href="#"><i class="fa fa-cart-plus"></i></a>
@@ -268,7 +268,7 @@
                     </div>
                     <div class="product-image">
                         <a href="product-detail.html">
-                            <img src="img/product-2.jpg" alt="Product Image">
+                            <img src="<c:url value="/resources/web/img/product-2.jpg"/>" alt="Product Image">
                         </a>
                         <div class="product-action">
                             <a href="#"><i class="fa fa-cart-plus"></i></a>
@@ -295,8 +295,8 @@
                         </div>
                     </div>
                     <div class="product-image">
-                        <a href="product-detail.html">
-                            <img src="img/product-3.jpg" alt="Product Image">
+                        <a href="<c:url value="/productDetail"/>">
+                            <img src="<c:url value="/resources/web/img/product-3.jpg"/>" alt="Product Image">
                         </a>
                         <div class="product-action">
                             <a href="#"><i class="fa fa-cart-plus"></i></a>
@@ -323,8 +323,8 @@
                         </div>
                     </div>
                     <div class="product-image">
-                        <a href="product-detail.html">
-                            <img src="img/product-4.jpg" alt="Product Image">
+                        <a href="<c:url value="/productDetail"/>">
+                            <img src="<c:url value="/resources/web/img/product-1.jpg"/>" alt="Product Image">
                         </a>
                         <div class="product-action">
                             <a href="#"><i class="fa fa-cart-plus"></i></a>
@@ -351,8 +351,8 @@
                         </div>
                     </div>
                     <div class="product-image">
-                        <a href="product-detail.html">
-                            <img src="img/product-5.jpg" alt="Product Image">
+                        <a href="<c:url value="/productDetail"/>">
+                            <img src="<c:url value="/resources/web/img/product-4.jpg"/>" alt="Product Image">
                         </a>
                         <div class="product-action">
                             <a href="#"><i class="fa fa-cart-plus"></i></a>
@@ -409,8 +409,8 @@
                         </div>
                     </div>
                     <div class="product-image">
-                        <a href="product-detail.html">
-                            <img src="img/product-6.jpg" alt="Product Image">
+                        <a href="<c:url value="/productDetail"/>">
+                            <img src="<c:url value="/resources/web/img/product-10.jpg"/>" alt="Product Image">
                         </a>
                         <div class="product-action">
                             <a href="#"><i class="fa fa-cart-plus"></i></a>
@@ -437,8 +437,8 @@
                         </div>
                     </div>
                     <div class="product-image">
-                        <a href="product-detail.html">
-                            <img src="img/product-7.jpg" alt="Product Image">
+                        <a href="<c:url value="/productDetail"/>">
+                            <img src="<c:url value="/resources/web/img/product-9.jpg"/>" alt="Product Image">
                         </a>
                         <div class="product-action">
                             <a href="#"><i class="fa fa-cart-plus"></i></a>
@@ -465,8 +465,8 @@
                         </div>
                     </div>
                     <div class="product-image">
-                        <a href="product-detail.html">
-                            <img src="img/product-8.jpg" alt="Product Image">
+                        <a href="<c:url value="/productDetail"/>">
+                            <img src="<c:url value="/resources/web/img/product-8.jpg"/>" alt="Product Image">
                         </a>
                         <div class="product-action">
                             <a href="#"><i class="fa fa-cart-plus"></i></a>
@@ -493,8 +493,8 @@
                         </div>
                     </div>
                     <div class="product-image">
-                        <a href="product-detail.html">
-                            <img src="img/product-9.jpg" alt="Product Image">
+                        <a href="<c:url value="/productDetail"/>">
+                            <img src="<c:url value="/resources/web/img/product-6.jpg"/>" alt="Product Image">
                         </a>
                         <div class="product-action">
                             <a href="#"><i class="fa fa-cart-plus"></i></a>
@@ -521,8 +521,8 @@
                         </div>
                     </div>
                     <div class="product-image">
-                        <a href="product-detail.html">
-                            <img src="img/product-10.jpg" alt="Product Image">
+                        <a href="<c:url value="/productDetail"/>">
+                            <img src="<c:url value="/resources/web/img/product-9.jpg"/>" alt="Product Image">
                         </a>
                         <div class="product-action">
                             <a href="#"><i class="fa fa-cart-plus"></i></a>
@@ -548,7 +548,7 @@
             <div class="col-md-6">
                 <div class="review-slider-item">
                     <div class="review-img">
-                        <img src="img/review-1.jpg" alt="Image">
+                        <img src="<c:url value="/resources/web/img/review-1.jpg"/> " alt="Image">
                     </div>
                     <div class="review-text">
                         <h2>Customer Name</h2>
@@ -570,7 +570,7 @@
             <div class="col-md-6">
                 <div class="review-slider-item">
                     <div class="review-img">
-                        <img src="img/review-2.jpg" alt="Image">
+                        <img src="<c:url value="/resources/web/img/review-2.jpg"/> "  alt="Image">
                     </div>
                     <div class="review-text">
                         <h2>Customer Name</h2>
@@ -592,7 +592,7 @@
             <div class="col-md-6">
                 <div class="review-slider-item">
                     <div class="review-img">
-                        <img src="img/review-3.jpg" alt="Image">
+                        <img src="<c:url value="/resources/web/img/review-3.jpg"/> "  alt="Image">
                     </div>
                     <div class="review-text">
                         <h2>Customer Name</h2>

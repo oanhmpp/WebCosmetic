@@ -8,6 +8,6 @@ public class ProductDetailController {
 
     @RequestMapping("/productDetail")
     public String productDetail(){
-        return "web/productDetail";
+        return "web/product-detail";
     }
 }
