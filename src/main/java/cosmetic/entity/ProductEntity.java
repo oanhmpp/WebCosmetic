@@ -1,18 +1,22 @@
 package cosmetic.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import lombok.Data;
+
+import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
+@Data
 @Table(name = "Product")
-public class ProductEntity {
+public class ProductEntity implements Serializable {
     @Id
-    private String id;
+    private String idProduct;
 
-    @Column
-    private String description;
+//    @Column
+//    private String idBrand;
+
+//    @Column
+//    private String idType;
 
     @Column
     private String image;
@@ -23,43 +27,20 @@ public class ProductEntity {
     @Column
     private double price;
 
-    public String getId() {
-        return id;
+    // so luong san pham
+    @Column
+    private double amount;
+
+    @ManyToOne
+    @JoinColumn(name = "idBrand",nullable = false)
+    private BrandEntity idBrand;
+
+    @ManyToOne
+    @JoinColumn(name = "idType", nullable = false)
+    private TypeEntity idType;
+
+    public ProductEntity() {
+
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-    public String getNameProduct() {
-        return nameProduct;
-    }
-
-    public void setNameProduct(String nameProduct) {
-        this.nameProduct = nameProduct;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
 }

@@ -680,7 +680,7 @@
             </div>
         </div>
         <script src="<c:url value="https://code.jquery.com/jquery-3.5.1.slim.min.js"/>" crossorigin="anonymous"></script>
-        <script src="<c:url value="/resources/bootstrap-5.0.0/js/bootstrap.bundle.js"/>" crossorigin="anonymous"></script>
+<%--        <script src="<c:url value="/resources/bootstrap-5.0.0/js/bootstrap.bundle.js"/>" crossorigin="anonymous"></script>--%>
         <script src="<c:url value="/resources/admin/js/scripts.js"/>"></script>
         <script src="<c:url value="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"/>" crossorigin="anonymous"></script>
         <script src="<c:url value="/resources/admin/assets/demo/chart-area-demo.js"/>"></script>
