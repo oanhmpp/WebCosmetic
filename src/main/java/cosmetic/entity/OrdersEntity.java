@@ -1,13 +1,16 @@
 package cosmetic.entity;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
 @Table(name = "Oders")
-@Data
+@Getter
+@Setter
 public class OrdersEntity {
     @Id
     private String idOrder;

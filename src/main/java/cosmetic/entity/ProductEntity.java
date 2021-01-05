@@ -1,22 +1,27 @@
 package cosmetic.entity;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Data
+@Getter
+@Setter
 @Table(name = "Product")
 public class ProductEntity implements Serializable {
     @Id
     private String idProduct;
 
-//    @Column
-//    private String idBrand;
+    @ManyToOne
+    @JoinColumn(name = "idBrand",nullable = false)
+    private BrandEntity idBrand;
 
-//    @Column
-//    private String idType;
+    @ManyToOne
+    @JoinColumn(name = "idType", nullable = false)
+    private TypeEntity idType;
 
     @Column
     private String image;
@@ -29,18 +34,17 @@ public class ProductEntity implements Serializable {
 
     // so luong san pham
     @Column
-    private double amount;
+    private int amount;
 
-    @ManyToOne
-    @JoinColumn(name = "idBrand",nullable = false)
-    private BrandEntity idBrand;
+    @Column
+    private int  active;
 
-    @ManyToOne
-    @JoinColumn(name = "idType", nullable = false)
-    private TypeEntity idType;
+    @OneToOne(mappedBy = "productEntity")
+    private DetailProductEntity detailProductEntity;
 
     public ProductEntity() {
 
     }
+
 
 }

@@ -1,15 +1,15 @@
 package cosmetic.entity;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Data
+@Getter
+@Setter
 @Table(name = "DetailProduct")
 public class DetailProductEntity implements Serializable {
 
@@ -22,11 +22,10 @@ public class DetailProductEntity implements Serializable {
     @Column
     private String description;
 
-    public DetailProductEntity(String idProduct, String image, String description) {
-        this.idProduct = idProduct;
-        this.image = image;
-        this.description = description;
-    }
+    @OneToOne
+    @MapsId
+    @JoinColumn(name = "idProduct")
+    private ProductEntity productEntity;
 
     public DetailProductEntity() {
 

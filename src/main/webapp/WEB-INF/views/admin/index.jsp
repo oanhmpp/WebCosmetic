@@ -1,692 +1,847 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Dashboard - SB Admin</title>
-        <link href="<c:url value="/resources/admin/css/styles.css"/>" rel="stylesheet" />
-        <link href="<c:url value="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css"/>" rel="stylesheet" crossorigin="anonymous" />
-        <script src="<c:url value="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"/>" crossorigin="anonymous"></script>
-    </head>
-    <body class="sb-nav-fixed">
-        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <a class="navbar-brand" href="index.jsp">Start Bootstrap</a>
-            <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
-            <!-- Navbar Search-->
-            <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-                <div class="input-group">
-                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" />
-                    <div class="input-group-append">
-                        <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
+
+
+<!-- index.jsp  21 Nov 2019 03:44:50 GMT -->
+<head>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+    <title>Otika - Admin Dashboard Template</title>
+    <!-- General CSS Files -->
+    <link rel="stylesheet" href="<c:url value="/resources/admin/assets/css/app.min.css"/>">
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="<c:url value="/resources/admin/assets/css/style.css"/>">
+    <link rel="stylesheet" href="<c:url value="/resources/admin/assets/css/components.css"/>">
+    <!-- Custom style CSS -->
+    <link rel="stylesheet" href="<c:url value="/resources/admin/assets/css/custom.css"/>">
+</head>
+
+<body>
+<div class="loader"></div>
+<div id="app">
+    <div class="main-wrapper main-wrapper-1">
+        <%--      Header    --%>
+        <%@include file="/common/admin/header.jsp" %>
+        <%--      Header    --%>
+
+        <%--  Menu    --%>
+        <%@include file="/common/admin/menu.jsp" %>
+        <%--  Menu    --%>
+        <!-- Main Content -->
+        <div class="main-content">
+            <section class="section">
+                <div class="row ">
+                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="card">
+                            <div class="card-statistic-4">
+                                <div class="align-items-center justify-content-between">
+                                    <div class="row ">
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr-0 pt-3">
+                                            <div class="card-content">
+                                                <h5 class="font-15">New Booking</h5>
+                                                <h2 class="mb-3 font-18">258</h2>
+                                                <p class="mb-0"><span class="col-green">10%</span> Increase</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl-0">
+                                            <div class="banner-img">
+                                                <img src="assets/img/banner/1.png" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="card">
+                            <div class="card-statistic-4">
+                                <div class="align-items-center justify-content-between">
+                                    <div class="row ">
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr-0 pt-3">
+                                            <div class="card-content">
+                                                <h5 class="font-15"> Customers</h5>
+                                                <h2 class="mb-3 font-18">1,287</h2>
+                                                <p class="mb-0"><span class="col-orange">09%</span> Decrease</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl-0">
+                                            <div class="banner-img">
+                                                <img src="assets/img/banner/2.png" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="card">
+                            <div class="card-statistic-4">
+                                <div class="align-items-center justify-content-between">
+                                    <div class="row ">
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr-0 pt-3">
+                                            <div class="card-content">
+                                                <h5 class="font-15">New Project</h5>
+                                                <h2 class="mb-3 font-18">128</h2>
+                                                <p class="mb-0"><span class="col-green">18%</span>
+                                                    Increase</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl-0">
+                                            <div class="banner-img">
+                                                <img src="assets/img/banner/3.png" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="card">
+                            <div class="card-statistic-4">
+                                <div class="align-items-center justify-content-between">
+                                    <div class="row ">
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr-0 pt-3">
+                                            <div class="card-content">
+                                                <h5 class="font-15">Revenue</h5>
+                                                <h2 class="mb-3 font-18">$48,697</h2>
+                                                <p class="mb-0"><span class="col-green">42%</span> Increase</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl-0">
+                                            <div class="banner-img">
+                                                <img src="assets/img/banner/4.png" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </form>
-            <!-- Navbar-->
-            <ul class="navbar-nav ml-auto ml-md-0">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                        <a class="dropdown-item" href="#">Settings</a>
-                        <a class="dropdown-item" href="#">Activity Log</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="login.jsp">Logout</a>
-                    </div>
-                </li>
-            </ul>
-        </nav>
-        <div id="layoutSidenav">
-            <div id="layoutSidenav_nav">
-                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-                    <div class="sb-sidenav-menu">
-                        <div class="nav">
-                            <div class="sb-sidenav-menu-heading">Core</div>
-                            <a class="nav-link" href="index.jsp">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Dashboard
-                            </a>
-                            <div class="sb-sidenav-menu-heading">Interface</div>
-                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Layouts
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="layout-static.jsp">Static Navigation</a>
-                                    <a class="nav-link" href="layout-sidenav-light.jsp">Light Sidenav</a>
-                                </nav>
-                            </div>
-                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                Pages
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                                        Authentication
-                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                    </a>
-                                    <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
-                                        <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="#">Login</a>
-                                            <a class="nav-link" href="#">Register</a>
-                                            <a class="nav-link" href="#">Forgot Password</a>
-                                        </nav>
-                                    </div>
-                                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
-                                        Error
-                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                    </a>
-                                    <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
-                                        <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="#">401 Page</a>
-                                            <a class="nav-link" href="#">404 Page</a>
-                                            <a class="nav-link" href="#">500 Page</a>
-                                        </nav>
-                                    </div>
-                                </nav>
-                            </div>
-                            <div class="sb-sidenav-menu-heading">Addons</div>
-                            <a class="nav-link" href="#">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Charts
-                            </a>
-                            <a class="nav-link" href="#">
-                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Tables
-                            </a>
-                        </div>
-                    </div>
-                    <div class="sb-sidenav-footer">
-                        <div class="small">Logged in as:</div>
-                        Start Bootstrap
-                    </div>
-                </nav>
-            </div>
-            <div id="layoutSidenav_content">
-                <main>
-                    <div class="container-fluid">
-                        <h1 class="mt-4">Dashboard</h1>
-                        <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Dashboard</li>
-                        </ol>
-                        <div class="row">
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-primary text-white mb-4">
-                                    <div class="card-body">Primary Card</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-warning text-white mb-4">
-                                    <div class="card-body">Warning Card</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-success text-white mb-4">
-                                    <div class="card-body">Success Card</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-danger text-white mb-4">
-                                    <div class="card-body">Danger Card</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xl-6">
-                                <div class="card mb-4">
-                                    <div class="card-header">
-                                        <i class="fas fa-chart-area mr-1"></i>
-                                        Area Chart Example
-                                    </div>
-                                    <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
-                                </div>
-                            </div>
-                            <div class="col-xl-6">
-                                <div class="card mb-4">
-                                    <div class="card-header">
-                                        <i class="fas fa-chart-bar mr-1"></i>
-                                        Bar Chart Example
-                                    </div>
-                                    <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card mb-4">
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-lg-12">
+                        <div class="card ">
                             <div class="card-header">
-                                <i class="fas fa-table mr-1"></i>
-                                DataTable Example
+                                <h4>Revenue chart</h4>
+                                <div class="card-header-action">
+                                    <div class="dropdown">
+                                        <a href="#" data-toggle="dropdown" class="btn btn-warning dropdown-toggle">Options</a>
+                                        <div class="dropdown-menu">
+                                            <a href="#" class="dropdown-item has-icon"><i class="fas fa-eye"></i>
+                                                View</a>
+                                            <a href="#" class="dropdown-item has-icon"><i class="far fa-edit"></i> Edit</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a href="#" class="dropdown-item has-icon text-danger"><i
+                                                    class="far fa-trash-alt"></i>
+                                                Delete</a>
+                                        </div>
+                                    </div>
+                                    <a href="#" class="btn btn-primary">View All</a>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-lg-9">
+                                        <div id="chart1"></div>
+                                        <div class="row mb-0">
+                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                <div class="list-inline text-center">
+                                                    <div class="list-inline-item p-r-30"><i
+                                                            data-feather="arrow-up-circle"
+                                                            class="col-green"></i>
+                                                        <h5 class="m-b-0">$675</h5>
+                                                        <p class="text-muted font-14 m-b-0">Weekly Earnings</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                <div class="list-inline text-center">
+                                                    <div class="list-inline-item p-r-30"><i
+                                                            data-feather="arrow-down-circle"
+                                                            class="col-orange"></i>
+                                                        <h5 class="m-b-0">$1,587</h5>
+                                                        <p class="text-muted font-14 m-b-0">Monthly Earnings</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                <div class="list-inline text-center">
+                                                    <div class="list-inline-item p-r-30"><i
+                                                            data-feather="arrow-up-circle"
+                                                            class="col-green"></i>
+                                                        <h5 class="mb-0 m-b-0">$45,965</h5>
+                                                        <p class="text-muted font-14 m-b-0">Yearly Earnings</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="row mt-5">
+                                            <div class="col-7 col-xl-7 mb-3">Total customers</div>
+                                            <div class="col-5 col-xl-5 mb-3">
+                                                <span class="text-big">8,257</span>
+                                                <sup class="col-green">+09%</sup>
+                                            </div>
+                                            <div class="col-7 col-xl-7 mb-3">Total Income</div>
+                                            <div class="col-5 col-xl-5 mb-3">
+                                                <span class="text-big">$9,857</span>
+                                                <sup class="text-danger">-18%</sup>
+                                            </div>
+                                            <div class="col-7 col-xl-7 mb-3">Project completed</div>
+                                            <div class="col-5 col-xl-5 mb-3">
+                                                <span class="text-big">28</span>
+                                                <sup class="col-green">+16%</sup>
+                                            </div>
+                                            <div class="col-7 col-xl-7 mb-3">Total expense</div>
+                                            <div class="col-5 col-xl-5 mb-3">
+                                                <span class="text-big">$6,287</span>
+                                                <sup class="col-green">+09%</sup>
+                                            </div>
+                                            <div class="col-7 col-xl-7 mb-3">New Customers</div>
+                                            <div class="col-5 col-xl-5 mb-3">
+                                                <span class="text-big">684</span>
+                                                <sup class="col-green">+22%</sup>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-lg-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Chart</h4>
+                            </div>
+                            <div class="card-body">
+                                <div id="chart4" class="chartsh"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-lg-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Chart</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="summary">
+                                    <div class="summary-chart active" data-tab-group="summary-tab" id="summary-chart">
+                                        <div id="chart3" class="chartsh"></div>
+                                    </div>
+                                    <div data-tab-group="summary-tab" id="summary-text">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-lg-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Chart</h4>
+                            </div>
+                            <div class="card-body">
+                                <div id="chart2" class="chartsh"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Assign Task Table</h4>
+                                <div class="card-header-form">
+                                    <form>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" placeholder="Search">
+                                            <div class="input-group-btn">
+                                                <button class="btn btn-primary"><i class="fas fa-search"></i></button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="table-responsive">
+                                    <table class="table table-striped">
+                                        <tr>
+                                            <th class="text-center">
+                                                <div class="custom-checkbox custom-checkbox-table custom-control">
+                                                    <input type="checkbox" data-checkboxes="mygroup"
+                                                           data-checkbox-role="dad"
+                                                           class="custom-control-input" id="checkbox-all">
+                                                    <label for="checkbox-all"
+                                                           class="custom-control-label">&nbsp;</label>
+                                                </div>
+                                            </th>
+                                            <th>Task Name</th>
+                                            <th>Members</th>
+                                            <th>Task Status</th>
+                                            <th>Assigh Date</th>
+                                            <th>Due Date</th>
+                                            <th>Priority</th>
+                                            <th>Action</th>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-0 text-center">
+                                                <div class="custom-checkbox custom-control">
+                                                    <input type="checkbox" data-checkboxes="mygroup"
+                                                           class="custom-control-input"
+                                                           id="checkbox-1">
+                                                    <label for="checkbox-1" class="custom-control-label">&nbsp;</label>
+                                                </div>
+                                            </td>
+                                            <td>Create a mobile app</td>
+                                            <td class="text-truncate">
+                                                <ul class="list-unstyled order-list m-b-0 m-b-0">
+                                                    <li class="team-member team-member-sm"><img class="rounded-circle"
+                                                                                                src="assets/img/users/user-8.png"
+                                                                                                alt="user"
+                                                                                                data-toggle="tooltip"
+                                                                                                title=""
+                                                                                                data-original-title="Wildan Ahdian">
+                                                    </li>
+                                                    <li class="team-member team-member-sm"><img class="rounded-circle"
+                                                                                                src="assets/img/users/user-9.png"
+                                                                                                alt="user"
+                                                                                                data-toggle="tooltip"
+                                                                                                title=""
+                                                                                                data-original-title="John Deo">
+                                                    </li>
+                                                    <li class="team-member team-member-sm"><img class="rounded-circle"
+                                                                                                src="assets/img/users/user-10.png"
+                                                                                                alt="user"
+                                                                                                data-toggle="tooltip"
+                                                                                                title=""
+                                                                                                data-original-title="Sarah Smith">
+                                                    </li>
+                                                    <li class="avatar avatar-sm"><span
+                                                            class="badge badge-primary">+4</span></li>
+                                                </ul>
+                                            </td>
+                                            <td class="align-middle">
+                                                <div class="progress-text">50%</div>
+                                                <div class="progress" data-height="6">
+                                                    <div class="progress-bar bg-success" data-width="50%"></div>
+                                                </div>
+                                            </td>
+                                            <td>2018-01-20</td>
+                                            <td>2019-05-28</td>
+                                            <td>
+                                                <div class="badge badge-success">Low</div>
+                                            </td>
+                                            <td><a href="#" class="btn btn-outline-primary">Detail</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-0 text-center">
+                                                <div class="custom-checkbox custom-control">
+                                                    <input type="checkbox" data-checkboxes="mygroup"
+                                                           class="custom-control-input"
+                                                           id="checkbox-2">
+                                                    <label for="checkbox-2" class="custom-control-label">&nbsp;</label>
+                                                </div>
+                                            </td>
+                                            <td>Redesign homepage</td>
+                                            <td class="text-truncate">
+                                                <ul class="list-unstyled order-list m-b-0 m-b-0">
+                                                    <li class="team-member team-member-sm"><img class="rounded-circle"
+                                                                                                src="assets/img/users/user-1.png"
+                                                                                                alt="user"
+                                                                                                data-toggle="tooltip"
+                                                                                                title=""
+                                                                                                data-original-title="Wildan Ahdian">
+                                                    </li>
+                                                    <li class="team-member team-member-sm"><img class="rounded-circle"
+                                                                                                src="assets/img/users/user-2.png"
+                                                                                                alt="user"
+                                                                                                data-toggle="tooltip"
+                                                                                                title=""
+                                                                                                data-original-title="John Deo">
+                                                    </li>
+                                                    <li class="avatar avatar-sm"><span
+                                                            class="badge badge-primary">+2</span></li>
+                                                </ul>
+                                            </td>
+                                            <td class="align-middle">
+                                                <div class="progress-text">40%</div>
+                                                <div class="progress" data-height="6">
+                                                    <div class="progress-bar bg-danger" data-width="40%"></div>
+                                                </div>
+                                            </td>
+                                            <td>2017-07-14</td>
+                                            <td>2018-07-21</td>
+                                            <td>
+                                                <div class="badge badge-danger">High</div>
+                                            </td>
+                                            <td><a href="#" class="btn btn-outline-primary">Detail</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-0 text-center">
+                                                <div class="custom-checkbox custom-control">
+                                                    <input type="checkbox" data-checkboxes="mygroup"
+                                                           class="custom-control-input"
+                                                           id="checkbox-3">
+                                                    <label for="checkbox-3" class="custom-control-label">&nbsp;</label>
+                                                </div>
+                                            </td>
+                                            <td>Backup database</td>
+                                            <td class="text-truncate">
+                                                <ul class="list-unstyled order-list m-b-0 m-b-0">
+                                                    <li class="team-member team-member-sm"><img class="rounded-circle"
+                                                                                                src="assets/img/users/user-3.png"
+                                                                                                alt="user"
+                                                                                                data-toggle="tooltip"
+                                                                                                title=""
+                                                                                                data-original-title="Wildan Ahdian">
+                                                    </li>
+                                                    <li class="team-member team-member-sm"><img class="rounded-circle"
+                                                                                                src="assets/img/users/user-4.png"
+                                                                                                alt="user"
+                                                                                                data-toggle="tooltip"
+                                                                                                title=""
+                                                                                                data-original-title="John Deo">
+                                                    </li>
+                                                    <li class="team-member team-member-sm"><img class="rounded-circle"
+                                                                                                src="assets/img/users/user-5.png"
+                                                                                                alt="user"
+                                                                                                data-toggle="tooltip"
+                                                                                                title=""
+                                                                                                data-original-title="Sarah Smith">
+                                                    </li>
+                                                    <li class="avatar avatar-sm"><span
+                                                            class="badge badge-primary">+3</span></li>
+                                                </ul>
+                                            </td>
+                                            <td class="align-middle">
+                                                <div class="progress-text">55%</div>
+                                                <div class="progress" data-height="6">
+                                                    <div class="progress-bar bg-purple" data-width="55%"></div>
+                                                </div>
+                                            </td>
+                                            <td>2019-07-25</td>
+                                            <td>2019-08-17</td>
+                                            <td>
+                                                <div class="badge badge-info">Average</div>
+                                            </td>
+                                            <td><a href="#" class="btn btn-outline-primary">Detail</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-0 text-center">
+                                                <div class="custom-checkbox custom-control">
+                                                    <input type="checkbox" data-checkboxes="mygroup"
+                                                           class="custom-control-input"
+                                                           id="checkbox-4">
+                                                    <label for="checkbox-4" class="custom-control-label">&nbsp;</label>
+                                                </div>
+                                            </td>
+                                            <td>Android App</td>
+                                            <td class="text-truncate">
+                                                <ul class="list-unstyled order-list m-b-0 m-b-0">
+                                                    <li class="team-member team-member-sm"><img class="rounded-circle"
+                                                                                                src="assets/img/users/user-7.png"
+                                                                                                alt="user"
+                                                                                                data-toggle="tooltip"
+                                                                                                title=""
+                                                                                                data-original-title="John Deo">
+                                                    </li>
+                                                    <li class="team-member team-member-sm"><img class="rounded-circle"
+                                                                                                src="assets/img/users/user-8.png"
+                                                                                                alt="user"
+                                                                                                data-toggle="tooltip"
+                                                                                                title=""
+                                                                                                data-original-title="Sarah Smith">
+                                                    </li>
+                                                    <li class="avatar avatar-sm"><span
+                                                            class="badge badge-primary">+4</span></li>
+                                                </ul>
+                                            </td>
+                                            <td class="align-middle">
+                                                <div class="progress-text">70%</div>
+                                                <div class="progress" data-height="6">
+                                                    <div class="progress-bar" data-width="70%"></div>
+                                                </div>
+                                            </td>
+                                            <td>2018-04-15</td>
+                                            <td>2019-07-19</td>
+                                            <td>
+                                                <div class="badge badge-success">Low</div>
+                                            </td>
+                                            <td><a href="#" class="btn btn-outline-primary">Detail</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-0 text-center">
+                                                <div class="custom-checkbox custom-control">
+                                                    <input type="checkbox" data-checkboxes="mygroup"
+                                                           class="custom-control-input"
+                                                           id="checkbox-5">
+                                                    <label for="checkbox-5" class="custom-control-label">&nbsp;</label>
+                                                </div>
+                                            </td>
+                                            <td>Logo Design</td>
+                                            <td class="text-truncate">
+                                                <ul class="list-unstyled order-list m-b-0 m-b-0">
+                                                    <li class="team-member team-member-sm"><img class="rounded-circle"
+                                                                                                src="assets/img/users/user-9.png"
+                                                                                                alt="user"
+                                                                                                data-toggle="tooltip"
+                                                                                                title=""
+                                                                                                data-original-title="Wildan Ahdian">
+                                                    </li>
+                                                    <li class="team-member team-member-sm"><img class="rounded-circle"
+                                                                                                src="assets/img/users/user-10.png"
+                                                                                                alt="user"
+                                                                                                data-toggle="tooltip"
+                                                                                                title=""
+                                                                                                data-original-title="John Deo">
+                                                    </li>
+                                                    <li class="team-member team-member-sm"><img class="rounded-circle"
+                                                                                                src="assets/img/users/user-2.png"
+                                                                                                alt="user"
+                                                                                                data-toggle="tooltip"
+                                                                                                title=""
+                                                                                                data-original-title="Sarah Smith">
+                                                    </li>
+                                                    <li class="avatar avatar-sm"><span
+                                                            class="badge badge-primary">+2</span></li>
+                                                </ul>
+                                            </td>
+                                            <td class="align-middle">
+                                                <div class="progress-text">45%</div>
+                                                <div class="progress" data-height="6">
+                                                    <div class="progress-bar bg-cyan" data-width="45%"></div>
+                                                </div>
+                                            </td>
+                                            <td>2017-02-24</td>
+                                            <td>2018-09-06</td>
+                                            <td>
+                                                <div class="badge badge-danger">High</div>
+                                            </td>
+                                            <td><a href="#" class="btn btn-outline-primary">Detail</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-0 text-center">
+                                                <div class="custom-checkbox custom-control">
+                                                    <input type="checkbox" data-checkboxes="mygroup"
+                                                           class="custom-control-input"
+                                                           id="checkbox-6">
+                                                    <label for="checkbox-6" class="custom-control-label">&nbsp;</label>
+                                                </div>
+                                            </td>
+                                            <td>Ecommerce website</td>
+                                            <td class="text-truncate">
+                                                <ul class="list-unstyled order-list m-b-0 m-b-0">
+                                                    <li class="team-member team-member-sm"><img class="rounded-circle"
+                                                                                                src="assets/img/users/user-8.png"
+                                                                                                alt="user"
+                                                                                                data-toggle="tooltip"
+                                                                                                title=""
+                                                                                                data-original-title="Wildan Ahdian">
+                                                    </li>
+                                                    <li class="team-member team-member-sm"><img class="rounded-circle"
+                                                                                                src="assets/img/users/user-9.png"
+                                                                                                alt="user"
+                                                                                                data-toggle="tooltip"
+                                                                                                title=""
+                                                                                                data-original-title="John Deo">
+                                                    </li>
+                                                    <li class="team-member team-member-sm"><img class="rounded-circle"
+                                                                                                src="assets/img/users/user-10.png"
+                                                                                                alt="user"
+                                                                                                data-toggle="tooltip"
+                                                                                                title=""
+                                                                                                data-original-title="Sarah Smith">
+                                                    </li>
+                                                    <li class="avatar avatar-sm"><span
+                                                            class="badge badge-primary">+4</span></li>
+                                                </ul>
+                                            </td>
+                                            <td class="align-middle">
+                                                <div class="progress-text">30%</div>
+                                                <div class="progress" data-height="6">
+                                                    <div class="progress-bar bg-orange" data-width="30%"></div>
+                                                </div>
+                                            </td>
+                                            <td>2018-01-20</td>
+                                            <td>2019-05-28</td>
+                                            <td>
+                                                <div class="badge badge-info">Average</div>
+                                            </td>
+                                            <td><a href="#" class="btn btn-outline-primary">Detail</a></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-lg-12 col-xl-6">
+                        <!-- Support tickets -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Support Ticket</h4>
+                                <form class="card-header-form">
+                                    <input type="text" name="search" class="form-control" placeholder="Search">
+                                </form>
+                            </div>
+                            <div class="card-body">
+                                <div class="support-ticket media pb-1 mb-3">
+                                    <img src="assets/img/users/user-1.png" class="user-img mr-2" alt="">
+                                    <div class="media-body ml-3">
+                                        <div class="badge badge-pill badge-success mb-1 float-right">Feature</div>
+                                        <span class="font-weight-bold">#89754</span>
+                                        <a href="javascript:void(0)">Please add advance table</a>
+                                        <p class="my-1">Hi, can you please add new table for advan...</p>
+                                        <small class="text-muted">Created by <span class="font-weight-bold font-13">John
+                          Deo</span>
+                                            &nbsp;&nbsp; - 1 day ago</small>
+                                    </div>
+                                </div>
+                                <div class="support-ticket media pb-1 mb-3">
+                                    <img src="assets/img/users/user-2.png" class="user-img mr-2" alt="">
+                                    <div class="media-body ml-3">
+                                        <div class="badge badge-pill badge-warning mb-1 float-right">Bug</div>
+                                        <span class="font-weight-bold">#57854</span>
+                                        <a href="javascript:void(0)">Select item not working</a>
+                                        <p class="my-1">please check select item in advance form not work...</p>
+                                        <small class="text-muted">Created by <span class="font-weight-bold font-13">Sarah
+                          Smith</span>
+                                            &nbsp;&nbsp; - 2 day ago</small>
+                                    </div>
+                                </div>
+                                <div class="support-ticket media pb-1 mb-3">
+                                    <img src="assets/img/users/user-3.png" class="user-img mr-2" alt="">
+                                    <div class="media-body ml-3">
+                                        <div class="badge badge-pill badge-primary mb-1 float-right">Query</div>
+                                        <span class="font-weight-bold">#85784</span>
+                                        <a href="javascript:void(0)">Are you provide template in Angular?</a>
+                                        <p class="my-1">can you provide template in latest angular 8.</p>
+                                        <small class="text-muted">Created by <span class="font-weight-bold font-13">Ashton Cox</span>
+                                            &nbsp;&nbsp; -2 day ago</small>
+                                    </div>
+                                </div>
+                                <div class="support-ticket media pb-1 mb-3">
+                                    <img src="assets/img/users/user-6.png" class="user-img mr-2" alt="">
+                                    <div class="media-body ml-3">
+                                        <div class="badge badge-pill badge-info mb-1 float-right">Enhancement</div>
+                                        <span class="font-weight-bold">#25874</span>
+                                        <a href="javascript:void(0)">About template page load speed</a>
+                                        <p class="my-1">Hi, John, can you work on increase page speed of template...</p>
+                                        <small class="text-muted">Created by <span class="font-weight-bold font-13">Hasan
+                          Basri</span>
+                                            &nbsp;&nbsp; -3 day ago</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="javascript:void(0)" class="card-footer card-link text-center small ">View
+                                All</a>
+                        </div>
+                        <!-- Support tickets -->
+                    </div>
+                    <div class="col-md-6 col-lg-12 col-xl-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Projects Payments</h4>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <table class="table table-hover mb-0">
                                         <thead>
-                                            <tr>
-                                                <th>Name</th>
-                                                <th>Position</th>
-                                                <th>Office</th>
-                                                <th>Age</th>
-                                                <th>Start date</th>
-                                                <th>Salary</th>
-                                            </tr>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Client Name</th>
+                                            <th>Date</th>
+                                            <th>Payment Method</th>
+                                            <th>Amount</th>
+                                        </tr>
                                         </thead>
-                                        <tfoot>
-                                            <tr>
-                                                <th>Name</th>
-                                                <th>Position</th>
-                                                <th>Office</th>
-                                                <th>Age</th>
-                                                <th>Start date</th>
-                                                <th>Salary</th>
-                                            </tr>
-                                        </tfoot>
                                         <tbody>
-                                            <tr>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                <td>Edinburgh</td>
-                                                <td>61</td>
-                                                <td>2011/04/25</td>
-                                                <td>$320,800</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Garrett Winters</td>
-                                                <td>Accountant</td>
-                                                <td>Tokyo</td>
-                                                <td>63</td>
-                                                <td>2011/07/25</td>
-                                                <td>$170,750</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Ashton Cox</td>
-                                                <td>Junior Technical Author</td>
-                                                <td>San Francisco</td>
-                                                <td>66</td>
-                                                <td>2009/01/12</td>
-                                                <td>$86,000</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Cedric Kelly</td>
-                                                <td>Senior Javascript Developer</td>
-                                                <td>Edinburgh</td>
-                                                <td>22</td>
-                                                <td>2012/03/29</td>
-                                                <td>$433,060</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Airi Satou</td>
-                                                <td>Accountant</td>
-                                                <td>Tokyo</td>
-                                                <td>33</td>
-                                                <td>2008/11/28</td>
-                                                <td>$162,700</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Brielle Williamson</td>
-                                                <td>Integration Specialist</td>
-                                                <td>New York</td>
-                                                <td>61</td>
-                                                <td>2012/12/02</td>
-                                                <td>$372,000</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Herrod Chandler</td>
-                                                <td>Sales Assistant</td>
-                                                <td>San Francisco</td>
-                                                <td>59</td>
-                                                <td>2012/08/06</td>
-                                                <td>$137,500</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Rhona Davidson</td>
-                                                <td>Integration Specialist</td>
-                                                <td>Tokyo</td>
-                                                <td>55</td>
-                                                <td>2010/10/14</td>
-                                                <td>$327,900</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Colleen Hurst</td>
-                                                <td>Javascript Developer</td>
-                                                <td>San Francisco</td>
-                                                <td>39</td>
-                                                <td>2009/09/15</td>
-                                                <td>$205,500</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Sonya Frost</td>
-                                                <td>Software Engineer</td>
-                                                <td>Edinburgh</td>
-                                                <td>23</td>
-                                                <td>2008/12/13</td>
-                                                <td>$103,600</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Jena Gaines</td>
-                                                <td>Office Manager</td>
-                                                <td>London</td>
-                                                <td>30</td>
-                                                <td>2008/12/19</td>
-                                                <td>$90,560</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Quinn Flynn</td>
-                                                <td>Support Lead</td>
-                                                <td>Edinburgh</td>
-                                                <td>22</td>
-                                                <td>2013/03/03</td>
-                                                <td>$342,000</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Charde Marshall</td>
-                                                <td>Regional Director</td>
-                                                <td>San Francisco</td>
-                                                <td>36</td>
-                                                <td>2008/10/16</td>
-                                                <td>$470,600</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Haley Kennedy</td>
-                                                <td>Senior Marketing Designer</td>
-                                                <td>London</td>
-                                                <td>43</td>
-                                                <td>2012/12/18</td>
-                                                <td>$313,500</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Tatyana Fitzpatrick</td>
-                                                <td>Regional Director</td>
-                                                <td>London</td>
-                                                <td>19</td>
-                                                <td>2010/03/17</td>
-                                                <td>$385,750</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Michael Silva</td>
-                                                <td>Marketing Designer</td>
-                                                <td>London</td>
-                                                <td>66</td>
-                                                <td>2012/11/27</td>
-                                                <td>$198,500</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Paul Byrd</td>
-                                                <td>Chief Financial Officer (CFO)</td>
-                                                <td>New York</td>
-                                                <td>64</td>
-                                                <td>2010/06/09</td>
-                                                <td>$725,000</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Gloria Little</td>
-                                                <td>Systems Administrator</td>
-                                                <td>New York</td>
-                                                <td>59</td>
-                                                <td>2009/04/10</td>
-                                                <td>$237,500</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Bradley Greer</td>
-                                                <td>Software Engineer</td>
-                                                <td>London</td>
-                                                <td>41</td>
-                                                <td>2012/10/13</td>
-                                                <td>$132,000</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Dai Rios</td>
-                                                <td>Personnel Lead</td>
-                                                <td>Edinburgh</td>
-                                                <td>35</td>
-                                                <td>2012/09/26</td>
-                                                <td>$217,500</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Jenette Caldwell</td>
-                                                <td>Development Lead</td>
-                                                <td>New York</td>
-                                                <td>30</td>
-                                                <td>2011/09/03</td>
-                                                <td>$345,000</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Yuri Berry</td>
-                                                <td>Chief Marketing Officer (CMO)</td>
-                                                <td>New York</td>
-                                                <td>40</td>
-                                                <td>2009/06/25</td>
-                                                <td>$675,000</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Caesar Vance</td>
-                                                <td>Pre-Sales Support</td>
-                                                <td>New York</td>
-                                                <td>21</td>
-                                                <td>2011/12/12</td>
-                                                <td>$106,450</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Doris Wilder</td>
-                                                <td>Sales Assistant</td>
-                                                <td>Sidney</td>
-                                                <td>23</td>
-                                                <td>2010/09/20</td>
-                                                <td>$85,600</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Angelica Ramos</td>
-                                                <td>Chief Executive Officer (CEO)</td>
-                                                <td>London</td>
-                                                <td>47</td>
-                                                <td>2009/10/09</td>
-                                                <td>$1,200,000</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Gavin Joyce</td>
-                                                <td>Developer</td>
-                                                <td>Edinburgh</td>
-                                                <td>42</td>
-                                                <td>2010/12/22</td>
-                                                <td>$92,575</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Jennifer Chang</td>
-                                                <td>Regional Director</td>
-                                                <td>Singapore</td>
-                                                <td>28</td>
-                                                <td>2010/11/14</td>
-                                                <td>$357,650</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Brenden Wagner</td>
-                                                <td>Software Engineer</td>
-                                                <td>San Francisco</td>
-                                                <td>28</td>
-                                                <td>2011/06/07</td>
-                                                <td>$206,850</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Fiona Green</td>
-                                                <td>Chief Operating Officer (COO)</td>
-                                                <td>San Francisco</td>
-                                                <td>48</td>
-                                                <td>2010/03/11</td>
-                                                <td>$850,000</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Shou Itou</td>
-                                                <td>Regional Marketing</td>
-                                                <td>Tokyo</td>
-                                                <td>20</td>
-                                                <td>2011/08/14</td>
-                                                <td>$163,000</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Michelle House</td>
-                                                <td>Integration Specialist</td>
-                                                <td>Sidney</td>
-                                                <td>37</td>
-                                                <td>2011/06/02</td>
-                                                <td>$95,400</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Suki Burks</td>
-                                                <td>Developer</td>
-                                                <td>London</td>
-                                                <td>53</td>
-                                                <td>2009/10/22</td>
-                                                <td>$114,500</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Prescott Bartlett</td>
-                                                <td>Technical Author</td>
-                                                <td>London</td>
-                                                <td>27</td>
-                                                <td>2011/05/07</td>
-                                                <td>$145,000</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Gavin Cortez</td>
-                                                <td>Team Leader</td>
-                                                <td>San Francisco</td>
-                                                <td>22</td>
-                                                <td>2008/10/26</td>
-                                                <td>$235,500</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Martena Mccray</td>
-                                                <td>Post-Sales support</td>
-                                                <td>Edinburgh</td>
-                                                <td>46</td>
-                                                <td>2011/03/09</td>
-                                                <td>$324,050</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Unity Butler</td>
-                                                <td>Marketing Designer</td>
-                                                <td>San Francisco</td>
-                                                <td>47</td>
-                                                <td>2009/12/09</td>
-                                                <td>$85,675</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Howard Hatfield</td>
-                                                <td>Office Manager</td>
-                                                <td>San Francisco</td>
-                                                <td>51</td>
-                                                <td>2008/12/16</td>
-                                                <td>$164,500</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Hope Fuentes</td>
-                                                <td>Secretary</td>
-                                                <td>San Francisco</td>
-                                                <td>41</td>
-                                                <td>2010/02/12</td>
-                                                <td>$109,850</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Vivian Harrell</td>
-                                                <td>Financial Controller</td>
-                                                <td>San Francisco</td>
-                                                <td>62</td>
-                                                <td>2009/02/14</td>
-                                                <td>$452,500</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Timothy Mooney</td>
-                                                <td>Office Manager</td>
-                                                <td>London</td>
-                                                <td>37</td>
-                                                <td>2008/12/11</td>
-                                                <td>$136,200</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Jackson Bradshaw</td>
-                                                <td>Director</td>
-                                                <td>New York</td>
-                                                <td>65</td>
-                                                <td>2008/09/26</td>
-                                                <td>$645,750</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Olivia Liang</td>
-                                                <td>Support Engineer</td>
-                                                <td>Singapore</td>
-                                                <td>64</td>
-                                                <td>2011/02/03</td>
-                                                <td>$234,500</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Bruno Nash</td>
-                                                <td>Software Engineer</td>
-                                                <td>London</td>
-                                                <td>38</td>
-                                                <td>2011/05/03</td>
-                                                <td>$163,500</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Sakura Yamamoto</td>
-                                                <td>Support Engineer</td>
-                                                <td>Tokyo</td>
-                                                <td>37</td>
-                                                <td>2009/08/19</td>
-                                                <td>$139,575</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Thor Walton</td>
-                                                <td>Developer</td>
-                                                <td>New York</td>
-                                                <td>61</td>
-                                                <td>2013/08/11</td>
-                                                <td>$98,540</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Finn Camacho</td>
-                                                <td>Support Engineer</td>
-                                                <td>San Francisco</td>
-                                                <td>47</td>
-                                                <td>2009/07/07</td>
-                                                <td>$87,500</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Serge Baldwin</td>
-                                                <td>Data Coordinator</td>
-                                                <td>Singapore</td>
-                                                <td>64</td>
-                                                <td>2012/04/09</td>
-                                                <td>$138,575</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Zenaida Frank</td>
-                                                <td>Software Engineer</td>
-                                                <td>New York</td>
-                                                <td>63</td>
-                                                <td>2010/01/04</td>
-                                                <td>$125,250</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Zorita Serrano</td>
-                                                <td>Software Engineer</td>
-                                                <td>San Francisco</td>
-                                                <td>56</td>
-                                                <td>2012/06/01</td>
-                                                <td>$115,000</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Jennifer Acosta</td>
-                                                <td>Junior Javascript Developer</td>
-                                                <td>Edinburgh</td>
-                                                <td>43</td>
-                                                <td>2013/02/01</td>
-                                                <td>$75,650</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Cara Stevens</td>
-                                                <td>Sales Assistant</td>
-                                                <td>New York</td>
-                                                <td>46</td>
-                                                <td>2011/12/06</td>
-                                                <td>$145,600</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Hermione Butler</td>
-                                                <td>Regional Director</td>
-                                                <td>London</td>
-                                                <td>47</td>
-                                                <td>2011/03/21</td>
-                                                <td>$356,250</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Lael Greer</td>
-                                                <td>Systems Administrator</td>
-                                                <td>London</td>
-                                                <td>21</td>
-                                                <td>2009/02/27</td>
-                                                <td>$103,500</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Jonas Alexander</td>
-                                                <td>Developer</td>
-                                                <td>San Francisco</td>
-                                                <td>30</td>
-                                                <td>2010/07/14</td>
-                                                <td>$86,500</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Shad Decker</td>
-                                                <td>Regional Director</td>
-                                                <td>Edinburgh</td>
-                                                <td>51</td>
-                                                <td>2008/11/13</td>
-                                                <td>$183,000</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Michael Bruce</td>
-                                                <td>Javascript Developer</td>
-                                                <td>Singapore</td>
-                                                <td>29</td>
-                                                <td>2011/06/27</td>
-                                                <td>$183,000</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Donna Snider</td>
-                                                <td>Customer Support</td>
-                                                <td>New York</td>
-                                                <td>27</td>
-                                                <td>2011/01/25</td>
-                                                <td>$112,000</td>
-                                            </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>John Doe</td>
+                                            <td>11-08-2018</td>
+                                            <td>NEFT</td>
+                                            <td>$258</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Cara Stevens
+                                            </td>
+                                            <td>15-07-2018</td>
+                                            <td>PayPal</td>
+                                            <td>$125</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>
+                                                Airi Satou
+                                            </td>
+                                            <td>25-08-2018</td>
+                                            <td>RTGS</td>
+                                            <td>$287</td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>
+                                                Angelica Ramos
+                                            </td>
+                                            <td>01-05-2018</td>
+                                            <td>CASH</td>
+                                            <td>$170</td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td>
+                                                Ashton Cox
+                                            </td>
+                                            <td>18-04-2018</td>
+                                            <td>NEFT</td>
+                                            <td>$970</td>
+                                        </tr>
+                                        <tr>
+                                            <td>6</td>
+                                            <td>
+                                                John Deo
+                                            </td>
+                                            <td>22-11-2018</td>
+                                            <td>PayPal</td>
+                                            <td>$854</td>
+                                        </tr>
+                                        <tr>
+                                            <td>7</td>
+                                            <td>
+                                                Hasan Basri
+                                            </td>
+                                            <td>07-09-2018</td>
+                                            <td>Cash</td>
+                                            <td>$128</td>
+                                        </tr>
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </main>
-                <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2020</div>
-                            <div>
-                                <a href="#">Privacy Policy</a>
-                                &middot;
-                                <a href="#">Terms &amp; Conditions</a>
+                </div>
+            </section>
+            <div class="settingSidebar">
+                <a href="javascript:void(0)" class="settingPanelToggle"> <i class="fa fa-spin fa-cog"></i>
+                </a>
+                <div class="settingSidebar-body ps-container ps-theme-default">
+                    <div class=" fade show active">
+                        <div class="setting-panel-header">Setting Panel
+                        </div>
+                        <div class="p-15 border-bottom">
+                            <h6 class="font-medium m-b-10">Select Layout</h6>
+                            <div class="selectgroup layout-color w-50">
+                                <label class="selectgroup-item">
+                                    <input type="radio" name="value" value="1"
+                                           class="selectgroup-input-radio select-layout" checked>
+                                    <span class="selectgroup-button">Light</span>
+                                </label>
+                                <label class="selectgroup-item">
+                                    <input type="radio" name="value" value="2"
+                                           class="selectgroup-input-radio select-layout">
+                                    <span class="selectgroup-button">Dark</span>
+                                </label>
                             </div>
                         </div>
+                        <div class="p-15 border-bottom">
+                            <h6 class="font-medium m-b-10">Sidebar Color</h6>
+                            <div class="selectgroup selectgroup-pills sidebar-color">
+                                <label class="selectgroup-item">
+                                    <input type="radio" name="icon-input" value="1"
+                                           class="selectgroup-input select-sidebar">
+                                    <span class="selectgroup-button selectgroup-button-icon" data-toggle="tooltip"
+                                          data-original-title="Light Sidebar"><i class="fas fa-sun"></i></span>
+                                </label>
+                                <label class="selectgroup-item">
+                                    <input type="radio" name="icon-input" value="2"
+                                           class="selectgroup-input select-sidebar" checked>
+                                    <span class="selectgroup-button selectgroup-button-icon" data-toggle="tooltip"
+                                          data-original-title="Dark Sidebar"><i class="fas fa-moon"></i></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="p-15 border-bottom">
+                            <h6 class="font-medium m-b-10">Color Theme</h6>
+                            <div class="theme-setting-options">
+                                <ul class="choose-theme list-unstyled mb-0">
+                                    <li title="white" class="active">
+                                        <div class="white"></div>
+                                    </li>
+                                    <li title="cyan">
+                                        <div class="cyan"></div>
+                                    </li>
+                                    <li title="black">
+                                        <div class="black"></div>
+                                    </li>
+                                    <li title="purple">
+                                        <div class="purple"></div>
+                                    </li>
+                                    <li title="orange">
+                                        <div class="orange"></div>
+                                    </li>
+                                    <li title="green">
+                                        <div class="green"></div>
+                                    </li>
+                                    <li title="red">
+                                        <div class="red"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="p-15 border-bottom">
+                            <div class="theme-setting-options">
+                                <label class="m-b-0">
+                                    <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input"
+                                           id="mini_sidebar_setting">
+                                    <span class="custom-switch-indicator"></span>
+                                    <span class="control-label p-l-10">Mini Sidebar</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="p-15 border-bottom">
+                            <div class="theme-setting-options">
+                                <label class="m-b-0">
+                                    <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input"
+                                           id="sticky_header_setting">
+                                    <span class="custom-switch-indicator"></span>
+                                    <span class="control-label p-l-10">Sticky Header</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="mt-4 mb-4 p-3 align-center rt-sidebar-last-ele">
+                            <a href="#" class="btn btn-icon icon-left btn-primary btn-restore-theme">
+                                <i class="fas fa-undo"></i> Restore Default
+                            </a>
+                        </div>
                     </div>
-                </footer>
+                </div>
             </div>
         </div>
-        <script src="<c:url value="https://code.jquery.com/jquery-3.5.1.slim.min.js"/>" crossorigin="anonymous"></script>
-<%--        <script src="<c:url value="/resources/bootstrap-5.0.0/js/bootstrap.bundle.js"/>" crossorigin="anonymous"></script>--%>
-        <script src="<c:url value="/resources/admin/js/scripts.js"/>"></script>
-        <script src="<c:url value="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"/>" crossorigin="anonymous"></script>
-        <script src="<c:url value="/resources/admin/assets/demo/chart-area-demo.js"/>"></script>
-        <script src="<c:url value="/resources/admin/assets/demo/chart-bar-demo.js"/>"></script>
-        <script src="<c:url value="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"/>" crossorigin="anonymous"></script>
-        <script src="<c:url value="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"/>" crossorigin="anonymous"></script>
-        <script src="<c:url value="/resources/admin/assets/demo/datatables-demo.js"/>"></script>
-    </body>
+        <%--       Footer       --%>
+        <%@include file="/common/admin/footer.jsp" %>
+        <%--       Footer       --%>
+    </div>
+</div>
+<!-- General JS Scripts -->
+<script src="<c:url value="/resources/admin/assets/js/app.min.js"/>"></script>
+<!-- JS Libraies -->
+<script src="<c:url value="/resources/admin/assets/bundles/apexcharts/apexcharts.min.js"/>"></script>
+<!-- Page Specific JS File -->
+<script src="<c:url value="/resources/admin/assets/js/page/index.js"/>"></script>
+<!-- Template JS File -->
+<script src="<c:url value="/resources/admin/assets/js/scripts.js"/>"></script>
+<!-- Custom JS File -->
+<script src="<c:url value="/resources/admin/assets/js/custom.js"/>"></script>
+</body>
+<!-- index.jsp  21 Nov 2019 03:47:04 GMT -->
 </html>
