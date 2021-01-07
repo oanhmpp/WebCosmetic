@@ -4,6 +4,6 @@ import cosmetic.entity.BrandEntity;
 import cosmetic.entity.TypeEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface TypeRespository extends JpaRepository<TypeEntity, String> {
+public interface TypeRespository extends JpaRepository<TypeEntity, Long> {
 
 }

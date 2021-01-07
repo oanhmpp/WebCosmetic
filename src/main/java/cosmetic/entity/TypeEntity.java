@@ -15,7 +15,8 @@ import java.util.List;
 public class TypeEntity implements Serializable {
 
     @Id
-    private String idType;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long idType;
 
     @Column
     private String nameType;
@@ -23,7 +24,7 @@ public class TypeEntity implements Serializable {
     @OneToMany(mappedBy = "idType")
     private List<ProductEntity> productEntities;
 
-    public TypeEntity(String idType, String nameType) {
+    public TypeEntity(Long idType, String nameType) {
         this.idType = idType;
         this.nameType = nameType;
     }

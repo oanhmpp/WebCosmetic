@@ -25,7 +25,7 @@ public class TypeController {
 
     @RequestMapping("edit")
 //    @RequestMapping("/admin/product/edit")
-    public String editProduct(Model model, @RequestParam String idType) {
+    public String editProduct(Model model, @RequestParam Long idType) {
         TypeEntity typeEntity = typeService.findOneById(idType).get();
 
         model.addAttribute("type", typeEntity);
@@ -40,7 +40,7 @@ public class TypeController {
     }
 
     @GetMapping("delete")
-    public String delete(Model model, @RequestParam String idType) {
+    public String delete(Model model, @RequestParam Long idType) {
         typeService.delete(idType);
         return "redirect:/admin/type/list";
     }
@@ -49,17 +49,6 @@ public class TypeController {
     public String add(Model model) {
         model.addAttribute("type", new TypeEntity());
         return "admin/addType";
-    }
-
-    @RequestMapping("checkId")
-    public @ResponseBody boolean checkId (@RequestParam("id") String id){
-        System.out.println(id);
-        Optional<TypeEntity>  typeEntity = typeService.findOneById(id);
-        if(typeEntity.isPresent()) {
-            return false;
-        }
-        return true;
-
     }
 
     @PostMapping("added")

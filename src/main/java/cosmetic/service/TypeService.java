@@ -17,9 +17,9 @@ public class TypeService {
 
     public List<TypeEntity> findAll(){ return typeRespository.findAll();}
 
-    public Optional<TypeEntity> findOneById (String idType){ return typeRespository.findById(idType);}
+    public Optional<TypeEntity> findOneById (Long idType){ return typeRespository.findById(idType);}
 
     public void save (TypeEntity typeEntity) { typeRespository.save(typeEntity);}
 
-    public void delete(String id){   typeRespository.deleteById(id);   }
+    public void delete(Long id){   typeRespository.deleteById(id);   }
 }

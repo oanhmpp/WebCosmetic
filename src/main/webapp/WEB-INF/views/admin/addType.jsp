@@ -32,16 +32,16 @@
 
                 <form:form style="width: 100%" modelAttribute="type" method="post" action="/admin/type/added">
                 <div class="col-sm-12" style="    height: 250px;    padding: 20px;">
+<%--                    <div class="form-group row">--%>
+<%--                        <label class="col-sm-4 col-form-label">*ID Brand: </label>--%>
+<%--                        <div class="col-sm-6">--%>
+                            <form:hidden id="checkId" path="idType"/>
+<%--                            <span id="errId"></span>--%>
+<%--                                &lt;%&ndash;                        <input value="${brand.idBrand}" disabled>&ndash;%&gt;--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
                     <div class="form-group row">
-                        <label class="col-sm-4 col-form-label">*ID Brand: </label>
-                        <div class="col-sm-6">
-                            <form:input id="checkId" path="idType"/>
-                            <span id="errId"></span>
-                                <%--                        <input value="${brand.idBrand}" disabled>--%>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-4 col-form-label">*Name Brand</label>
+                        <label class="col-sm-4 col-form-label">*Name Type</label>
                         <div class="col-sm-6">
                             <form:input path="nameType"/>
                         </div>

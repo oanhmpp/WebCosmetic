@@ -64,6 +64,7 @@
                                                 <td>${product.idType.idType }</td>
                                                 <td>
                                                     <img alt="image" src="${product.image }" width="35">
+                                                    <img alt="image" src="/resources/web/img/Product/Son/Merzy/Merzy%20The%20First%20Velvet%20Tint%20Season%203%20(Ver%20Blue)/1.jpg" height="35" width="35">
                                                 </td>
                                                 <td>${product.amount }</td>
                                                 <td>${product.price }</td>
