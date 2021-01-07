@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Add Brand</title>
+    <title>Add Type</title>
     <%@include file="/common/admin/head.jsp" %>
 </head>
 <body>
@@ -30,12 +30,12 @@
                     <input type="file" name="file" id="fileUpload" style="visibility: hidden"/>
                 </form>
 
-                <form:form style="width: 100%" modelAttribute="brand" method="post" action="/admin/brand/added">
+                <form:form style="width: 100%" modelAttribute="type" method="post" action="/admin/type/added">
                 <div class="col-sm-12" style="    height: 250px;    padding: 20px;">
                     <div class="form-group row">
                         <label class="col-sm-4 col-form-label">*ID Brand: </label>
                         <div class="col-sm-6">
-                            <form:input id="checkId" path="idBrand"/>
+                            <form:input id="checkId" path="idType"/>
                             <span id="errId"></span>
                                 <%--                        <input value="${brand.idBrand}" disabled>--%>
                         </div>
@@ -43,7 +43,7 @@
                     <div class="form-group row">
                         <label class="col-sm-4 col-form-label">*Name Brand</label>
                         <div class="col-sm-6">
-                            <form:input path="nameBrand"/>
+                            <form:input path="nameType"/>
                         </div>
                     </div>
                     <div class="col-sm-12 d-flex justify-content-center">
@@ -93,7 +93,7 @@
 
             if (id.length != 0) {
                 $.ajax({
-                    url: '/admin/brand/checkId',
+                    url: '/admin/type/checkId',
                     type: 'GET',
                     // enctype: 'multipart/form-data',
                     data: {
@@ -103,7 +103,7 @@
                         if (result) {
                             $('#errId').html("");
                         } else {
-                            $('#errId').html("Id Brand is exist");
+                            $('#errId').html("Id Type is exist");
                         }
                         // $('#checkId').val("");
                     },

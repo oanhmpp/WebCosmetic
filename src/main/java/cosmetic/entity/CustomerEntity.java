@@ -14,7 +14,8 @@ import java.util.List;
 @Table(name = "Customer")
 public class CustomerEntity implements Serializable {
     @Id
-    private String idCustomer;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long idCustomer;
 
     @Column
     private String nameCustomer;

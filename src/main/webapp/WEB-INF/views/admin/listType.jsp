@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>List Brand</title>
+    <title>List Type</title>
     <%@include file="/common/admin/head.jsp" %>
 </head>
 <body>
@@ -38,30 +38,30 @@
                                         <table class="table table-striped" id="table-1">
                                             <thead>
                                             <tr>
-                                                <th>ID Brand</th>
-                                                <th>Name Brand</th>
+                                                <th>ID Type</th>
+                                                <th>Name Type</th>
                                                 <th>Edit</th>
                                                 <th>Delete</th>
                                             </tr>
                                             </thead>
                                             <tbody>
                                             <p>
-                                                Total Product: <b id="total">${listBrand.size()}</b>
+                                                Total Product: <b id="total">${listType.size()}</b>
                                             </p>
-                                            <c:forEach var="brand" items="${listBrand}">
+                                            <c:forEach var="type" items="${listType}">
                                                 <tr>
-                                                    <td>${brand.idBrand }</td>
-                                                    <td>${brand.nameBrand }</td>
+                                                    <td>${type.idType }</td>
+                                                    <td>${type.nameType }</td>
                                                     <td>
                                                             <%--                                                        <div class="d-flex justify-content-center">--%>
-                                                        <a href="${pageContext.request.contextPath}/admin/brand/edit?idBrand=${brand.idBrand}"><i
+                                                        <a href="${pageContext.request.contextPath}/admin/type/edit?idType=${type.idType}"><i
                                                                 class="fas fa-pen"></i></a>
                                                             <%--                                                        </div>--%>
                                                     </td>
                                                     <td>
                                                             <%--                                                        <div class="d-flex justify-content-center">--%>
                                                         <a onclick="return confirm('Do you want to delete ?')"
-                                                           href="${pageContext.request.contextPath}/admin/brand/delete?idBrand=${brand.idBrand}"><i
+                                                           href="${pageContext.request.contextPath}/admin/type/delete?idType=${type.idType}"><i
                                                                 class="fas fa-trash"></i></a>
                                                             <%--                                                        </div>--%>
                                                     </td>
@@ -69,9 +69,9 @@
                                             </c:forEach>
                                             </tbody>
                                             <div class="col-md-12">
-                                                <a href="${pageContext.request.contextPath}/admin/brand/add" style="    color: white;    float: right;
+                                                <a href="${pageContext.request.contextPath}/admin/type/add" style="    color: white;    float: right;
                                                     margin-left: 100px;    background: #007ddc;    padding: 10px;">Add
-                                                    Brand</a>
+                                                    Type</a>
                                             </div>
                                         </table>
                                     </div>

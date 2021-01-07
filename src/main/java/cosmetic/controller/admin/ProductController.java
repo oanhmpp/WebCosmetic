@@ -1,9 +1,9 @@
 package cosmetic.controller.admin;
 
 import cosmetic.entity.ProductEntity;
-import cosmetic.service.BrandServer;
-import cosmetic.service.ProductServer;
-import cosmetic.service.TypeServer;
+import cosmetic.service.BrandService;
+import cosmetic.service.ProductService;
+import cosmetic.service.TypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,11 +15,11 @@ import javax.validation.Valid;
 @RequestMapping("admin/product")
 public class ProductController {
     @Autowired
-    private ProductServer productService;
+    private ProductService productService;
     @Autowired
-    private BrandServer brandServer;
+    private BrandService brandService;
     @Autowired
-    private TypeServer typeServer;
+    private TypeService typeService;
 
     @RequestMapping("list")
     public String listProduct(Model model) {
@@ -34,8 +34,8 @@ public class ProductController {
         ProductEntity productEntity = productService.findOneById(idProduct);
 
         model.addAttribute("product", productEntity);
-        model.addAttribute("listBrand", brandServer.findAll());
-        model.addAttribute("listType", typeServer.findAll());
+        model.addAttribute("listBrand", brandService.findAll());
+        model.addAttribute("listType", typeService.findAll());
 
         String img = productEntity.getDetailProductEntity().getImage();
 
@@ -71,8 +71,8 @@ public class ProductController {
     @RequestMapping("add")
     public String add(Model model) {
         model.addAttribute("product", new ProductEntity());
-        model.addAttribute("listBrand", brandServer.findAll());
-        model.addAttribute("listType", typeServer.findAll());
+        model.addAttribute("listBrand", brandService.findAll());
+        model.addAttribute("listType", typeService.findAll());
         return "admin/addProduct";
     }
 

@@ -2,13 +2,15 @@ package cosmetic.controller.admin;
 
 import cosmetic.entity.BrandEntity;
 import cosmetic.entity.ProductEntity;
-import cosmetic.service.BrandServer;
+import cosmetic.service.BrandService;
+import cosmetic.service.BrandService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("admin/brand")
@@ -16,7 +18,7 @@ import javax.validation.Valid;
 public class BrandController {
 
     @Autowired
-    private BrandServer brandServer;
+    private BrandService brandServer;
 
     @RequestMapping("list")
     private String listBrand(Model model){
@@ -27,7 +29,7 @@ public class BrandController {
     @RequestMapping("edit")
 //    @RequestMapping("/admin/product/edit")
     public String editProduct(Model model, @RequestParam String idBrand) {
-        BrandEntity brandEntity = brandServer.findOneById(idBrand);
+        BrandEntity brandEntity = brandServer.findOneById(idBrand).get();
 
         model.addAttribute("brand", brandEntity);
 
@@ -41,8 +43,8 @@ public class BrandController {
     }
 
     @GetMapping("delete")
-    public String delete(Model model, @RequestParam String idProduct) {
-        brandServer.delete(idProduct);
+    public String delete(Model model, @RequestParam String idBrand) {
+        brandServer.delete(idBrand);
         return "redirect:/admin/brand/list";
     }
 
@@ -51,12 +53,22 @@ public class BrandController {
         model.addAttribute("brand", new BrandEntity());
         return "admin/addBrand";
     }
-//
-//    @PostMapping("added")
-//    public String added(Model model, @Valid @ModelAttribute("product") ProductEntity productEntity) {
-//        productEntity.getDetailProductEntity().setProductEntity(productEntity);
-//        productService.save(productEntity);
-//        return "redirect:/admin/product/list";
-//    }
+
+    @RequestMapping("checkId")
+    public @ResponseBody boolean checkId (@RequestParam("id") String id){
+        System.out.println(id);
+        Optional<BrandEntity> brandEntity = brandServer.findOneById(id);
+        if(brandEntity.isPresent()) {
+            return false;
+        }
+            return true;
+
+    }
+
+    @PostMapping("added")
+    public String added(Model model, @Valid @ModelAttribute("brand") BrandEntity brandEntity) {
+        brandServer.save(brandEntity);
+        return "redirect:/admin/brand/list";
+    }
 
 }
