@@ -26,11 +26,14 @@ public class CustomerEntity implements Serializable {
     @Column
     private String password;
 
-    @Column
-    private int role;
-
     @ManyToMany(mappedBy = "customerEntities")
     private List<OrdersEntity> orderEntities;
+
+    @ManyToMany
+    @JoinTable(
+            joinColumns = @JoinColumn(name = "idCustomer"),
+            inverseJoinColumns = @JoinColumn(name = "idRole"))
+    private List<RoleEntity> roleEntityList;
 
     public CustomerEntity() {
 
