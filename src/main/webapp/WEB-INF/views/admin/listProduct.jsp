@@ -80,15 +80,19 @@
                                                 </td>
                                                 <td>
                                                     <div class="d-flex justify-content-center">
-                                                        <a href="${pageContext.request.contextPath}/admin/editProduct?idProduct=${product.idProduct}"><i class="fas fa-pen"></i></a>
+                                                        <a href="${pageContext.request.contextPath}/admin/product/edit?idProduct=${product.idProduct}"><i class="fas fa-pen"></i></a>
                                                     </div></td>
                                                 <td>
                                                     <div class="d-flex justify-content-center">
-                                                        <i class="fas fa-trash"></i>
+                                                        <a onclick="return confirm('Do you want to delete ?')" href="${pageContext.request.contextPath}/admin/product/delete?idProduct=${product.idProduct}"><i class="fas fa-trash"></i></a>
                                                     </div></td>
                                             </tr>
                                             </c:forEach>
                                             </tbody>
+                                            <div class="col-md-12">
+                                                <a href="${pageContext.request.contextPath}/admin/product/add" style="    color: white;    float: right;
+                                                    margin-left: 100px;    background: #007ddc;    padding: 10px;">Add product</a>
+                                            </div>
                                         </table>
                                     </div>
                                 </div>

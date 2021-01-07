@@ -3,11 +3,11 @@ package cosmetic.controller.web;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@Controller
+@Controller("WebProduct")
 public class ProductController {
 
     @RequestMapping("/product")
-    public String product(){
+    public String product() {
         return "web/product-list";
     }
 }

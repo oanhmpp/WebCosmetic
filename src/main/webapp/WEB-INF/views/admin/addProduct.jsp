@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Edit Product</title>
+    <title>Add Product</title>
     <%@include file="/common/admin/head.jsp" %>
 </head>
 <body>
@@ -30,15 +30,14 @@
                     <input type="file" name="file" id="fileUpload" style="visibility: hidden"/>
                 </form>
 
-                <form:form style="width: 100%" modelAttribute="product" method="post" action="/admin/product/edit">
+                <form:form style="width: 100%" modelAttribute="product" method="post" action="/admin/product/added">
                     <div class="col-sm-12" style="    height: 250px;    padding: 20px;">
                         <div class="col-sm-6" style="float: left">
                             <div class="form-group row">
-                                <label class="col-sm-4 col-form-label">*ID Product: </label>
-                                <div class="col-sm-6">
-                                    <form:hidden path="idProduct"/>
-                                    <input value="${product.idProduct}" disabled>
-                                </div>
+<%--                                <label class="col-sm-4 col-form-label">*ID Product: </label>--%>
+<%--                                <div class="col-sm-6">--%>
+<%--                                    <form:input path="idProduct"/>--%>
+<%--                                </div>--%>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-4 col-form-label">*Name Product</label>
@@ -78,18 +77,16 @@
                                             <img id="img_main" class="img_product" style="height: 50px; width: 50px"
                                                  src="${product.image}">
                                         </div>
-                                            <div style="float: left" class="col-sm-3">
-                                                <img id="img_detail_1" class="img_product" style="height: 50px; width: 50px"
-                                                     src="${arrImg1}">
-                                            </div>
-                                            <div style="float: left" class="col-sm-3">
-                                                <img id="img_detail_2" class="img_product" style="height: 50px; width: 50px"
-                                                     src="${arrImg2}">
-                                            </div>
-                                            <div style="float: left" class="col-sm-3">
-                                                <img id="img_detail_3" class="img_product" style="height: 50px; width: 50px"
-                                                     src="${arrImg3}">
-                                            </div>
+                                            <%--                                        <c:forEach var="img" items="${arrImg}">--%>
+                                        <div style="float: left" class="col-sm-3">
+                                            <img id="img_detail_1" class="img_product" style="height: 50px; width: 50px"
+                                                 src="${img}">
+                                            <img id="img_detail_2" class="img_product" style="height: 50px; width: 50px"
+                                                 src="${img}">
+                                            <img id="img_detail_3" class="img_product" style="height: 50px; width: 50px"
+                                                 src="${img}">
+                                        </div>
+                                            <%--                                        </c:forEach>--%>
                                         <form:hidden path="detailProductEntity.idProduct" required="required"/>
                                         <form:hidden id="input_image" path="image" required="required"/>
                                         <form:hidden id="input_image_detail" path="detailProductEntity.image"
