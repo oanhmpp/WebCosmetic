@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -18,25 +19,32 @@
                             <div class="row align-items-center">
                                 <div class="col-md-5">
                                     <div class="product-slider-single normal-slider">
-                                        <img src="<c:url value="/resources/web/img/product-1.jpg"/>" alt="Product Image">
-                                        <img src="<c:url value="/resources/web/img/product-2.jpg"/>" alt="Product Image">
-                                        <img src="<c:url value="/resources/web/img/product-3.jpg"/>" alt="Product Image">
-                                        <img src="<c:url value="/resources/web/img/product-4.jpg"/>" alt="Product Image">
-                                        <img src="<c:url value="/resources/web/img/product-5.jpg"/>" alt="Product Image">
-                                        <img src="<c:url value="/resources/web/img/product-6.jpg"/>" alt="Product Image">
+                                        <c:forEach var="img" items="${arrImg}">
+                                            <img src="${img}" alt="Product Image">
+                                        </c:forEach>
+<%--                                        <img src="<c:url value="/resources/web/img/product-1.jpg"/>" alt="Product Image">--%>
+<%--                                        <img src="<c:url value="/resources/web/img/product-2.jpg"/>" alt="Product Image">--%>
+<%--                                        <img src="<c:url value="/resources/web/img/product-3.jpg"/>" alt="Product Image">--%>
+<%--                                        <img src="<c:url value="/resources/web/img/product-4.jpg"/>" alt="Product Image">--%>
+<%--                                        <img src="<c:url value="/resources/web/img/product-5.jpg"/>" alt="Product Image">--%>
+<%--                                        <img src="<c:url value="/resources/web/img/product-6.jpg"/>" alt="Product Image">--%>
                                     </div>
                                     <div class="product-slider-single-nav normal-slider">
-                                        <div class="slider-nav-img"><img src="<c:url value="/resources/web/img/product-1.jpg"/>" alt="Product Image"></div>
-                                        <div class="slider-nav-img"><img src="<c:url value="/resources/web/img/product-6.jpg"/>" alt="Product Image"></div>
-                                        <div class="slider-nav-img"><img src="<c:url value="/resources/web/img/product-7.jpg"/>" alt="Product Image"></div>
-                                        <div class="slider-nav-img"><img src="<c:url value="/resources/web/img/product-8.jpg"/>" alt="Product Image"></div>
-                                        <div class="slider-nav-img"><img src="<c:url value="/resources/web/img/product-10.jpg"/>" alt="Product Image"></div>
-                                        <div class="slider-nav-img"><img src="<c:url value="/resources/web/img/product-9.jpg"/>" alt="Product Image"></div>
+                                        <c:forEach var="img" items="${arrImg}">
+                                            <div class="slider-nav-img"><img src="${img}"/>" alt="Product Image"></div>
+                                        </c:forEach>
+<%--                                        <div class="slider-nav-img"><img src="<c:url value="/resources/web/img/product-1.jpg"/>" alt="Product Image"></div>--%>
+<%--                                        <div class="slider-nav-img"><img src="<c:url value="/resources/web/img/product-6.jpg"/>" alt="Product Image"></div>--%>
+<%--                                        <div class="slider-nav-img"><img src="<c:url value="/resources/web/img/product-7.jpg"/>" alt="Product Image"></div>--%>
+<%--                                        <div class="slider-nav-img"><img src="<c:url value="/resources/web/img/product-8.jpg"/>" alt="Product Image"></div>--%>
+<%--                                        <div class="slider-nav-img"><img src="<c:url value="/resources/web/img/product-10.jpg"/>" alt="Product Image"></div>--%>
+<%--                                        <div class="slider-nav-img"><img src="<c:url value="/resources/web/img/product-9.jpg"/>" alt="Product Image"></div>--%>
                                     </div>
                                 </div>
                                 <div class="col-md-7">
+                                    <form:form modelAttribute="order" method="post" action="/admin/brand/edit">
                                     <div class="product-content">
-                                        <div class="title"><h2>Product Name</h2></div>
+                                        <div class="title"><h2>${product.nameProduct}</h2></div>
                                         <div class="ratting">
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
@@ -46,7 +54,7 @@
                                         </div>
                                         <div class="price">
                                             <h4>Price:</h4>
-                                            <p>$99 <span>$149</span></p>
+                                            <p>$${product.price}</p>
                                         </div>
                                         <div class="quantity">
                                             <h4>Quantity:</h4>
@@ -59,10 +67,14 @@
                                         <div class="p-size">
                                             <h4>Size:</h4>
                                             <div class="btn-group btn-group-sm">
-                                                <button type="button" class="btn">S</button>
-                                                <button type="button" class="btn">M</button>
-                                                <button type="button" class="btn">L</button>
-                                                <button type="button" class="btn">XL</button>
+                                                <p>${listProByName.size()}</p>
+                                                <c:forEach var="type" items="${listProByName}">
+                                                    <button type="button" class="btn">${type.idType}</button>
+                                                </c:forEach>
+<%--                                                <button type="button" class="btn">S</button>--%>
+<%--                                                <button type="button" class="btn">M</button>--%>
+<%--                                                <button type="button" class="btn">L</button>--%>
+<%--                                                <button type="button" class="btn">XL</button>--%>
                                             </div> 
                                         </div>
                                         <div class="p-color">
@@ -78,6 +90,7 @@
                                             <a class="btn" href="#"><i class="fa fa-shopping-bag"></i>Buy Now</a>
                                         </div>
                                     </div>
+                                    </form:form>
                                 </div>
                             </div>
                         </div>

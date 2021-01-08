@@ -20,6 +20,8 @@ public class ProductService {
 
     public ProductEntity findOneById(Long id) { return productRepository.findById(id).get();}
 
+    public List<ProductEntity> findOneByName(String name){ return productRepository.findByNameProduct(name);}
+
     public void save(ProductEntity product) {
         productRepository.save(product);
     }

@@ -21,7 +21,7 @@ public class OrdersEntity {
 
     private int phone;
 
-        @OneToMany(mappedBy = "order")
+    @OneToMany(mappedBy = "order")
     private List<DetailOrderEntity> detailOrderEntities;
 
     @ManyToMany

@@ -1,6 +1,7 @@
 package cosmetic.controller.admin;
 
 import cosmetic.entity.ProductEntity;
+import cosmetic.entity.TypeEntity;
 import cosmetic.service.BrandService;
 import cosmetic.service.ProductService;
 import cosmetic.service.TypeService;
@@ -10,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller("AdminProduct")
 @RequestMapping("admin/product")
@@ -26,7 +28,6 @@ public class ProductController {
         model.addAttribute("listProduct", productService.findAll());
         return "admin/listProduct";
     }
-
 
     @RequestMapping("edit")
 //    @RequestMapping("/admin/product/edit")
@@ -51,13 +52,13 @@ public class ProductController {
     @PostMapping("edit")
     public String edited(Model model, @Valid @ModelAttribute("product") ProductEntity productEntity) {
 
-//        System.out.println("--------------------"+productEntity.getDetailProductEntity().getDescription()+"\n" +
-//                productEntity.getIdProduct()+"\n"+
-//                productEntity.getIdBrand().getIdBrand()+"\n"+
-//                productEntity.getIdType().getIdType()+"\n"+
-//                productEntity.getNameProduct()+"\n"+
-//                productEntity.getImage()+"\n"+
-//                productEntity.getDetailProductEntity().getImage()+"--------------------");
+        System.out.println("--------------------"+productEntity.getDetailProductEntity().getDescription()+"\n" +
+                productEntity.getIdProduct()+"\n"+
+                productEntity.getIdBrand().getIdBrand()+"\n"+
+                productEntity.getIdType()+"\n"+
+                productEntity.getNameProduct()+"\n"+
+                productEntity.getImage()+"\n"+
+                productEntity.getDetailProductEntity().getImage()+"--------------------");
         productService.save(productEntity);
         return "redirect:/admin/product/list";
     }
@@ -77,8 +78,14 @@ public class ProductController {
     }
 
     @PostMapping("added")
-    public String added(Model model, @Valid @ModelAttribute("product") ProductEntity productEntity) {
+    public String added(Model model,
+                        @Valid @ModelAttribute("product") ProductEntity productEntity,
+                        @RequestParam("type") Long[] type) {
+
+        List<TypeEntity> typeEntityList = typeService.findByIdIn(type);
+        productEntity.setIdType(typeEntityList);
         productEntity.getDetailProductEntity().setProductEntity(productEntity);
+
         productService.save(productEntity);
         return "redirect:/admin/product/list";
     }

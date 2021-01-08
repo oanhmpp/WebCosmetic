@@ -15,11 +15,23 @@ public class TypeService {
     @Autowired
     private TypeRespository typeRespository;
 
-    public List<TypeEntity> findAll(){ return typeRespository.findAll();}
+    public List<TypeEntity> findAll() {
+        return typeRespository.findAll();
+    }
 
-    public Optional<TypeEntity> findOneById (Long idType){ return typeRespository.findById(idType);}
+    public Optional<TypeEntity> findOneById(Long idType) {
+        return typeRespository.findById(idType);
+    }
 
-    public void save (TypeEntity typeEntity) { typeRespository.save(typeEntity);}
+    public void save(TypeEntity typeEntity) {
+        typeRespository.save(typeEntity);
+    }
 
-    public void delete(Long id){   typeRespository.deleteById(id);   }
+    public void delete(Long id) {
+        typeRespository.deleteById(id);
+    }
+
+    public List<TypeEntity> findByIdIn(Long[] type) {
+        return typeRespository.findByIdTypeIn(type);
+    }
 }

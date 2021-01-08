@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <meta content="eCommerce HTML Template Free Download" name="keywords">
 <meta content="eCommerce HTML Template Free Download" name="description">
@@ -20,3 +21,5 @@
 <link href="<c:url value="/resources/web/lib/slick/slick-theme.css"/>" rel="stylesheet">
 <!-- Template Stylesheet -->
 <link href="<c:url value="/resources/web/css/style.css"/>" rel="stylesheet">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"><script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

@@ -1,5 +1,6 @@
 package cosmetic.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -7,6 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Getter
@@ -21,9 +23,13 @@ public class ProductEntity implements Serializable {
     @JoinColumn(name = "idBrand", nullable = false)
     private BrandEntity idBrand;
 
-    @ManyToOne
-    @JoinColumn(name = "idType", nullable = false)
-    private TypeEntity idType;
+    @JsonIgnore
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            joinColumns = @JoinColumn(name = "idProduct"),
+            inverseJoinColumns = @JoinColumn(name = "idType"))
+//    @JoinColumn(name = "idType", nullable = false)
+    private List<TypeEntity> idType;
 
     @Column
     private String image;

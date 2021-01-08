@@ -1,5 +1,6 @@
 package cosmetic.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -21,7 +22,8 @@ public class TypeEntity implements Serializable {
     @Column
     private String nameType;
 
-    @OneToMany(mappedBy = "idType")
+    @JsonIgnore
+    @ManyToMany(mappedBy = "idType",fetch = FetchType.LAZY)
     private List<ProductEntity> productEntities;
 
     public TypeEntity(Long idType, String nameType) {

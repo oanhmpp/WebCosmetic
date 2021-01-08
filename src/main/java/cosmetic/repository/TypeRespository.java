@@ -1,9 +1,10 @@
 package cosmetic.repository;
 
-import cosmetic.entity.BrandEntity;
 import cosmetic.entity.TypeEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface TypeRespository extends JpaRepository<TypeEntity, Long> {
+import java.util.List;
 
+public interface TypeRespository extends JpaRepository<TypeEntity, Long> {
+    List<TypeEntity> findByIdTypeIn(Long[] id);
 }

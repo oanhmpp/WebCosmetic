@@ -31,59 +31,39 @@
                 </form>
 
                 <form:form style="width: 100%" modelAttribute="product" method="post" action="/admin/product/added">
-                    <div class="col-sm-12" style="    height: 250px;    padding: 20px;">
+                    <div class="col-sm-12" style="    height: 360px;    padding: 20px;">
                         <div class="col-sm-6" style="float: left">
-                            <div class="form-group row">
-<%--                                <label class="col-sm-4 col-form-label">*ID Product: </label>--%>
-<%--                                <div class="col-sm-6">--%>
-<%--                                    <form:input path="idProduct"/>--%>
-<%--                                </div>--%>
-                            </div>
-                            <div class="form-group row">
+                            <div class="form-group">
                                 <label class="col-sm-4 col-form-label">*Name Product</label>
-                                <div class="col-sm-6">
-                                    <form:input path="nameProduct"/>
-                                </div>
+                                <form:input path="nameProduct" cssClass="form-control"/>
                             </div>
-                            <div class="form-group row">
-                                <div class="col-sm-4 col-form-label">ID Brand</div>
-                                <div class="col-sm-6">
-                                    <form:select path="idBrand.idBrand">
-                                        <c:forEach var="brand" items="${listBrand}">
-                                            <option value="${brand.idBrand}">${brand.nameBrand}</option>
-                                        </c:forEach>
-                                    </form:select>
-                                </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 col-form-label">*ID Brand</label>
+                                <form:select path="idBrand.idBrand" cssClass="form-control">
+                                    <c:forEach var="brand" items="${listBrand}">
+                                        <option value="${brand.idBrand}">${brand.nameBrand}</option>
+                                    </c:forEach>
+                                </form:select>
                             </div>
-                            <div class="form-group row">
-                                <label class="col-sm-4 col-form-label">*ID Type:
-                                </label>
-                                <div class="col-sm-6">
-                                    <form:select path="idType.idType">
-                                        <c:forEach var="type" items="${listType}">
-                                            <option value="${type.idType}">${type.nameType}</option>
-                                        </c:forEach>
-                                    </form:select>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-6" style="float: right">
-                            <div class="form-group row">
-                                <label class="col-sm-4 col-form-label">Image</label>
-                                <div class="col-sm-6">
-                                    <div class="col-sm-12">
-                                        <div style="float: left" class="col-sm-3">
-                                            <img id="img_main" class="img_product" style="height: 50px; width: 50px"
+                            <div class="form-group">
+                                <label class="col-sm-4 col-form-label">*Image</label>
+                                <div class="">
+                                    <div class="d-flex " style="width: 100%">
+                                        <div style="margin-right: 10px" class="">
+                                            <img id="img_main" class="img_product" style="height: 60px; width: 60px"
                                                  src="${product.image}">
                                         </div>
                                             <%--                                        <c:forEach var="img" items="${arrImg}">--%>
-                                        <div style="float: left" class="col-sm-3">
-                                            <img id="img_detail_1" class="img_product" style="height: 50px; width: 50px"
+                                        <div style="margin-right: 10px" class="">
+                                            <img id="img_detail_1" class="img_product" style="height: 60px; width: 60px"
                                                  src="${img}">
-                                            <img id="img_detail_2" class="img_product" style="height: 50px; width: 50px"
+                                        </div>
+                                        <div style="margin-right: 10px" class="">
+                                            <img id="img_detail_2" class="img_product" style="height: 60px; width: 60px"
                                                  src="${img}">
-                                            <img id="img_detail_3" class="img_product" style="height: 50px; width: 50px"
+                                        </div>
+                                        <div style="margin-right: 10px" class="">
+                                            <img id="img_detail_3" class="img_product" style="height: 60px; width: 60px"
                                                  src="${img}">
                                         </div>
                                             <%--                                        </c:forEach>--%>
@@ -94,28 +74,38 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <label class="col-sm-4 col-form-label">Amount</label>
-                                <div class="col-sm-6">
-                                    <form:input path="amount"/>
-                                </div>
+                        </div>
+
+                        <div class="col-sm-6" style="float: left">
+                            <div class="form-group">
+                                <label class="col-sm-4 col-form-label">*Amount</label>
+                                <form:input path="amount" cssClass="form-control"/>
                             </div>
-                            <div class="form-group row">
-                                <label class="col-sm-4 col-form-label">Active</label>
-                                <div class="col-sm-6">
-                                    <form:select path="active">
-                                        <option value="1">Display</option>
-                                        <option value="0">Not display</option>
-                                    </form:select>
-                                </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 col-form-label">*Active</label>
+                                <form:select path="active" cssClass="form-control">
+                                    <option value="1">Display</option>
+                                    <option value="0">Not display</option>
+                                </form:select>
                             </div>
-                            <div class="form-group row">
-                                <label class="col-sm-4 col-form-label">Description</label>
-                                <div class="col-sm-6">
-                                    <form:textarea cssStyle="height: 100px" path="detailProductEntity.description"/>
-                                </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 col-form-label">*Description</label>
+                                <form:textarea cssClass="form-control" cssStyle="height: 100px" path="detailProductEntity.description"/>
                             </div>
 
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">*ID Type:
+                            </label>
+                            <div class="form-control" style="    height: 100%;">
+                                <c:forEach var="type" items="${listType}">
+                                    <input type="checkbox" class="custom-checkbox" name="type" style="margin-left: 20px"
+                                           value="${type.idType}">${type.nameType}
+                                </c:forEach>
+                            </div>
                         </div>
                     </div>
                     <div class="col-sm-12 d-flex justify-content-center">
