@@ -3,7 +3,6 @@ package cosmetic.service;
 import cosmetic.entity.DetailProductEntity;
 import cosmetic.entity.ProductEntity;
 import cosmetic.repository.ProductDetailRepository;
-import cosmetic.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,4 +27,5 @@ public class ProductDetailService {
     public void delete(Long id){
         productDetailRepository.deleteById(id);
     }
+
 }

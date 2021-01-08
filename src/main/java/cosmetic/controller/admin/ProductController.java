@@ -82,6 +82,9 @@ public class ProductController {
                         @Valid @ModelAttribute("product") ProductEntity productEntity,
                         @RequestParam("type") Long[] type) {
 
+//        if(type.length == 0){
+//            return "redirect:/admin/product/edit";
+//        }
         List<TypeEntity> typeEntityList = typeService.findByIdIn(type);
         productEntity.setIdType(typeEntityList);
         productEntity.getDetailProductEntity().setProductEntity(productEntity);

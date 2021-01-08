@@ -27,14 +27,14 @@ public class ProductDetailController {
         model.addAttribute("product", productEntity);
         model.addAttribute("productDetail", detailProduct);
 
+        model.addAttribute("productRandom",productService.findRandomPro());
+
         String img = detailProduct.getImage();
         String[] arrImg = img.split("~");
 
         model.addAttribute("arrImg",arrImg);
 
         model.addAttribute("order",new OrdersEntity());
-
-        model.addAttribute("listProByName",productService.findOneByName(productEntity.getNameProduct()));
 
         return "web/product-detail";
     }

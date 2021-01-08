@@ -31,7 +31,7 @@
                 </form>
 
                 <form:form style="width: 100%" modelAttribute="product" method="post" action="/admin/product/edit">
-                    <div class="col-sm-12" style="    height: 360px;    padding: 20px;">
+                    <div class="col-sm-12" style="    height: 440px;    padding: 20px;">
                         <div class="col-sm-6" style="float: left">
                             <div class="form-group">
                                 <label class="col-sm-4 col-form-label">*Name Product</label>
@@ -56,15 +56,15 @@
                                             <%--                                        <c:forEach var="img" items="${arrImg}">--%>
                                         <div style="margin-right: 10px" class="">
                                             <img id="img_detail_1" class="img_product" style="height: 60px; width: 60px"
-                                                 src="${img}">
+                                                 src="${arrImg1}">
                                         </div>
                                         <div style="margin-right: 10px" class="">
                                             <img id="img_detail_2" class="img_product" style="height: 60px; width: 60px"
-                                                 src="${img}">
+                                                 src="${arrImg2}">
                                         </div>
                                         <div style="margin-right: 10px" class="">
                                             <img id="img_detail_3" class="img_product" style="height: 60px; width: 60px"
-                                                 src="${img}">
+                                                 src="${arrImg3}">
                                         </div>
                                             <%--                                        </c:forEach>--%>
                                         <form:hidden path="detailProductEntity.idProduct" required="required"/>
@@ -74,6 +74,10 @@
                                                      required="required"/>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 col-form-label">*Price</label>
+                                <form:input path="price" cssClass="form-control"/>
                             </div>
                         </div>
 
@@ -91,7 +95,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-4 col-form-label">*Description</label>
-                                <form:textarea cssClass="form-control" cssStyle="height: 100px" path="detailProductEntity.description"/>
+                                <form:textarea cssClass="form-control" rows="10" path="detailProductEntity.description"/>
                             </div>
 
                         </div>
@@ -103,8 +107,16 @@
                             </label>
                             <div class="form-control" style="    height: 100%;">
                                 <c:forEach var="type" items="${listType}">
-                                    <input type="checkbox" class="custom-checkbox" name="type" style="margin-left: 20px"
-                                           value="${type.idType}">${type.nameType}
+                                    <c:forEach var="typeProduct" items="${product.idType}">
+                                        <c:if test="${type.idType==typeProduct.idType}">
+                                          <input checked type="checkbox" class="custom-checkbox" name="type" style="margin-left: 20px"
+                                          value="${type.idType}">${type.nameType}
+                                        </c:if>
+                                        <c:if test="${type.idType!=typeProduct.idType}">
+                                            <input type="checkbox" class="custom-checkbox" name="type" style="margin-left: 20px"
+                                                   value="${type.idType}">${type.nameType}
+                                        </c:if>
+                                    </c:forEach>
                                 </c:forEach>
                             </div>
                         </div>

@@ -53,9 +53,6 @@ public class ProductEntity implements Serializable {
 //    @Transient
 //    private MultipartFile fileImageProduct;
 
-    public ProductEntity() {
-
-    }
 
 
 }

@@ -31,7 +31,7 @@
                 </form>
 
                 <form:form style="width: 100%" modelAttribute="product" method="post" action="/admin/product/added">
-                    <div class="col-sm-12" style="    height: 360px;    padding: 20px;">
+                    <div class="col-sm-12" style="    height: 440px;    padding: 20px;">
                         <div class="col-sm-6" style="float: left">
                             <div class="form-group">
                                 <label class="col-sm-4 col-form-label">*Name Product</label>
@@ -66,13 +66,16 @@
                                             <img id="img_detail_3" class="img_product" style="height: 60px; width: 60px"
                                                  src="${img}">
                                         </div>
-                                            <%--                                        </c:forEach>--%>
                                         <form:hidden path="detailProductEntity.idProduct" required="required"/>
                                         <form:hidden id="input_image" path="image" required="required"/>
                                         <form:hidden id="input_image_detail" path="detailProductEntity.image"
                                                      required="required"/>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 col-form-label">*Price</label>
+                                <form:input path="price" cssClass="form-control"/>
                             </div>
                         </div>
 
@@ -90,7 +93,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-4 col-form-label">*Description</label>
-                                <form:textarea cssClass="form-control" cssStyle="height: 100px" path="detailProductEntity.description"/>
+                                <form:textarea cssClass="form-control" rows="10" path="detailProductEntity.description"/>
                             </div>
 
                         </div>

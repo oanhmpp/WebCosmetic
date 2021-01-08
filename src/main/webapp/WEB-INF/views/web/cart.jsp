@@ -41,6 +41,7 @@
                                     </thead>
                                     <tbody class="align-middle">
                                         <tr>
+
                                             <td>
                                                 <div class="img">
                                                     <a href="#"><img src="<c:url value="/resources/web/img/product-1.jpg" />"alt="Image"></a>

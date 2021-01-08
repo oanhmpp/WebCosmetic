@@ -43,7 +43,6 @@
                                                 </th>
                                                 <th>Name Product</th>
                                                 <th>ID Brand</th>
-                                                <th>ID Type</th>
                                                 <th>Image</th>
                                                 <th>Amount</th>
                                                 <th>Price</th>

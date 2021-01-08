@@ -31,6 +31,15 @@ public class Upload {
             descFile.getParentFile().mkdirs();
         }
 
+        int i = 1;
+        while (descFile.exists()){
+            String path = descFile.getParent();
+            fileName = i + fileName;
+            descFile = new File(path+File.separator+fileName);
+            i++;
+
+        }
+
         try {
             file.transferTo(descFile);
         } catch (Exception e) {
