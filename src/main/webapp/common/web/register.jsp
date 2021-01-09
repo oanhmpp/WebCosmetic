@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@include file="/resources/lib/ajaxRegistration.js" %>
 
 <div class="col-lg-6 ">
     <div class="register-form">
