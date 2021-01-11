@@ -43,15 +43,43 @@
                         </div>
                     </div>
                 </div>
-                <div class="navbar-nav ml-auto">
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">User Account</a>
-                        <div class="dropdown-menu">
-                            <a href="<c:url value="/login"/>" class="dropdown-item">Login</a>
-                            <a href="<c:url value="/register"/>" class="dropdown-item">Register</a>
+
+                <c:if test="${userDetail==null}">
+                    <div class="navbar-nav ml-auto">
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">User Account</a>
+                            <div class="dropdown-menu">
+                                <a href="<c:url value="/login"/>" class="dropdown-item">Login</a>
+                                <a href="<c:url value="/register"/>" class="dropdown-item">Register</a>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </c:if>
+                <c:if test="${userDetail!=null}">
+                    <div class="navbar-nav ml-auto">
+                        <div class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown">
+                                        ${userDetail.getUsername()}
+                                </a>
+                            <div class="dropdown-menu">
+                                <c:if test="${userDetail.isAdmin()}">
+                                    <a class="dropdown-item" href="/admin" >
+                                           ADMIN
+                                    </a>
+                                </c:if>
+                                <c:if test="${!userDetail.isAdmin()}">
+                                    <a class="dropdown-item" >
+                                        My account
+                                    </a>
+                                </c:if>
+                                <a href="<c:url value="/logout"/>"
+                                   class="dropdown-item">Logout</a>
+                            </div>
+                        </div>
+                    </div>
+                </c:if>
+
+
             </div>
         </nav>
     </div>

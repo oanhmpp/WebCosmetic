@@ -1,4 +1,7 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -29,8 +32,32 @@
         <div class="row" style="">
             <center>
                 <%--    login--%>
-                <%@include file="/common/web/login.jsp" %>
-                <%--    register--%>
+                    <div class="col-lg-6">
+                        <form name='f' method="post" action="/login">
+                        <div class="login-form">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Your Email: </label>
+                                    <input type='text' name='email' value=''>
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Password: </label>
+                                    <input type='password' name='password' />
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox"  name="remember-me" class="custom-control-input" id="newaccount">
+<%--                                        name là mặc định--%>
+                                        <label class="custom-control-label" for="newaccount">Keep me signed in</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <input name="submit" type="submit" value="submit" />
+                                </div>
+                            </div>
+                        </div>
+                        </form>
+                    </div>                <%--    register--%>
             </center>
         </div>
 

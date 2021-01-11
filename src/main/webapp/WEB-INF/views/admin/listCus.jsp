@@ -41,7 +41,6 @@
                                                 <th>ID Customer</th>
                                                 <th>Name Customer</th>
                                                 <th>Email</th>
-                                                <th>Password/th>
                                                 <th>Role</th>
                                                 <th>Edit</th>
                                                 <th>Delete</th>
@@ -49,25 +48,32 @@
                                             </thead>
                                             <tbody>
                                             <p>
-                                                Total Product: <b id="total">${listCus.size()}</b>
+                                                Total Customer: <b id="total">${listCus.size()}</b>
                                             </p>
-                                            <c:forEach var="brand" items="${listCus}">
+                                            <c:forEach var="cus" items="${listCus}">
                                                 <tr>
-                                                    <td>${brand.idCustomer }</td>
-                                                    <td>${brand.nameCustomer }</td>
-                                                    <td>${brand.email }</td>
-                                                    <td>${brand.password }</td>
-                                                    <td>${brand.role }</td>
+                                                    <td>${cus.idCustomer }</td>
+                                                    <td>${cus.nameCustomer }</td>
+                                                    <td>${cus.email }</td>
+                                                    <c:forEach var="role" items="${cus.roleEntityList}">
+                                                        <c:if test="${role.idRole == 2}">
+                                                            <td>USER</td>
+                                                        </c:if>
+                                                        <c:if test="${role.idRole == 1}">
+                                                            <td>ADMIN</td>
+                                                        </c:if>
+                                                    </c:forEach>
+                                                        <%--                                                    <td>${cus.roleEntityList. }</td>--%>
                                                     <td>
                                                             <%--                                                        <div class="d-flex justify-content-center">--%>
-                                                        <a href="${pageContext.request.contextPath}/admin/brand/edit?idCustomer=${listCus.idCustomer}"><i
+                                                        <a href="${pageContext.request.contextPath}/admin/customer/edit?id=${cus.idCustomer}"><i
                                                                 class="fas fa-pen"></i></a>
                                                             <%--                                                        </div>--%>
                                                     </td>
                                                     <td>
                                                             <%--                                                        <div class="d-flex justify-content-center">--%>
                                                         <a onclick="return confirm('Do you want to delete ?')"
-                                                           href="${pageContext.request.contextPath}/admin/brand/delete?idCustomer=${listCus.idCustomer}"><i
+                                                           href="${pageContext.request.contextPath}/admin/customer/delete?id=${cus.idCustomer}"><i
                                                                 class="fas fa-trash"></i></a>
                                                             <%--                                                        </div>--%>
                                                     </td>
@@ -77,7 +83,7 @@
                                             <div class="col-md-12">
                                                 <a href="${pageContext.request.contextPath}/admin/customer/add" style="    color: white;    float: right;
                                                     margin-left: 100px;    background: #007ddc;    padding: 10px;">Add
-                                                    Brand</a>
+                                                    Customer</a>
                                             </div>
                                         </table>
                                     </div>

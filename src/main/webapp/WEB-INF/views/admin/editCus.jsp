@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Edit Customer</title>
+    <title>Add Customer</title>
     <%@include file="/common/admin/head.jsp" %>
 </head>
 <body>
@@ -30,50 +30,63 @@
                     <input type="file" name="file" id="fileUpload" style="visibility: hidden"/>
                 </form>
 
-                <form:form style="width: 100%" modelAttribute="customer" method="post" action="/admin/brand/edit">
+                <form:form style="width: 100%" modelAttribute="customer" method="post" action="/admin/customer/edit">
                 <div class="col-sm-12" style="    height: 250px;    padding: 20px;">
                     <div style="float: left" class="col-sm-6">
-                    <div class="form-group row">
-                        <label class="col-sm-4 col-form-label">*ID Customer: </label>
-                        <div class="col-sm-6">
-                            <form:hidden path="idCustomer"/>
-                            <input value="${customer.idCustomer}" disabled>
+                        <form:hidden path="idCustomer"/>
+                        <div class="form-group">
+                            <label class="col-sm-4 col-form-label">*Name Customer</label>
+                            <div class="col-sm-6">
+                                <form:input cssClass="form-control" path="nameCustomer"/>
+                                <form:errors path="nameCustomer" cssStyle="color: red" cssClass="error"/>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label class="col-sm-4 col-form-label">*Email</label>
+                            <div class="col-sm-6">
+                                <form:input cssClass="form-control" path="email"/>
+                                <span style="color: red" id="errId"></span>
+                            <%--   <form:errors path="email" cssStyle="color: red" cssClass="error"/>--%>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label class="col-sm-4 col-form-label">*Phone</label>
+                            <div class="col-sm-6">
+                                <form:input cssClass="form-control" path="phone"/>
+                                <form:errors path="phone" cssStyle="color: red" cssClass="error"/>
+                            </div>
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label class="col-sm-4 col-form-label">*Name Customer</label>
-                        <div class="col-sm-6">
-                            <form:input path="nameCustomer"/>
+                    <div style="float: right" class="col-sm-6">
+                        <div class="form-group ">
+                            <label class="col-sm-4 col-form-label">*Password</label>
+                            <div class="col-sm-6">
+                                <form:password cssClass="form-control" path="password"/>
+                                <form:errors path="password" cssStyle="color: red" cssClass="error"/>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label class="col-sm-4 col-form-label">*Re Password</label>
+                            <div class="col-sm-6">
+                                <form:password cssClass="form-control" path="rePass"/>
+                                <form:errors path="rePass" cssStyle="color: red" cssClass="error"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-4 col-form-label">*Role</label>
+                            <div class="col-sm-6" style="padding: 10px">
+                                <form:radiobutton path="roleEntityList[0].idRole" value="1"/>
+                                <span>ADMIN</span>
+                                <form:radiobutton  checked = "checked" path="roleEntityList[0].idRole" value="2"/>
+                                <span>USER</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label class="col-sm-4 col-form-label">*Email</label>
-                        <div class="col-sm-6">
-                            <form:input path="email"/>
-                        </div>
-                    </div>
-                    </div>
-                    <div class="col-sm-6" style="float: right">
-                    <div class="form-group row">
-                        <label class="col-sm-4 col-form-label">*Password</label>
-                        <div class="col-sm-6">
-                            <form:input path="password"/>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-4 col-form-label">*Role</label>
-                        <div class="col-sm-6">
-                            <form:select path="roleEntityList">
-                                <option value="1">Admin</option>
-                                <option value="0"></option>
-                            </form:select>
-                        </div>
-                    </div>
-                    <                                                                   /div>
+
                     <div class="col-sm-12 d-flex justify-content-center">
                         <div class="form-group row">
                             <div class="col-sm-10">
-                                <input type="submit" value="OK"/>
+                                <input id="submit" type="submit" value="OK"/>
                             </div>
                         </div>
                     </div>
@@ -108,6 +121,29 @@
 <!-- Custom JS File -->
 <script src="<c:url value="/resources/admin/assets/js/custom.js"/>"></script>
 <script src="<c:url value="/resources/js/admin_js.js"/>"></script>
-
+<script>
+    $(function () {
+        $('#email').keyup(function (e) {
+            var email = $('#email').val();
+            $.ajax({
+                url: '/admin/customer/checkEmail',
+                type: 'POST',
+                data: {
+                    email: email
+                },
+                success: function (result) {
+                    if (result) {
+                        $('#errId').html("");
+                    } else {
+                        $('#errId').html("Email is exist");
+                    }
+                },
+                error: function (error) {
+                    alert("Error")
+                }
+            });
+        });
+    });
+</script>
 </body>
 </html>

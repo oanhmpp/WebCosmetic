@@ -1,4 +1,4 @@
-package cosmetic.service;
+package cosmetic.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
@@ -26,7 +26,7 @@ public class WebConfig implements WebMvcConfigurer
         registry.addViewController("/").setViewName("index");
         registry.addViewController("/login").setViewName("login");
         //registry.addViewController("/home").setViewName("userhome");
-        registry.addViewController("/admin/home").setViewName("adminhome");
+        registry.addViewController("/admin").setViewName("admin");
         //registry.addViewController("/403").setViewName("403");
     }
 

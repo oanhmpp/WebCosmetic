@@ -1,12 +1,12 @@
 package cosmetic.service;
 
 import cosmetic.entity.CustomerEntity;
-import cosmetic.entity.ProductEntity;
 import cosmetic.repository.CustomerRespository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CustomerService {
@@ -24,5 +24,9 @@ public class CustomerService {
 
     public void delete(Long id){
         customerRespository.deleteById(id);
+    }
+
+    public List<CustomerEntity> findByEmail(String value) {
+       return customerRespository.findByEmail(value);
     }
 }

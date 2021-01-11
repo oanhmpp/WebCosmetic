@@ -2,14 +2,16 @@ package cosmetic.controller.admin;
 
 import cosmetic.entity.BrandEntity;
 import cosmetic.entity.CustomerEntity;
-import cosmetic.service.BrandService;
 import cosmetic.service.CustomerService;
+import cosmetic.validator.CustomerValidate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -36,9 +38,20 @@ public class CustomerController {
     }
 
     @PostMapping("edit")
-    public String edited(Model model, @Valid @ModelAttribute("customer") CustomerEntity customerEntity) {
-        customerService.save(customerEntity);
-        return "redirect:/admin/customer/list";
+    public String edited(Model model,
+                         @Valid @ModelAttribute("customer") CustomerEntity customerEntity,
+                         CustomerValidate customerValidate,
+                         BindingResult result) {
+
+        customerValidate.validateAdmin(customerEntity,result);
+        if (result.hasErrors()) {
+            System.out.println("Loi");
+            return "/admin/editCus";
+        }
+        else {
+            customerService.save(customerEntity);
+            return "redirect:/admin/customer/list";
+        }
     }
 
     @GetMapping("delete")
@@ -53,9 +66,34 @@ public class CustomerController {
         return "admin/addCus";
     }
 
-    @PostMapping("added")
-    public String added(Model model, @Valid @ModelAttribute("customer") CustomerEntity customerEntity) {
-        customerService.save(customerEntity);
-        return "redirect:/admin/customer/list";
+    @PostMapping("add")
+    public String added(Model model, CustomerValidate customerValidate,
+                        @Valid @ModelAttribute("customer") CustomerEntity customerEntity,
+                        BindingResult result) {
+//        customerValidate.validateExist(customerEntity, result, customerService.findByEmail(customerEntity.getEmail()).isEmpty());
+        customerValidate.validate(customerEntity,result);
+        if (result.hasErrors()) {
+            System.out.println("Loi");
+            return "/admin/addCus";
+        }
+        else {
+            customerService.save(customerEntity);
+            return "redirect:/admin/customer/list";
+        }
+    }
+
+    @RequestMapping("checkEmail")
+    public @ResponseBody boolean checkEmail(CustomerValidate customerValidate,
+                             @Valid @ModelAttribute("customer") CustomerEntity customerEntity,
+                             BindingResult result,
+                             @RequestParam("email") String email){
+        System.out.println(email);
+        List<CustomerEntity> check = customerService.findByEmail(email);
+        if(check.isEmpty()){
+            return true;
+        }
+        else {
+           return false;
+        }
     }
 }

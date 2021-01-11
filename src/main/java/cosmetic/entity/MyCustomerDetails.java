@@ -1,17 +1,16 @@
-package cosmetic.model;
+package cosmetic.entity;
 
 import cosmetic.entity.CustomerEntity;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 
 public class MyCustomerDetails implements UserDetails {
 
-    private CustomerEntity customer;
+    private final CustomerEntity customer;
 
     public MyCustomerDetails(CustomerEntity customer) {
         this.customer = customer;
@@ -19,8 +18,19 @@ public class MyCustomerDetails implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        SimpleGrantedAuthority authority = new SimpleGrantedAuthority(customer.getRoleEntityList().get(0).getIdRole()+"");
+        SimpleGrantedAuthority authority = new SimpleGrantedAuthority(customer.getRoleEntityList().get(0).getNameRole());
         return Collections.singletonList(authority);
+    }
+
+    public boolean isAdmin(){
+        for (int i =0; i < customer.getRoleEntityList().size();i++){
+            if(customer.getRoleEntityList().get(i).getIdRole() == 1){
+           return true;
+            }else {
+                return false;
+            }
+        }
+        return false;
     }
 
     @Override

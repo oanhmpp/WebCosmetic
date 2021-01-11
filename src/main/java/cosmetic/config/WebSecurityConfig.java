@@ -1,4 +1,6 @@
-package cosmetic.service;
+package cosmetic.config;
+
+import cosmetic.service.CustomerServiceIml;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.*;
 import org.springframework.security.authentication.dao.*;
@@ -16,13 +18,16 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import javax.sql.DataSource;
 
 @Configuration
+
+//sẽ kích hoạt việc tích hợp Spring Security với Spring MVC.
 @EnableWebSecurity
+
 @EnableGlobalMethodSecurity(securedEnabled = true, proxyTargetClass = true)
 
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    private UserDetailsService customUserDetailsService;
+    private CustomerServiceIml customUserDetailsService;
 
     @Autowired
     private DataSource dataSource;
@@ -40,42 +45,49 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Override
+    // cau hinh chi tiet ve bao mat
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .headers()
                 .frameOptions().sameOrigin()
                 .and()
                 .authorizeRequests()
-//                .antMatchers("/resources/**", "/webjars/**","/assets/**").permitAll()
-//                .antMatchers("/","/home").permitAll()//cho controller / vuot qua ma k can dang nnhap
+                // khai báo đường dẫn của request
                 .antMatchers("/admin/**").hasRole("ADMIN")//dang nhap voi quyen admin để vầy mọi requét đều vô dc trừ admin thì muốn vo admin phải đăng nhập đó
-//                .anyRequest().authenticated()
                 .and()
                 .formLogin()
+                // truyen parameter
+                .passwordParameter("password")
+                .usernameParameter("email")
                 .loginPage("/login")
-                .defaultSuccessUrl("/home")
+                .defaultSuccessUrl("/")
                 .failureUrl("/login?error")
-                .permitAll()
+
+                // cho phep tat ca deu duoc truy cap
+//                .permitAll()
                 .and()
-                .logout()
-                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                .logoutSuccessUrl("/login?logout")
-                .deleteCookies("my-remember-me-cookie")
-                .permitAll()
-                .and()
+//                .logout()
+//                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+//                .logoutSuccessUrl("/login?logout")
+//                .deleteCookies("my-remember-me-cookie")
+//                .permitAll()
+//                .and()
                 .rememberMe()
-                //.key("my-secure-key")
-                .rememberMeCookieName("my-remember-me-cookie")
-                .tokenRepository(persistentTokenRepository())
-                .tokenValiditySeconds(24 * 60 * 60)
+                .key("my-secure-key")
+//                .rememberMeCookieName("my-remember-me-cookie")
+//                .tokenRepository(persistentTokenRepository())
+//                .tokenValiditySeconds(24 * 60 * 60)
                 .and()
                 .exceptionHandling()
+
+                // tat loi 403
+                .and().csrf().disable()
         ;
     }
 
-    PersistentTokenRepository persistentTokenRepository(){
-        JdbcTokenRepositoryImpl tokenRepositoryImpl = new JdbcTokenRepositoryImpl();
-        tokenRepositoryImpl.setDataSource(dataSource);
-        return tokenRepositoryImpl;
-    }
+//    PersistentTokenRepository persistentTokenRepository() {
+//        JdbcTokenRepositoryImpl tokenRepositoryImpl = new JdbcTokenRepositoryImpl();
+//        tokenRepositoryImpl.setDataSource(dataSource);
+//        return tokenRepositoryImpl;
+//    }
 }

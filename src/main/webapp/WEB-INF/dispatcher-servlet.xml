@@ -31,6 +31,10 @@
         <property name="maxUploadSizePerFile" value="1048576"/> <!-- 1MB -->
     </bean>
 
+    <mvc:interceptors>
+        <bean class="cosmetic.interceptor.LoginInterceptor"/>
+    </mvc:interceptors>
+
     <mvc:resources mapping="/resources/**" location="/resources/"/>
     <mvc:resources mapping="/common/**" location="/common/"/>
     <mvc:resources mapping="/upload/**" location="/upload/"/>
