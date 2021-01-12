@@ -228,7 +228,6 @@
             <c:forEach var="product" items="${listProduct}">
                 <div class="col-lg-3">
                     <div class="product-item">
-                        <input hidden id="idProduct" value="${product.idProduct}"/>
                         <div class="product-title">
                             <a href="">${product.nameProduct}</a>
                             <div class="ratting">
@@ -239,14 +238,14 @@
                                 <i class="fa fa-star"></i>
                             </div>
                         </div>
-                        <div class="product-image">
+                        <div class="product-image"  style="width: 284px;height: 284px">
                             <a href="<c:url value="/productDetail?idProduct=${product.idProduct}"/>">
                                 <img src="<c:url value="${product.image}"/>" alt="Product Image">
                             </a>
                         </div>
                         <div class="product-price">
                             <h3><span>$</span>${product.price}</h3>
-                            <a class="btn btnBuyNow"  href=""><i class="fa fa-shopping-cart"></i>Buy Now</a>
+                            <a class="btn btnAddToCart"  href=""><span hidden class="idProduct" >${product.idProduct}</span><i class="fa fa-shopping-cart"></i>Add to cart</a>
                         </div>
                     </div>
                 </div>
@@ -294,14 +293,14 @@
                                 <i class="fa fa-star"></i>
                             </div>
                         </div>
-                        <div class="product-image">
+                        <div class="product-image" style="width: 284px;height: 284px">
                             <a href="<c:url value="/productDetail?idProduct=${product.idProduct}"/>">
                                 <img src="<c:url value="${product.image}"/>" alt="Product Image">
                             </a>
                         </div>
                         <div class="product-price">
                             <h3><span>$</span>${product.price}</h3>
-                            <a class="btn btnBuyNow"  href=""><i class="fa fa-shopping-cart"></i>Buy Now</a>
+                            <a class="btn btnAddToCart"  href=""><span hidden class="idProduct" >${product.idProduct}</span><i class="fa fa-shopping-cart"></i>Add to cart</a>
                         </div>
                     </div>
                 </div>

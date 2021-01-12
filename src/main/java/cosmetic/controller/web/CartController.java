@@ -32,18 +32,6 @@ public class CartController {
     @Autowired
     CustomerService customerService;
 
-    @RequestMapping("/buyNow")
-    public @ResponseBody
-    boolean buyNow(Model model, @RequestParam("idProduct") Long idProduct) {
-        if (SecurityUtil.getPrincipal() != null) {
-            System.out.println("da dang nhap");
-            return true;
-        } else {
-            System.out.println("You need to login");
-            return false;
-        }
-    }
-
     @RequestMapping("/cart")
     public String cart(Model model) {
         CustomerEntity customerEntity = customerService.findOneByEmail(SecurityUtil.getPrincipal().getUsername());
@@ -70,7 +58,7 @@ public class CartController {
             productEntity.setIdProduct(idProduct);
             cartEntity.setProductEntity(productEntity);
             cartEntity.setCustomerEntity(customerEntity);
-            CartEntity entity = cartService.findOneByProductEntity_IdProduct(idProduct);
+            CartEntity entity = cartService.findByCustomerEntity_IdCustomerAndProductEntity_IdProduct(customerEntity.getIdCustomer(),idProduct);
             if (entity == null) {
                 cartEntity.setNumber(1);
             } else {
@@ -80,7 +68,7 @@ public class CartController {
             cartService.save(cartEntity);
             return " Added to cart";
         } else {
-            return "Error adding product";
+            return "You need to login";
         }
     }
 

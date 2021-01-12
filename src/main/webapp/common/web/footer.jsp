@@ -118,9 +118,9 @@
             });
         }
         // add to cart
-        $('#btnAddToCart').click(function (e) {
+        $('.btnAddToCart').click(function (e) {
             e.preventDefault(); // k load lai trang
-            var idProduct = $('#idProduct').val();
+            var idProduct = $(this).find("span").html();
             $.ajax({
                 url: '/addToCart',
                 type: 'GET',
@@ -140,9 +140,10 @@
         // chuc nang mua ngay
         $('.btnBuyNow').click(function (e) {
             e.preventDefault(); // k load lai trang
-            var idProduct = $('#idProduct').val();
+            var idProduct = $('.idProduct').html();
+            alert(idProduct)
             $.ajax({
-                url: '/buyNow',
+                url: '/addToCart',
                 type: 'GET',
                 data: {
                     idProduct: idProduct,

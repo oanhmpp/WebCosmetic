@@ -55,8 +55,9 @@
                                     </div>
                                 </div>
                                 <div class="action">
-                                    <a class="btn" id="btnAddToCart" href=""><i class="fa fa-shopping-cart"></i>Add to
+                                    <a class="btn" class="btnAddToCart" href=""><span hidden class="idProduct" >${product.idProduct}</span><i class="fa fa-shopping-cart"></i>Add to
                                         Cart</a>
+
                                     <a class="btn btnBuyNow" href=""><i
                                             class="fa fa-shopping-bag"></i>Buy Now</a>
                                 </div>
@@ -78,7 +79,6 @@
                                 <p style="font-size: 30px">
                                     ${productDetail.description}
                                 </p>
-                                <input hidden id="idProduct" value="${productDetail.idProduct}"/>
                             </div>
                             <div id="specification" class="container tab-pane fade">
                                 <h4>Product specification</h4>
@@ -145,7 +145,7 @@
                             <div class="col-lg-3">
                                 <div class="product-item">
                                     <div class="product-title">
-                                        <a href="#">${proRandom.nameProduct}</a>
+                                        <a href="">${proRandom.nameProduct}</a>
                                         <div class="ratting">
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>

@@ -16,7 +16,7 @@
 
         <div class="col-lg-6 ">
             <div class="register-form">
-                <form:form modelAttribute="order" method="post" action="/payment/order">
+                <form:form modelAttribute="order" method="post" action="/payment/detailOrder">
                     <div class="row">
                         <div class="col-md-6">
                             <label>Your name: </label>

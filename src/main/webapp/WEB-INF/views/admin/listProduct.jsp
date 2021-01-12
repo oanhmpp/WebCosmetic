@@ -101,6 +101,7 @@
                 </div>
             </section>
         </div>
+        <!-- Main Content -->
         <footer class="main-footer">
             <div class="footer-left">
                 <a href="templateshub.net">Templateshub</a></a>
