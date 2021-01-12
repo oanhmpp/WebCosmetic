@@ -98,3 +98,119 @@
 
 <!-- Template Javascript -->
 <script src="<c:url value="/resources/web/js/main.js"/>"></script>
+
+<script>
+
+    // script bên addtocart
+    $(function () {
+        getSize();
+        function getSize() {
+            $.ajax({
+                url: '/getSize',
+                type: 'GET',
+                data: {},
+                success: function (result) {
+                    $('#numberProduct').html(result);
+                },
+                error: function (error) {
+                    alert("Error")
+                }
+            });
+        }
+        // add to cart
+        $('#btnAddToCart').click(function (e) {
+            e.preventDefault(); // k load lai trang
+            var idProduct = $('#idProduct').val();
+            $.ajax({
+                url: '/addToCart',
+                type: 'GET',
+                data: {
+                    idProduct: idProduct,
+                },
+                success: function (result) {
+                    alert(result);
+                    getSize();
+                },
+                error: function (error) {
+                    alert("Error")
+                }
+            });
+        });
+
+        // chuc nang mua ngay
+        $('.btnBuyNow').click(function (e) {
+            e.preventDefault(); // k load lai trang
+            var idProduct = $('#idProduct').val();
+            $.ajax({
+                url: '/buyNow',
+                type: 'GET',
+                data: {
+                    idProduct: idProduct,
+                },
+                success: function (result) {
+                    if(!result){
+                        alert("You need to login")
+                    } else {
+                        window.location.href = "/cart";
+                    }
+                },
+                error: function (error) {
+                    alert("Error")
+                }
+            });
+        });
+
+        // tang san pham
+        $('.btn-plus').click(function (e){
+            $.ajax({
+                url: "/increase",
+                method: 'GET',
+                data: {
+                    id : $(this).find("span").html()
+                },
+                success: function (result){
+                window.location.reload();
+                },
+                error: function (error){
+                    alert("Error")
+                }
+            })
+        });
+
+        //giam san pham
+        $('.btn-minus').click(function (e){
+            $.ajax({
+                url: "/decrease",
+                method: 'GET',
+                data: {
+                    id : $(this).find("span").html()
+                },
+                success: function (result){
+                    window.location.reload();
+                },
+                error: function (error){
+                    alert("Error")
+                }
+            })
+        });
+
+        // nut delete
+        $('.btn_delete').click(function (e){
+            $.ajax({
+                url: "/cart/delete",
+                method: 'GET',
+                data: {
+                    id : $(this).find("span").html()
+                },
+                success: function (result){
+                    window.location.reload();
+                },
+                error: function (error){
+                    alert("Error")
+                }
+            })
+        });
+
+    });
+</script>
+

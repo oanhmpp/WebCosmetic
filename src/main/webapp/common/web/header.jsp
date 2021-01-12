@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!-- Top bar Start -->
 <div class="top-bar">
@@ -30,21 +31,20 @@
                 <div class="navbar-nav mr-auto">
                     <a href="<c:url value="/"/>" class="nav-item nav-link active">Home</a>
                     <a href="<c:url value="/product"/>" class="nav-item nav-link">Products</a>
-                    <a href="<c:url value="/productDetail"/>" class="nav-item nav-link">Product Detail</a>
                     <a href="<c:url value="/cart"/>" class="nav-item nav-link">Cart</a>
-                    <a href="<c:url value="/checkout"/>" class="nav-item nav-link">Checkout</a>
                     <a href="<c:url value="/myAccount"/>" class="nav-item nav-link">My Account</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">More Pages</a>
                         <div class="dropdown-menu">
-                            <a href="<c:url value="/wishlist"/>" class="dropdown-item">Wishlist</a>
-                            <a href="<c:url value="/loginRegister"/>" class="dropdown-item">Login & Register</a>
+                            <a href="<c:url value="/login"/>" class="dropdown-item">Login</a>
+                            <a href="<c:url value="/register"/>" class="dropdown-item">Register</a>
                             <a href="<c:url value="/contact"/>" class="dropdown-item">Contact Us</a>
                         </div>
                     </div>
                 </div>
 
-                <c:if test="${userDetail==null}">
+                <%--                <c:if test="${userDetail==null}">--%>
+                <security:authorize access="isAnonymous()">
                     <div class="navbar-nav ml-auto">
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">User Account</a>
@@ -54,21 +54,24 @@
                             </div>
                         </div>
                     </div>
-                </c:if>
-                <c:if test="${userDetail!=null}">
+                </security:authorize>
+                <%--                </c:if>--%>
+                <%--                <c:if test="${userDetail!=null}">--%>
+                <security:authorize access="isAuthenticated()">
                     <div class="navbar-nav ml-auto">
                         <div class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" data-toggle="dropdown">
-                                        ${userDetail.getUsername()}
-                                </a>
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown">
+                                  <security:authentication property="principal.customer.nameCustomer"/>
+<%--                                    ${userDetail.getUsername()}--%>
+                            </a>
                             <div class="dropdown-menu">
                                 <c:if test="${userDetail.isAdmin()}">
-                                    <a class="dropdown-item" href="/admin" >
-                                           ADMIN
+                                    <a class="dropdown-item" href="/admin">
+                                        ADMIN
                                     </a>
                                 </c:if>
                                 <c:if test="${!userDetail.isAdmin()}">
-                                    <a class="dropdown-item" >
+                                    <a class="dropdown-item">
                                         My account
                                     </a>
                                 </c:if>
@@ -77,7 +80,9 @@
                             </div>
                         </div>
                     </div>
-                </c:if>
+                </security:authorize>
+
+                <%--                </c:if>--%>
 
 
             </div>
@@ -92,7 +97,7 @@
         <div class="row align-items-center">
             <div class="col-md-3">
                 <div class="logo">
-                    <a href="#">
+                    <a href="/">
                         <img src="<c:url value="/resources/web/img/logo.png"/>" alt="Logo">
                     </a>
                 </div>
@@ -105,13 +110,9 @@
             </div>
             <div class="col-md-3">
                 <div class="user">
-                    <a href="#" class="btn wishlist">
-                        <i class="fa fa-heart"></i>
-                        <span>(0)</span>
-                    </a>
-                    <a href="#" class="btn cart">
+                    <a href="/cart" class="btn cart">
                         <i class="fa fa-shopping-cart"></i>
-                        <span>(0)</span>
+                        <span id="numberProduct"></span>
                     </a>
                 </div>
             </div>

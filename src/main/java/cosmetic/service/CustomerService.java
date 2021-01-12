@@ -29,4 +29,8 @@ public class CustomerService {
     public List<CustomerEntity> findByEmail(String value) {
        return customerRespository.findByEmail(value);
     }
+
+    public CustomerEntity findOneByEmail(String value){
+        return customerRespository.findOneByEmail(value);
+    }
 }

@@ -46,9 +46,25 @@
                             <div class="col-sm-6">
                                 <form:input cssClass="form-control" path="email"/>
                                 <span style="color: red" id="errId"></span>
-                            <%--   <form:errors path="email" cssStyle="color: red" cssClass="error"/>--%>
+                                    <%--   <form:errors path="email" cssStyle="color: red" cssClass="error"/>--%>
                             </div>
                         </div>
+                    </div>
+                    <div style="float: right" class="col-sm-6">
+                            <%--                        <div class="form-group ">--%>
+                            <%--                            <label class="col-sm-4 col-form-label">*Password</label>--%>
+                            <%--                            <div class="col-sm-6">--%>
+                            <%--                                <form:password cssClass="form-control" path="password"/>--%>
+                            <%--                                <form:errors path="password" cssStyle="color: red" cssClass="error"/>--%>
+                            <%--                            </div>--%>
+                            <%--                        </div>--%>
+                            <%--                        <div class="form-group ">--%>
+                            <%--                            <label class="col-sm-4 col-form-label">*Re Password</label>--%>
+                            <%--                            <div class="col-sm-6">--%>
+                            <%--                                <form:password cssClass="form-control" path="rePass"/>--%>
+                            <%--                                <form:errors path="rePass" cssStyle="color: red" cssClass="error"/>--%>
+                            <%--                            </div>--%>
+                            <%--                        </div>--%>
                         <div class="form-group ">
                             <label class="col-sm-4 col-form-label">*Phone</label>
                             <div class="col-sm-6">
@@ -56,28 +72,12 @@
                                 <form:errors path="phone" cssStyle="color: red" cssClass="error"/>
                             </div>
                         </div>
-                    </div>
-                    <div style="float: right" class="col-sm-6">
-                        <div class="form-group ">
-                            <label class="col-sm-4 col-form-label">*Password</label>
-                            <div class="col-sm-6">
-                                <form:password cssClass="form-control" path="password"/>
-                                <form:errors path="password" cssStyle="color: red" cssClass="error"/>
-                            </div>
-                        </div>
-                        <div class="form-group ">
-                            <label class="col-sm-4 col-form-label">*Re Password</label>
-                            <div class="col-sm-6">
-                                <form:password cssClass="form-control" path="rePass"/>
-                                <form:errors path="rePass" cssStyle="color: red" cssClass="error"/>
-                            </div>
-                        </div>
                         <div class="form-group">
                             <label class="col-sm-4 col-form-label">*Role</label>
                             <div class="col-sm-6" style="padding: 10px">
                                 <form:radiobutton path="roleEntityList[0].idRole" value="1"/>
                                 <span>ADMIN</span>
-                                <form:radiobutton  checked = "checked" path="roleEntityList[0].idRole" value="2"/>
+                                <form:radiobutton checked="checked" path="roleEntityList[0].idRole" value="2"/>
                                 <span>USER</span>
                             </div>
                         </div>

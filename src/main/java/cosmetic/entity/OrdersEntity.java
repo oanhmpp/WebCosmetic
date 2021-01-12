@@ -13,7 +13,8 @@ import java.util.List;
 @Setter
 public class OrdersEntity {
     @Id
-    private String idOrder;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long idOrder;
 
     private  String address;
 

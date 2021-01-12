@@ -1,6 +1,6 @@
 package cosmetic.interceptor;
 
-import cosmetic.until.SecurityUntil;
+import cosmetic.until.SecurityUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -10,11 +10,11 @@ import javax.servlet.http.HttpServletResponse;
 
 public class LoginInterceptor implements HandlerInterceptor {
     @Autowired
-    SecurityUntil securityUntil;
+    SecurityUtil securityUtil;
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
             throws Exception {
-        request.setAttribute("userDetail",securityUntil.getPrincipal());
+        request.setAttribute("userDetail", securityUtil.getPrincipal());
         return true;
     }
 

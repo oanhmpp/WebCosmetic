@@ -42,7 +42,6 @@ public class CustomerController {
                          @Valid @ModelAttribute("customer") CustomerEntity customerEntity,
                          CustomerValidate customerValidate,
                          BindingResult result) {
-
         customerValidate.validateAdmin(customerEntity,result);
         if (result.hasErrors()) {
             System.out.println("Loi");

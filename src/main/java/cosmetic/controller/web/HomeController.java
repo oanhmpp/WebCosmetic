@@ -2,6 +2,7 @@ package cosmetic.controller.web;
 
 import cosmetic.entity.MessageEntity;
 import cosmetic.repository.MessageRepository;
+import cosmetic.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,10 +14,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class HomeController {
     @Autowired
     private MessageRepository messageRepository;
+    @Autowired
+    private ProductService productService;
 
     @GetMapping("/")
-    public String showHome(){
-
+    public String showHome(Model model){
+        model.addAttribute("listProduct",productService.findRandomPro());
         return "web/index";
     }
 

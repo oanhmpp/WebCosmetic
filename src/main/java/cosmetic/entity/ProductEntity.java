@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
@@ -28,6 +30,7 @@ public class ProductEntity implements Serializable {
     @JoinTable(
             joinColumns = @JoinColumn(name = "idProduct"),
             inverseJoinColumns = @JoinColumn(name = "idType"))
+    @Fetch(value = FetchMode.SUBSELECT)
 //    @JoinColumn(name = "idType", nullable = false)
     private List<TypeEntity> idType;
 
@@ -52,7 +55,6 @@ public class ProductEntity implements Serializable {
 
 //    @Transient
 //    private MultipartFile fileImageProduct;
-
 
 
 }

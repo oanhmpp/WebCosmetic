@@ -1,6 +1,7 @@
 package cosmetic.entity;
 
 import cosmetic.entity.CustomerEntity;
+import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -8,6 +9,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.Collections;
 
+@Data
+
+// goi o dau cung duoc <security:authentication property="principal.customer.nameCustomer"/>
 public class MyCustomerDetails implements UserDetails {
 
     private final CustomerEntity customer;

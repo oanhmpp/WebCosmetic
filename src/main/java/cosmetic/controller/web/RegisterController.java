@@ -1,6 +1,7 @@
 package cosmetic.controller.web;
 
 import cosmetic.entity.CustomerEntity;
+import cosmetic.entity.RoleEntity;
 import cosmetic.repository.CustomerRespository;
 import cosmetic.repository.MessageRepository;
 import cosmetic.service.CustomerService;
@@ -16,6 +17,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class RegisterController {
@@ -33,7 +36,7 @@ public class RegisterController {
     }
 
     @PostMapping("/register")
-    public String registerCheckForm(Model model, CustomerValidate customerValidate, @Valid @ModelAttribute("customer") CustomerEntity customerEntity, BindingResult result) {
+    public String registerCheckForm(RoleEntity roleEntity,Model model, CustomerValidate customerValidate, @Valid @ModelAttribute("customer") CustomerEntity customerEntity, BindingResult result) {
         customerValidate.validateExist(customerEntity, result, customerService.findByEmail(customerEntity.getEmail()).isEmpty());
         customerValidate.validate(customerEntity,result);
         if (result.hasErrors()) {
@@ -41,7 +44,11 @@ public class RegisterController {
                 return "web/register";
         }
         else {
+            roleEntity.setIdRole(2L);
+            List<RoleEntity> list = new ArrayList<>();
+            list.add(roleEntity);
             customerEntity.setPassword(passwordEncoder.encode(customerEntity.getPassword()));
+            customerEntity.setRoleEntityList(list);
             customerService.save(customerEntity);
             model.addAttribute("customer", customerEntity);
             return "redirect:/";
