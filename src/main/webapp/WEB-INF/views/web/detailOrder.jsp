@@ -66,7 +66,7 @@
                 </div>
 
                 <div class="text-center mt-5 mb-5">
-                    <button class="btn btn-primary" href="/">Go Home</button>
+                    <button class="btn btn-primary" > <a href="/">Go Home</a></button>
                 </div>
             </div>
         </div>

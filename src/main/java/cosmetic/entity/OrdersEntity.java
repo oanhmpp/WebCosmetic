@@ -1,5 +1,6 @@
 package cosmetic.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -23,12 +24,15 @@ public class OrdersEntity {
     private int phone;
 
     @OneToMany(mappedBy = "order")
+    @JsonIgnore
     private List<DetailOrderEntity> detailOrderEntities;
 
-    @ManyToMany
-    @JoinTable(
-            joinColumns = @JoinColumn(name = "idOrder"),
-            inverseJoinColumns = @JoinColumn(name = "idCustomer"))
-    private List<CustomerEntity> customerEntities;
+    @ManyToOne
+
+    @JsonIgnore
+//    @JoinTable(
+//            joinColumns = @JoinColumn(name = "idOrder"),
+//            inverseJoinColumns = @JoinColumn(name = "idCustomer"))
+    private CustomerEntity customerEntity;
 
 }

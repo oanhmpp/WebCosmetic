@@ -1,5 +1,6 @@
 package cosmetic.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -21,6 +22,7 @@ public class BrandEntity {
     private String nameBrand;
 
     @OneToMany(mappedBy = "idBrand")
+    @JsonIgnore
     private List<ProductEntity> productEntities;
 
     public BrandEntity(String idBrand, String nameBrand) {

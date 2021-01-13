@@ -44,12 +44,16 @@ public class PaymentController {
     }
 
     @PostMapping("detailOrder")
-    public String order(ProductEntity productEntity, DetailOrderEntity detailOrderEntity, Model model, @Valid @ModelAttribute("order") OrdersEntity ordersEntity) throws UnsupportedEncodingException {
+    public String order(ProductEntity productEntity,
+                        DetailOrderEntity detailOrderEntity,CustomerEntity customerEntity, Model model,
+                        @Valid @ModelAttribute("order") OrdersEntity ordersEntity)
+                        throws UnsupportedEncodingException {
+        customerEntity = SecurityUtil.getPrincipal().getCustomer();
+        ordersEntity.setCustomerEntity(customerEntity);
         orderService.save(ordersEntity);
         List<CartEntity> cartEntity = cartService.findByCustomerEntity_Id(SecurityUtil.getPrincipal().getCustomer().getIdCustomer());
 
         for (CartEntity entity : cartEntity) {
-
             detailOrderEntity.setId(null);
             detailOrderEntity.setAmount(entity.getNumber());
             detailOrderEntity.setNameProduct(entity.getProductEntity().getNameProduct());

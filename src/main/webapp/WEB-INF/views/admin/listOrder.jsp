@@ -59,7 +59,7 @@
                                                         <security:authentication property="principal.customer.nameCustomer"/>
                                                     </td>
                                                     <td>${order.address}</td>
-                                                    <td>${order.phone}</td>
+                                                    <td>0${order.phone}</td>
                                                     <td>
                                                         <c:forEach var="detailOrder" items="${detailOrderList}">
                                                             <c:if test="${detailOrder.order.idOrder==order.idOrder}">

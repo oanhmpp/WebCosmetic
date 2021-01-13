@@ -1,5 +1,6 @@
 package cosmetic.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -28,6 +29,7 @@ public class DetailOrderEntity implements Serializable {
     private double price;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "idOrder")
     private OrdersEntity order;
 

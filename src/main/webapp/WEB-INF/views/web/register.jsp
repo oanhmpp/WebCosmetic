@@ -54,7 +54,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label>Password: </label>
-                                    <form:input cssClass="form-control" path="password" placeholder="Password"/>
+                                    <form:password cssClass="form-control" path="password" placeholder="Password"/>
                                     <form:errors path="password"  cssStyle="color: red" cssClass="error"/>
                                 </div>
                                 <div  class="col-md-6">
@@ -63,7 +63,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label>Retype Password</label>
-                                    <form:input cssClass="form-control" path="rePass" placeholder="Retype Password" />
+                                    <form:password cssClass="form-control" path="rePass" placeholder="Retype Password" />
                                     <form:errors path="rePass"  cssStyle="color: red" cssClass="error"/>
                                 </div>
                                 <div class="col-md-12 d-flex justify-content-center">

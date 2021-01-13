@@ -23,7 +23,7 @@ public class TypeEntity implements Serializable {
     private String nameType;
 
     @JsonIgnore
-    @ManyToMany(mappedBy = "idType",fetch = FetchType.LAZY)
+    @ManyToMany(mappedBy = "idType",fetch = FetchType.EAGER)
     private List<ProductEntity> productEntities;
 
     public TypeEntity(Long idType, String nameType) {

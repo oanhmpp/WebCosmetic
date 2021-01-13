@@ -9,8 +9,6 @@
 
 <body>
 <%@include file="/common/web/header.jsp" %>
->
-
 <!-- Product Detail Start -->
 <div class="product-detail">
     <div class="container-fluid">
@@ -30,7 +28,7 @@
                                 </c:forEach>
                             </div>
                         </div>
-                        <div class="col-md-7" style="margin-bottom: 550px;">
+                        <div class="col-md-7" style="margin-bottom: 500px;">
                             <div class="product-content">
                                 <div class="title">
                                     <h2>${product.nameProduct}</h2>
@@ -156,7 +154,7 @@
                                     </div>
                                     <div class="product-image">
                                         <a href="<c:url value="/productDetail?idProduct=${proRandom.idProduct}"/>">
-                                            <img src="<c:url value="${proRandom.image}"/>"
+                                            <img style="width: 345px;height: 310px;"     src="<c:url value="${proRandom.image}"/>"
                                                  alt="Product Image">
                                         </a>
                                     </div>
@@ -180,12 +178,12 @@
 <div class="brand">
     <div class="container-fluid">
         <div class="brand-slider">
-            <div class="brand-item"><img src="<c:url value="/resources/web/img/brand-1.png"/>" alt=""></div>
-            <div class="brand-item"><img src="<c:url value="/resources/web/img/brand-2.png"/>" alt=""></div>
-            <div class="brand-item"><img src="<c:url value="/resources/web/img/brand-3.png"/>" alt=""></div>
-            <div class="brand-item"><img src="<c:url value="/resources/web/img/brand-4.png"/>" alt=""></div>
-            <div class="brand-item"><img src="<c:url value="/resources/web/img/brand-5.png"/>" alt=""></div>
-            <div class="brand-item"><img src="<c:url value="/resources/web/img/brand-6.png"/>" alt=""></div>
+            <div class="brand-item"><img src="<c:url value="/resources/web/img/Product/Brand/brand1.jpg"/>" alt=""></div>
+            <div class="brand-item"><img src="<c:url value="/resources/web/img/Product/Brand/brand2.jpg"/>" alt=""></div>
+            <div class="brand-item"><img src="<c:url value="/resources/web/img/Product/Brand/brand3.jpg"/>" alt=""></div>
+            <div class="brand-item"><img src="<c:url value="/resources/web/img/Product/Brand/brand4.jpg"/>" alt=""></div>
+            <div class="brand-item"><img src="<c:url value="/resources/web/img/Product/Brand/brand5.jpg"/>" alt=""></div>
+            <div class="brand-item"><img src="<c:url value="/resources/web/img/Product/Brand/brand6.jpg"/>" alt=""></div>
         </div>
     </div>
 </div>

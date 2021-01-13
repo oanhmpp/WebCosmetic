@@ -36,7 +36,10 @@ public class RegisterController {
     }
 
     @PostMapping("/register")
-    public String registerCheckForm(RoleEntity roleEntity,Model model, CustomerValidate customerValidate, @Valid @ModelAttribute("customer") CustomerEntity customerEntity, BindingResult result) {
+    public String registerCheckForm(RoleEntity roleEntity,Model model,
+                                    CustomerValidate customerValidate,
+                                    @Valid @ModelAttribute("customer") CustomerEntity customerEntity,
+                                    BindingResult result) {
         customerValidate.validateExist(customerEntity, result, customerService.findByEmail(customerEntity.getEmail()).isEmpty());
         customerValidate.validate(customerEntity,result);
         if (result.hasErrors()) {

@@ -688,7 +688,7 @@ h2 {
     text-align: center;
     background: #000000;
     transition: all .3s;
-    height: 85px;
+    height: 100px;
 }
 
 .product-item:hover .product-title {

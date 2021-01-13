@@ -32,6 +32,15 @@ public class CartController {
     @Autowired
     CustomerService customerService;
 
+    @GetMapping("/checkLogin")
+    public boolean checkLogin (){
+        if (SecurityUtil.getPrincipal() != null) {
+            return true;
+        }else {
+            return false;
+        }
+    }
+
     @RequestMapping("/cart")
     public String cart(Model model) {
         CustomerEntity customerEntity = customerService.findOneByEmail(SecurityUtil.getPrincipal().getUsername());

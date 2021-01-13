@@ -26,7 +26,7 @@
         <div class="contact">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-6">
+                    <div class="col-lg-6 d-flex justify-content-center">
                         <div class="contact-info">
                             <h2>Our Office</h2>
                             <h3><i class="fa fa-map-marker"></i>123 Office, Los Angeles, CA, USA</h3>
@@ -41,7 +41,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-6 d-flex justify-content-center">
                         <div class="contact-info">
                             <h2>Our Store</h2>
                             <h3><i class="fa fa-map-marker"></i>123 Store, Los Angeles, CA, USA</h3>

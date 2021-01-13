@@ -54,6 +54,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 // khai báo đường dẫn của request
                 .antMatchers("/admin/**").hasRole("ADMIN")//dang nhap voi quyen admin để vầy mọi requét đều vô dc trừ admin thì muốn vo admin phải đăng nhập đó
+                .antMatchers("/cart/**","/myAccount/**","/payment/**").hasRole("USER")
                 .and()
                 .formLogin()
                 // truyen parameter

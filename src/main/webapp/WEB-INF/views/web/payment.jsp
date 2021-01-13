@@ -44,6 +44,7 @@
                         <div style="padding: 20px;" class="col-md-12 d-flex justify-content-center">
                             <form:button id="submit"  cssStyle="color: red" class="btn">Payment</form:button>
                         </div>
+                        <form:hidden path="customerEntity.idCustomer"/>
                     </div>
                 </form:form>
             </div>

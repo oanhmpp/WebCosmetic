@@ -32,7 +32,7 @@
                 <div class="navbar-nav mr-auto">
                     <a href="<c:url value="/"/>" class="nav-item nav-link active">Home</a>
                     <a href="<c:url value="/product"/>" class="nav-item nav-link">Products</a>
-                    <a href="<c:url value="/cart"/>" class="nav-item nav-link">Cart</a>
+                    <a href="<c:url value="/cart"/>" class="nav-item nav-link ">Cart</a>
                     <a href="<c:url value="/myAccount"/>" class="nav-item nav-link">My Account</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">More Pages</a>
@@ -62,8 +62,8 @@
                     <div class="navbar-nav ml-auto">
                         <div class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" data-toggle="dropdown">
-                                  <security:authentication property="principal.customer.nameCustomer"/>
-<%--                                    ${userDetail.getUsername()}--%>
+                                <security:authentication property="principal.customer.nameCustomer"/>
+                                    <%--                                    ${userDetail.getUsername()}--%>
                             </a>
                             <div class="dropdown-menu">
                                 <c:if test="${userDetail.isAdmin()}">
@@ -72,12 +72,12 @@
                                     </a>
                                 </c:if>
                                 <c:if test="${!userDetail.isAdmin()}">
-                                    <a class="dropdown-item">
+                                    <a href="/myAccount" class="dropdown-item">
                                         My account
                                     </a>
                                 </c:if>
                                 <a href="<c:url value="/logout"/>"
-                                   class="dropdown-item">Logout</a>
+                                   class="dropdown-item"><i class="fas fa-sign-out-alt"></i>Logout</a>
                             </div>
                         </div>
                     </div>
@@ -104,14 +104,20 @@
                 </div>
             </div>
             <div class="col-md-6">
+                <form action="/searchListProduct">
                 <div class="search">
-                    <input type="text" placeholder="Search">
-                    <button><i class="fa fa-search"></i></button>
+                    <input class="key" id="textFind" name="search" type="text" placeholder="Search">
+                    <button class="btn_find"><i class="fa fa-search"></i></button>
+                </div>
+                </form>
+                <div style="    position: absolute;    z-index: 2;">
+                    <ul style="z-index: -1" id="f" class="list-group">
+                    </ul>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="user">
-                    <a href="/cart" class="btn cart">
+                    <a href="<c:url value="/cart"/>" class="btn cart btn_cart">
                         <i class="fa fa-shopping-cart"></i>
                         <span id="numberProduct"></span>
                     </a>

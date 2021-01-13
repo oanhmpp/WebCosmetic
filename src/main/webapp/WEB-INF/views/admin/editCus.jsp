@@ -33,7 +33,7 @@
                 <form:form style="width: 100%" modelAttribute="customer" method="post" action="/admin/customer/edit">
                 <div class="col-sm-12" style="    height: 250px;    padding: 20px;">
                     <div style="float: left" class="col-sm-6">
-                        <form:hidden path="idCustomer"/>
+<%--                        <form:hidden path="idCustomer"/>--%>
                         <div class="form-group">
                             <label class="col-sm-4 col-form-label">*Name Customer</label>
                             <div class="col-sm-6">
@@ -82,7 +82,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="col-sm-12 d-flex justify-content-center">
                         <div class="form-group row">
                             <div class="col-sm-10">
@@ -91,8 +90,8 @@
                         </div>
                     </div>
                 </div>
+                </form:form>
         </div>
-        </form:form>
         </center>
     </div>
     <footer class="main-footer">

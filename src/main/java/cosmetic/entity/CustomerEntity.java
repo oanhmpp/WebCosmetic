@@ -1,5 +1,6 @@
 package cosmetic.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import cosmetic.validator.Phone;
 import lombok.Getter;
 import lombok.Setter;
@@ -44,10 +45,12 @@ public class CustomerEntity implements Serializable {
     @Transient
     private String rePass;
 
-    @ManyToMany(mappedBy = "customerEntities")
+    @OneToMany(mappedBy = "customerEntity")
+    @JsonIgnore
     private List<OrdersEntity> orderEntities;
 
     @ManyToMany(fetch=FetchType.EAGER)
+    @JsonIgnore // bo qua cac truong do
     @JoinTable(
             joinColumns = @JoinColumn(name = "idCustomer"),
             inverseJoinColumns = @JoinColumn(name = "idRole"))

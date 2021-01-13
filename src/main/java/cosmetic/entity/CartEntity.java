@@ -1,5 +1,6 @@
 package cosmetic.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,8 +19,10 @@ public class CartEntity implements Serializable {
     private int number;
 
     @ManyToOne
+    @JsonIgnore
     private CustomerEntity customerEntity;
 
     @ManyToOne
+    @JsonIgnore
     private ProductEntity productEntity;
 }

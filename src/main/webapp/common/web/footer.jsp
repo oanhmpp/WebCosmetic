@@ -8,7 +8,7 @@
                     <h2>Get in Touch</h2>
                     <div class="contact-info">
                         <p><i class="fa fa-map-marker"></i>123 E Store, Los Angeles, USA</p>
-                        <p><i class="fa fa-envelope"></i>email@example.com</p>
+                        <p><i class="fa fa-envelope"></i>EStore@gmail.com</p>
                         <p><i class="fa fa-phone"></i>+123-456-7890</p>
                     </div>
                 </div>
@@ -211,6 +211,36 @@
                 }
             })
         });
+
+        // chuc nang tim kiem
+        $('#textFind').keyup(function (e){
+            $("#f").empty();
+
+            var key = $(".key").val()
+            $.ajax({
+                url: "/search",
+                method: 'GET',
+                dataType: "json",
+                data: {
+                    key : key
+                },
+                success: function (data){
+                    $("#f").empty();
+                    data.forEach(function(item, i){
+                        $("#f").append("<a href='/productDetail?idProduct="+item.idProduct+"' class='list-group-item'>"+ item.nameProduct +"</a>");
+                    });
+                },
+                error: function (error){
+                    alert("Error")
+                }
+            })
+        });
+
+        $("#f").on("click","li", function () {
+            var text = $(this).text();
+            $("#textFind").val(text);
+            $("#f").empty();
+        })
 
     });
 </script>

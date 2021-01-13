@@ -1,5 +1,6 @@
 package cosmetic.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -21,5 +22,6 @@ public class RoleEntity implements Serializable {
     private String nameRole;
 
     @ManyToMany(mappedBy = "roleEntityList")
+    @JsonIgnore
     private List<CustomerEntity> customerEntities;
 }

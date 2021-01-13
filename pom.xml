@@ -203,6 +203,11 @@
             <artifactId>spring-security-taglibs</artifactId>
             <version>5.1.5.RELEASE</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>5.2.10.RELEASE</version>
+        </dependency>
 
     </dependencies>
 

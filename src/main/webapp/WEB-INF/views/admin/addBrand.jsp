@@ -36,7 +36,7 @@
                         <label class="col-sm-4 col-form-label">*ID Brand: </label>
                         <div class="col-sm-6">
                             <form:input id="checkId" path="idBrand"/>
-                            <span id="errId"></span>
+                            <span style="color: red" id="errId"></span>
                                 <%--                        <input value="${brand.idBrand}" disabled>--%>
                         </div>
                     </div>
