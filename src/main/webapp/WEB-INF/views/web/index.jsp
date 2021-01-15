@@ -83,7 +83,7 @@
         </div>
         <div class="row">
             <c:forEach var="product" items="${listProduct}">
-                <div class="col-lg-3">
+                <div class="col-lg-3"  style="margin-top: 10px;">
                     <div class="product-item">
                         <div class="product-title">
                             <a href="">${product.nameProduct}</a>
@@ -120,10 +120,10 @@
         </div>
         <div class="row">
             <c:forEach var="product" items="${listProduct}">
-                <div class="col-lg-3">
+                <div class="col-lg-3" style="margin-top: 10px;">
                     <div class="product-item">
                         <div class="product-title">
-                            <a href="">${product.nameProduct}</a>
+                            <a href="<c:url value="/productDetail?idProduct=${product.idProduct}"/>">${product.nameProduct}</a>
                             <div class="ratting">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>

@@ -31,10 +31,10 @@
             <div class="col-lg-12">
                 <div class="row">
                     <c:forEach var="product" items="${listProduct}">
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <div class="product-item">
                                 <div class="product-title">
-                                    <a href="#">${product.nameProduct}</a>
+                                    <a href="<c:url value="/productDetail?idProduct=${product.idProduct}"/>">${product.nameProduct}</a>
                                 </div>
                                 <div class="product-image"  style="width: 284px;height: 284px">
                                     <a href="<c:url value="/productDetail?idProduct=${product.idProduct}"/>">
