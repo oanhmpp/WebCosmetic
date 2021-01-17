@@ -10,7 +10,7 @@ import java.util.List;
 
 @Repository
 public interface ProductRepository extends JpaRepository<ProductEntity, Long> {
-    @Query(nativeQuery = true, value = "SELECT * FROM product ORDER BY RAND() LIMIT 7")
+    @Query(nativeQuery = true, value = "SELECT * FROM product ORDER BY RAND() LIMIT 8")
     List<ProductEntity> findByRandomPro();
 
 
