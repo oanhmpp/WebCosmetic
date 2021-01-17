@@ -14,7 +14,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12" style="height: 100%">
-                <div class="product-detail-top" style="    height: 1000px;">
+                <div class="product-detail-top" style=" ">
                     <div class="row align-items-center">
                         <div class="col-md-5">
                             <div class="product-slider-single normal-slider">

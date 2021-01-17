@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class SecurityUtil {
     public static   MyCustomerDetails getPrincipal() {
+        // de goi ten nguoi dung hien hanh
         try {
             return (MyCustomerDetails) (SecurityContextHolder.getContext()).getAuthentication().getPrincipal();
         } catch (Exception e) {

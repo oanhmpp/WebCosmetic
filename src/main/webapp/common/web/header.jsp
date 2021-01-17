@@ -37,8 +37,6 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">More Pages</a>
                         <div class="dropdown-menu">
-                            <a href="<c:url value="/login"/>" class="dropdown-item">Login</a>
-                            <a href="<c:url value="/register"/>" class="dropdown-item">Register</a>
                             <a href="<c:url value="/contact"/>" class="dropdown-item">Contact Us</a>
                         </div>
                     </div>
@@ -106,7 +104,7 @@
             <div class="col-md-6">
                 <form action="/searchListProduct">
                 <div class="search">
-                    <input class="key" id="textFind" name="search" type="text" placeholder="Search">
+                    <input autocomplete="off" class="key" id="textFind" name="search" type="text" placeholder="Search">
                     <button class="btn_find"><i class="fa fa-search"></i></button>
                 </div>
                 </form>

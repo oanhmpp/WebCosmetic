@@ -50,7 +50,8 @@
                                 <div class="col-md-6">
                                     <label>Your Email: </label>
                                     <form:input cssClass="form-control" path="email" placeholder="Your Email"/>
-                                    <form:errors path="email"  cssStyle="color: red" cssClass="error"/>
+                                    <span style="color: red" id="errId"></span>
+<%--                                    <form:errors path="email"  cssStyle="color: red" cssClass="error"/>--%>
                                 </div>
                                 <div class="col-md-6">
                                     <label>Password: </label>

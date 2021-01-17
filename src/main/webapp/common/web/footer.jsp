@@ -141,7 +141,6 @@
         $('.btnBuyNow').click(function (e) {
             e.preventDefault(); // k load lai trang
             var idProduct = $('.idProduct').html();
-            alert(idProduct)
             $.ajax({
                 url: '/addToCart',
                 type: 'GET',
@@ -242,6 +241,27 @@
             $("#f").empty();
         })
 
+        // check email
+        $('#email').keyup(function (e) {
+            var email = $('#email').val();
+            $.ajax({
+                url: '/checkEmail',
+                type: 'POST',
+                data: {
+                    email: email
+                },
+                success: function (result) {
+                    if (result) {
+                        $('#errId').html("");
+                    } else {
+                        $('#errId').html("Email is exist");
+                    }
+                },
+                error: function (error) {
+                    alert("Error")
+                }
+            });
+        });
     });
 </script>
 

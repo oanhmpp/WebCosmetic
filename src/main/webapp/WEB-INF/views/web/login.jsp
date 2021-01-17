@@ -35,7 +35,7 @@
                     <div class="col-lg-6">
                         <form name='f' method="post" action="/login">
                         <div class="login-form">
-                            <div class="row">
+                            <div class="row d-flex justify-content-center">
                                 <div class="col-md-6">
                                     <label>Your Email: </label>
                                     <input type='text' name='email' value=''>

@@ -27,7 +27,7 @@
                             <c:set var="phone">
                                 <security:authentication property="principal.customer.phone"/>
                             </c:set>
-                            <form:input path="phone"  value="${phone}"/>
+                            <form:input  cssClass="form-control" path="phone"  value="${phone}"/>
                             <form:errors path="phone" cssStyle="color: red" cssClass="error"/>
                         </div>
                             <form:hidden path="idOrder"/>

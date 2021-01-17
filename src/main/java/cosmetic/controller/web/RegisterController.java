@@ -12,9 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
@@ -55,6 +53,22 @@ public class RegisterController {
             customerService.save(customerEntity);
             model.addAttribute("customer", customerEntity);
             return "redirect:/";
+        }
+    }
+
+    @RequestMapping("checkEmail")
+    public @ResponseBody
+    boolean checkEmail(CustomerValidate customerValidate,
+                       @Valid @ModelAttribute("customer") CustomerEntity customerEntity,
+                       BindingResult result,
+                       @RequestParam("email") String email){
+        System.out.println(email);
+        List<CustomerEntity> check = customerService.findByEmail(email);
+        if(check.isEmpty()){
+            return true;
+        }
+        else {
+            return false;
         }
     }
 }
