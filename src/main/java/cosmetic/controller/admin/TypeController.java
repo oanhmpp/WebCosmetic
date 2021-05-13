@@ -18,14 +18,14 @@ public class TypeController {
     private TypeService typeService;
 
     @RequestMapping("list")
-    private String listBrand(Model model){
+    private String listType(Model model){
         model.addAttribute("listType", typeService.findAll());
         return "/admin/listType";
     }
 
     @RequestMapping("edit")
 //    @RequestMapping("/admin/product/edit")
-    public String editProduct(Model model, @RequestParam Long idType) {
+    public String editType(Model model, @RequestParam Long idType) {
         TypeEntity typeEntity = typeService.findOneById(idType).get();
 
         model.addAttribute("type", typeEntity);

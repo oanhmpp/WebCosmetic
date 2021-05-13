@@ -50,7 +50,6 @@ public class MyAccountController {
 //            System.out.println("Loi");
 //        }
 //        else {
-//            System.out.println("Khong loi");
 //            customerEntity.setIdCustomer(SecurityUtil.getPrincipal().getCustomer().getIdCustomer());
 //            customerEntity.setPassword(passwordEncoder.encode(customerEntity.getPassword()));
 //            customerService.save(customerEntity);

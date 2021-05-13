@@ -102,7 +102,9 @@
                         </div>
                         <div class="product-price">
                             <h3><span>$</span>${product.price}</h3>
-                            <a class="btn btnAddToCart"  href=""><span hidden class="idProduct" >${product.idProduct}</span><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                            <a class="btn btnAddToCart"  href="">
+                                <span hidden class="idProduct" >${product.idProduct}</span>
+                                <i class="fa fa-shopping-cart"></i>Add to cart</a>
                         </div>
                     </div>
                 </div>

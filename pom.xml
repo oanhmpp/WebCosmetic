@@ -7,7 +7,7 @@
     <groupId>vn.edu.fit</groupId>
     <artifactId>WebCosmetic</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging> war</packaging>
+    <packaging>war</packaging>
     <dependencies>
         <!--Spring mvc-->
         <dependency>
@@ -38,6 +38,18 @@
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
             <version>5.4.23.Final</version>
+        </dependency>
+
+        <!-- send mail-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+            <version>3.1.2.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>1.4.7</version>
         </dependency>
 
         <!--Mysql connector-->

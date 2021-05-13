@@ -53,7 +53,8 @@
                                     </div>
                                 </div>
                                 <div class="action">
-                                    <a class="btn" class="btnAddToCart" href=""><span hidden class="idProduct" >${product.idProduct}</span><i class="fa fa-shopping-cart"></i>Add to
+                                    <a class="btn btnAddToCart" href="">
+                                        <span hidden class="idProduct" >${product.idProduct}</span><i class="fa fa-shopping-cart"></i>Add to
                                         Cart</a>
 
                                     <a class="btn btnBuyNow" href=""><i

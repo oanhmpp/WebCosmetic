@@ -1,18 +1,22 @@
 package cosmetic.controller.web;
 
+import cosmetic.entity.ConfirmationToken;
 import cosmetic.entity.CustomerEntity;
 import cosmetic.entity.RoleEntity;
-import cosmetic.repository.CustomerRespository;
-import cosmetic.repository.MessageRepository;
+import cosmetic.repository.ConfirmationTokenRepository;
 import cosmetic.service.CustomerService;
+import cosmetic.service.EmailSenderService;
 import cosmetic.validator.CustomerValidate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
@@ -27,6 +31,12 @@ public class RegisterController {
     @Autowired
     PasswordEncoder passwordEncoder;
 
+    @Autowired
+    EmailSenderService emailSenderService;
+
+    @Autowired
+    ConfirmationTokenRepository confirmationTokenRepository;
+
     @RequestMapping("/register")
     public String register(Model model) {
         model.addAttribute("customer", new CustomerEntity());
@@ -34,41 +44,64 @@ public class RegisterController {
     }
 
     @PostMapping("/register")
-    public String registerCheckForm(RoleEntity roleEntity,Model model,
+    public String registerCheckForm(RoleEntity roleEntity, RedirectAttributes redirectAttributes,
                                     CustomerValidate customerValidate,
                                     @Valid @ModelAttribute("customer") CustomerEntity customerEntity,
                                     BindingResult result) {
         customerValidate.validateExist(customerEntity, result, customerService.findByEmail(customerEntity.getEmail()).isEmpty());
-        customerValidate.validate(customerEntity,result);
+        customerValidate.validate(customerEntity, result);
         if (result.hasErrors()) {
-            System.out.println("loi");
-                return "web/register";
-        }
-        else {
+            return "web/register";
+        } else {
             roleEntity.setIdRole(2L);
             List<RoleEntity> list = new ArrayList<>();
             list.add(roleEntity);
             customerEntity.setPassword(passwordEncoder.encode(customerEntity.getPassword()));
             customerEntity.setRoleEntityList(list);
+            ConfirmationToken confirmationToken = new ConfirmationToken(customerEntity);
+            emailSenderService.sendEmail(customerEntity.getEmail(), "Registration confirmation", "To confirm your account, please click here : "
+                    + "http://localhost:8080/confirm-account?token=" + confirmationToken.getConfirmationToken());
             customerService.save(customerEntity);
-            model.addAttribute("customer", customerEntity);
-            return "redirect:/";
+            confirmationTokenRepository.save(confirmationToken);
+            redirectAttributes.addFlashAttribute("msg", "Please check your email");
+            return "redirect:/login";
         }
     }
 
-    @RequestMapping("checkEmail")
+    @RequestMapping(value="/confirm-account", method= {RequestMethod.GET, RequestMethod.POST})
+    public String confirmUserAccount(RedirectAttributes redirectAttributes , @RequestParam("token")String confirmationToken)
+    {
+        ConfirmationToken token = confirmationTokenRepository.findByConfirmationToken(confirmationToken);
+
+        if(token != null)
+        {
+            CustomerEntity user = customerService.findOneByEmail(token.getUser().getEmail());
+            user.setEnabled(true);
+            customerService.save(user);
+            // tranh truong hop resubmit form
+            redirectAttributes.addFlashAttribute("msg","Account verified !!!!");
+        }
+        else
+        {
+            redirectAttributes.addFlashAttribute("msg","The link is invalid or broken!");
+        }
+
+        return "redirect:/login";
+    }
+
+    @RequestMapping("/checkEmail")
     public @ResponseBody
     boolean checkEmail(CustomerValidate customerValidate,
                        @Valid @ModelAttribute("customer") CustomerEntity customerEntity,
                        BindingResult result,
-                       @RequestParam("email") String email){
-        System.out.println(email);
+                       @RequestParam("email") String email) {
         List<CustomerEntity> check = customerService.findByEmail(email);
-        if(check.isEmpty()){
+        if (check.isEmpty()) {
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     }
+
+
 }

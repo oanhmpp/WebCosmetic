@@ -26,11 +26,11 @@ public class MyCustomerDetails implements UserDetails {
         return Collections.singletonList(authority);
     }
 
-    public boolean isAdmin(){
-        for (int i =0; i < customer.getRoleEntityList().size();i++){
-            if(customer.getRoleEntityList().get(i).getIdRole() == 1){
-           return true;
-            }else {
+    public boolean isAdmin() {
+        for (int i = 0; i < customer.getRoleEntityList().size(); i++) {
+            if (customer.getRoleEntityList().get(i).getIdRole() == 1) {
+                return true;
+            } else {
                 return false;
             }
         }
@@ -54,7 +54,7 @@ public class MyCustomerDetails implements UserDetails {
 
     @Override
     public boolean isAccountNonLocked() {
-        return true;
+        return customer.isEnabled();
     }
 
     @Override

@@ -29,7 +29,7 @@ public class CustomerController {
 
     @RequestMapping("edit")
 //    @RequestMapping("/admin/product/edit")
-    public String editProduct(Model model, @RequestParam Long id) {
+    public String editCustomer(Model model, @RequestParam Long id) {
         CustomerEntity customerEntity = customerService.findOneById(id);
 
         model.addAttribute("customer", customerEntity);

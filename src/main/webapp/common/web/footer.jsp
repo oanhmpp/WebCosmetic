@@ -56,15 +56,15 @@
             <div class="col-md-6">
                 <div class="payment-method">
                     <h2>We Accept:</h2>
-                    <img src="<c:url value="/resources/web/img/payment-method.png"/>" alt="Payment Method" />
+                    <img src="<c:url value="/resources/web/img/payment-method.png"/>" alt="Payment Method"/>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="payment-security">
                     <h2>Secured By:</h2>
-                    <img src="<c:url value="/resources/web/img/godaddy.svg"/>" alt="Payment Security" />
-                    <img src="<c:url value="/resources/web/img/norton.svg"/>" alt="Payment Security" />
-                    <img src="<c:url value="/resources/web/img/ssl.svg"/>" alt="Payment Security" />
+                    <img src="<c:url value="/resources/web/img/godaddy.svg"/>" alt="Payment Security"/>
+                    <img src="<c:url value="/resources/web/img/norton.svg"/>" alt="Payment Security"/>
+                    <img src="<c:url value="/resources/web/img/ssl.svg"/>" alt="Payment Security"/>
                 </div>
             </div>
         </div>
@@ -104,6 +104,7 @@
     // script bên addtocart
     $(function () {
         getSize();
+
         function getSize() {
             $.ajax({
                 url: '/getSize',
@@ -117,6 +118,7 @@
                 }
             });
         }
+
         // add to cart
         $('.btnAddToCart').click(function (e) {
             e.preventDefault(); // k load lai trang
@@ -148,7 +150,7 @@
                     idProduct: idProduct,
                 },
                 success: function (result) {
-                    if(!result){
+                    if (!result) {
                         alert("You need to login")
                     } else {
                         window.location.href = "/cart";
@@ -161,58 +163,58 @@
         });
 
         // tang san pham
-        $('.btn-plus').click(function (e){
+        $('.btn-plus').click(function (e) {
             $.ajax({
                 url: "/increase",
                 method: 'GET',
                 data: {
-                    id : $(this).find("span").html()
+                    id: $(this).find("span").html()
                 },
-                success: function (result){
-                window.location.reload();
+                success: function (result) {
+                    window.location.reload();
                 },
-                error: function (error){
+                error: function (error) {
                     alert("Error")
                 }
             })
         });
 
         //giam san pham
-        $('.btn-minus').click(function (e){
+        $('.btn-minus').click(function (e) {
             $.ajax({
                 url: "/decrease",
                 method: 'GET',
                 data: {
-                    id : $(this).find("span").html()
+                    id: $(this).find("span").html()
                 },
-                success: function (result){
+                success: function (result) {
                     window.location.reload();
                 },
-                error: function (error){
+                error: function (error) {
                     alert("Error")
                 }
             })
         });
 
         // nut delete
-        $('.btn_delete').click(function (e){
+        $('.btn_delete').click(function (e) {
             $.ajax({
                 url: "/cart/delete",
                 method: 'GET',
                 data: {
-                    id : $(this).find("span").html()
+                    id: $(this).find("span").html()
                 },
-                success: function (result){
+                success: function (result) {
                     window.location.reload();
                 },
-                error: function (error){
+                error: function (error) {
                     alert("Error")
                 }
             })
         });
 
         // chuc nang tim kiem
-        $('#textFind').keyup(function (e){
+        $('#textFind').keyup(function (e) {
             $("#f").empty();
 
             var key = $(".key").val()
@@ -221,27 +223,50 @@
                 method: 'GET',
                 dataType: "json",
                 data: {
-                    key : key
+                    key: key
                 },
-                success: function (data){
+                success: function (data) {
                     $("#f").empty();
-                    data.forEach(function(item, i){
-                        $("#f").append("<a href='/productDetail?idProduct="+item.idProduct+"' class='list-group-item'>"+ item.nameProduct +"</a>");
+                    data.forEach(function (item, i) {
+                        $("#f").append("<a href='/productDetail?idProduct=" + item.idProduct + "' class='list-group-item'>" + item.nameProduct + "</a>");
                     });
                 },
-                error: function (error){
+                error: function (error) {
                     alert("Error")
                 }
             })
         });
 
-        $("#f").on("click","li", function () {
+        $("#f").on("click", "li", function () {
             var text = $(this).text();
             $("#textFind").val(text);
             $("#f").empty();
         })
 
         // check email
+        // $('#submit').click(function (e) {
+        //     // var email = $('#email').val();
+        //     $.ajax({
+        //         url: '/register',
+        //         type: 'POST',
+        //         data: {
+        //             // email: email
+        //         },
+        //         success: function (result) {
+        //             alert(result)
+        //             if (result) {
+        //                 alert("Registor is success !!")
+        //             } else {
+        //                 alert("Registor is fail !!")
+        //             }
+        //         },
+        //         error: function (error) {
+        //             alert("Error")
+        //         }
+        //     });
+        // });
+
+        // register
         $('#email').keyup(function (e) {
             var email = $('#email').val();
             $.ajax({

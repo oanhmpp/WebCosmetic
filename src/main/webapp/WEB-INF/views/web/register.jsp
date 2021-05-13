@@ -68,7 +68,7 @@
                                     <form:errors path="rePass"  cssStyle="color: red" cssClass="error"/>
                                 </div>
                                 <div class="col-md-12 d-flex justify-content-center">
-                                    <form:button id="submit"  cssStyle="color: red" class="btn">Submit</form:button>
+                                    <form:button id="submit"  cssStyle="color: red" class="btn btn-action btn-outline-dark">Submit</form:button>
                                 </div>
                             </div>
                         </form:form>

@@ -45,6 +45,8 @@ public class CustomerEntity implements Serializable {
     @Transient
     private String rePass;
 
+    private boolean isEnabled;
+
     @OneToMany(mappedBy = "customerEntity")
     @JsonIgnore
     private List<OrdersEntity> orderEntities;
@@ -55,6 +57,8 @@ public class CustomerEntity implements Serializable {
             joinColumns = @JoinColumn(name = "idCustomer"),
             inverseJoinColumns = @JoinColumn(name = "idRole"))
     private List<RoleEntity> roleEntityList;
+
+
 
     public CustomerEntity() {
 
