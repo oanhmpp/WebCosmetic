@@ -1,32 +1,31 @@
 package cosmetic.controller.admin;
 
 import cosmetic.entity.TypeEntity;
-import cosmetic.service.TypeService;
+import cosmetic.repository.TypeRespository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.Optional;
 
 @Controller
 @RequestMapping("admin/type")
 
 public class TypeController {
     @Autowired
-    private TypeService typeService;
+    private TypeRespository typeRepository;
 
     @RequestMapping("list")
     private String listType(Model model){
-        model.addAttribute("listType", typeService.findAll());
+        model.addAttribute("listType", typeRepository.findAll());
         return "/admin/listType";
     }
 
     @RequestMapping("edit")
 //    @RequestMapping("/admin/product/edit")
     public String editType(Model model, @RequestParam Long idType) {
-        TypeEntity typeEntity = typeService.findOneById(idType).get();
+        TypeEntity typeEntity = typeRepository.findById(idType).get();
 
         model.addAttribute("type", typeEntity);
 
@@ -35,13 +34,13 @@ public class TypeController {
 
     @PostMapping("edit")
     public String edited(Model model, @Valid @ModelAttribute("type") TypeEntity typeEntity) {
-        typeService.save(typeEntity);
+        typeRepository.save(typeEntity);
         return "redirect:/admin/type/list";
     }
 
     @GetMapping("delete")
     public String delete(Model model, @RequestParam Long idType) {
-        typeService.delete(idType);
+        typeRepository.deleteById(idType);
         return "redirect:/admin/type/list";
     }
 
@@ -53,7 +52,7 @@ public class TypeController {
 
     @PostMapping("added")
     public String added(Model model, @Valid @ModelAttribute("type") TypeEntity typeEntity) {
-        typeService.save(typeEntity);
+        typeRepository.save(typeEntity);
         return "redirect:/admin/type/list";
     }
 

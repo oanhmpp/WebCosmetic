@@ -14,4 +14,6 @@ public interface CartRepository extends JpaRepository<CartEntity, Long> {
 
     CartEntity findByCustomerEntity_IdCustomerAndProductEntity_IdProduct(Long idCustomer, Long idProduct);
 
+//    int getSize (String mail){ return cartRepository.countAllByCustomerEntity_Email(mail);
+
 }

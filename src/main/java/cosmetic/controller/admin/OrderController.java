@@ -1,7 +1,7 @@
 package cosmetic.controller.admin;
 
-import cosmetic.service.DetailOrderService;
-import cosmetic.service.OrderService;
+import cosmetic.repository.DetailOrderRepository;
+import cosmetic.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("admin/order")
 public class OrderController {
     @Autowired
-    OrderService orderService;
+    OrderRepository orderRepository;
     @Autowired
-    DetailOrderService detailOrderService;
+    DetailOrderRepository detailOrderRepository;
     @RequestMapping("list")
     public String listOrder(Model model){
-        model.addAttribute("orderList",orderService.findAll());
-        model.addAttribute("detailOrderList",detailOrderService.findAll());
+        model.addAttribute("orderList",orderRepository.findAll());
+        model.addAttribute("detailOrderList",detailOrderRepository.findAll());
         return "admin/listOrder";
     }
 }

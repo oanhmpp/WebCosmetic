@@ -2,8 +2,7 @@ package cosmetic.controller.admin;
 
 import cosmetic.entity.BrandEntity;
 import cosmetic.entity.ProductEntity;
-import cosmetic.service.BrandService;
-import cosmetic.service.BrandService;
+import cosmetic.repository.BrandRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,7 +17,7 @@ import java.util.Optional;
 public class BrandController {
 
     @Autowired
-    private BrandService brandServer;
+    private BrandRepository brandServer;
 
     @RequestMapping("list")
     private String listBrand(Model model){
@@ -29,7 +28,7 @@ public class BrandController {
     @RequestMapping("edit")
 //    @RequestMapping("/admin/product/edit")
     public String editProduct(Model model, @RequestParam String idBrand) {
-        BrandEntity brandEntity = brandServer.findOneById(idBrand).get();
+        BrandEntity brandEntity = brandServer.findById(idBrand).get();
 
         model.addAttribute("brand", brandEntity);
 
@@ -44,7 +43,7 @@ public class BrandController {
 
     @GetMapping("delete")
     public String delete(Model model, @RequestParam String idBrand) {
-        brandServer.delete(idBrand);
+        brandServer.deleteById(idBrand);
         return "redirect:/admin/brand/list";
     }
 
@@ -57,7 +56,7 @@ public class BrandController {
     @RequestMapping("checkId")
     public @ResponseBody boolean checkId (@RequestParam("id") String id){
         System.out.println(id);
-        Optional<BrandEntity> brandEntity = brandServer.findOneById(id);
+        Optional<BrandEntity> brandEntity = brandServer.findById(id);
         if(brandEntity.isPresent()) {
             return false;
         }

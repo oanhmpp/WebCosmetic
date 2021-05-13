@@ -4,13 +4,10 @@ import cosmetic.entity.ConfirmationToken;
 import cosmetic.entity.CustomerEntity;
 import cosmetic.entity.RoleEntity;
 import cosmetic.repository.ConfirmationTokenRepository;
-import cosmetic.service.CustomerService;
+import cosmetic.repository.CustomerRespository;
 import cosmetic.service.EmailSenderService;
 import cosmetic.validator.CustomerValidate;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,7 +23,7 @@ import java.util.List;
 public class RegisterController {
 
     @Autowired
-    private CustomerService customerService;
+    private CustomerRespository customerRepository;
 
     @Autowired
     PasswordEncoder passwordEncoder;
@@ -48,7 +45,7 @@ public class RegisterController {
                                     CustomerValidate customerValidate,
                                     @Valid @ModelAttribute("customer") CustomerEntity customerEntity,
                                     BindingResult result) {
-        customerValidate.validateExist(customerEntity, result, customerService.findByEmail(customerEntity.getEmail()).isEmpty());
+        customerValidate.validateExist(customerEntity, result, customerRepository.findByEmail(customerEntity.getEmail()).isEmpty());
         customerValidate.validate(customerEntity, result);
         if (result.hasErrors()) {
             return "web/register";
@@ -61,7 +58,7 @@ public class RegisterController {
             ConfirmationToken confirmationToken = new ConfirmationToken(customerEntity);
             emailSenderService.sendEmail(customerEntity.getEmail(), "Registration confirmation", "To confirm your account, please click here : "
                     + "http://localhost:8080/confirm-account?token=" + confirmationToken.getConfirmationToken());
-            customerService.save(customerEntity);
+            customerRepository.save(customerEntity);
             confirmationTokenRepository.save(confirmationToken);
             redirectAttributes.addFlashAttribute("msg", "Please check your email");
             return "redirect:/login";
@@ -75,9 +72,9 @@ public class RegisterController {
 
         if(token != null)
         {
-            CustomerEntity user = customerService.findOneByEmail(token.getUser().getEmail());
+            CustomerEntity user = customerRepository.findOneByEmail(token.getUser().getEmail());
             user.setEnabled(true);
-            customerService.save(user);
+            customerRepository.save(user);
             // tranh truong hop resubmit form
             redirectAttributes.addFlashAttribute("msg","Account verified !!!!");
         }
@@ -95,7 +92,7 @@ public class RegisterController {
                        @Valid @ModelAttribute("customer") CustomerEntity customerEntity,
                        BindingResult result,
                        @RequestParam("email") String email) {
-        List<CustomerEntity> check = customerService.findByEmail(email);
+        List<CustomerEntity> check = customerRepository.findByEmail(email);
         if (check.isEmpty()) {
             return true;
         } else {

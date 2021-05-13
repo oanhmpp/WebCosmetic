@@ -1,7 +1,7 @@
 package cosmetic.controller.web;
 
 import cosmetic.entity.ProductEntity;
-import cosmetic.service.ProductService;
+import cosmetic.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,11 +15,11 @@ import java.util.List;
 public class HomeController {
 
     @Autowired
-    private ProductService productService;
+    private ProductRepository productRepository;
 
     @GetMapping("/")
     public String showHome(Model model) {
-        model.addAttribute("listProduct", productService.findRandomPro());
+        model.addAttribute("listProduct", productRepository.findByRandomPro());
         return "web/index";
     }
 
@@ -31,6 +31,6 @@ public class HomeController {
     @GetMapping("/search")
     @ResponseBody
     public List<ProductEntity> find(@RequestParam("key") String key) {
-        return productService.search(key);
+        return productRepository.search(key);
     }
 }

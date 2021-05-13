@@ -2,10 +2,9 @@ package cosmetic.controller.admin;
 
 import cosmetic.entity.ProductEntity;
 import cosmetic.entity.TypeEntity;
-import cosmetic.service.BrandService;
-import cosmetic.service.CartService;
-import cosmetic.service.ProductService;
-import cosmetic.service.TypeService;
+import cosmetic.repository.BrandRepository;
+import cosmetic.repository.ProductRepository;
+import cosmetic.repository.TypeRespository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,26 +17,26 @@ import java.util.List;
 @RequestMapping("admin/product")
 public class ProductController {
     @Autowired
-    private ProductService productService;
+    private ProductRepository productRepository;
     @Autowired
-    private BrandService brandService;
+    private BrandRepository brandRepository;
     @Autowired
-    private TypeService typeService;
+    private TypeRespository typeRepository;
 
     @RequestMapping("list")
     public String listProduct(Model model) {
-        model.addAttribute("listProduct", productService.findAll());
+        model.addAttribute("listProduct", productRepository.findAll());
         return "admin/listProduct";
     }
 
     @RequestMapping("edit")
 //    @RequestMapping("/admin/product/edit")
     public String editProduct(Model model, @RequestParam Long idProduct) {
-        ProductEntity productEntity = productService.findOneById(idProduct);
+        ProductEntity productEntity = productRepository.findById(idProduct).get();
 
         model.addAttribute("product", productEntity);
-        model.addAttribute("listBrand", brandService.findAll());
-        model.addAttribute("listType", typeService.findAll());
+        model.addAttribute("listBrand", brandRepository.findAll());
+        model.addAttribute("listType", typeRepository.findAll());
 
         String img = productEntity.getDetailProductEntity().getImage();
 
@@ -60,21 +59,21 @@ public class ProductController {
                 productEntity.getNameProduct()+"\n"+
                 productEntity.getImage()+"\n"+
                 productEntity.getDetailProductEntity().getImage()+"--------------------");
-        productService.save(productEntity);
+        productRepository.save(productEntity);
         return "redirect:/admin/product/list";
     }
 
     @GetMapping("delete")
     public String delete(Model model, @RequestParam Long idProduct) {
-        productService.delete(idProduct);
+        productRepository.deleteById(idProduct);
         return "redirect:/admin/product/list";
     }
 
     @RequestMapping("add")
     public String add(Model model) {
         model.addAttribute("product", new ProductEntity());
-        model.addAttribute("listBrand", brandService.findAll());
-        model.addAttribute("listType", typeService.findAll());
+        model.addAttribute("listBrand", brandRepository.findAll());
+        model.addAttribute("listType", typeRepository.findAll());
         return "admin/addProduct";
     }
 
@@ -83,11 +82,11 @@ public class ProductController {
                         @Valid @ModelAttribute("product") ProductEntity productEntity,
                         @RequestParam("type") Long[] type) {
 
-        List<TypeEntity> typeEntityList = typeService.findByIdIn(type);
+        List<TypeEntity> typeEntityList = typeRepository.findByIdTypeIn(type);
         productEntity.setIdType(typeEntityList);
         productEntity.getDetailProductEntity().setProductEntity(productEntity);
 
-        productService.save(productEntity);
+        productRepository.save(productEntity);
         return "redirect:/admin/product/list";
     }
 

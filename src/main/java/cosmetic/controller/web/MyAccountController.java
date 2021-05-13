@@ -1,41 +1,32 @@
 package cosmetic.controller.web;
 
 import cosmetic.entity.CustomerEntity;
-import cosmetic.entity.RoleEntity;
-import cosmetic.service.CustomerService;
-import cosmetic.service.DetailOrderService;
-import cosmetic.service.OrderService;
+import cosmetic.repository.CustomerRespository;
+import cosmetic.repository.DetailOrderRepository;
+import cosmetic.repository.OrderRepository;
 import cosmetic.until.SecurityUtil;
-import cosmetic.validator.CustomerValidate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import javax.validation.Valid;
-import java.util.ArrayList;
-import java.util.List;
 
 @Controller
 public class MyAccountController {
 
     @Autowired
-    CustomerService customerService;
+    CustomerRespository customerRepository;
     @Autowired
     PasswordEncoder passwordEncoder;
 
     @Autowired
-    OrderService orderService;
+    OrderRepository orderRepository;
     @Autowired
-    DetailOrderService detailOrderService;
+    DetailOrderRepository detailOrderRepository;
 
     @RequestMapping("/myAccount")
     public String myAccount(Model model){
-        CustomerEntity customerEntity = customerService.findOneByEmail(SecurityUtil.getPrincipal().getUsername());
+        CustomerEntity customerEntity = customerRepository.findOneByEmail(SecurityUtil.getPrincipal().getUsername());
         model.addAttribute("myAccount",customerEntity);
         return "web/my-account";
     }
@@ -52,7 +43,7 @@ public class MyAccountController {
 //        else {
 //            customerEntity.setIdCustomer(SecurityUtil.getPrincipal().getCustomer().getIdCustomer());
 //            customerEntity.setPassword(passwordEncoder.encode(customerEntity.getPassword()));
-//            customerService.save(customerEntity);
+//            customerRepository.save(customerEntity);
 //        }
 //        model.addAttribute("myAccount",customerEntity);
 //        return "redirect:/myAccount";
@@ -60,8 +51,8 @@ public class MyAccountController {
 
     @RequestMapping("/myAccount/myAccountOrder")
     public String myOrder (Model model){
-        model.addAttribute("orderList",orderService.findAll());
-        model.addAttribute("detailOrderList",detailOrderService.findAll());
+        model.addAttribute("orderList",orderRepository.findAll());
+        model.addAttribute("detailOrderList",detailOrderRepository.findAll());
         return "web/myOrder-account";
     }
 }

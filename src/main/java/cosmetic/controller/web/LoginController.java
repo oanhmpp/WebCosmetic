@@ -4,24 +4,18 @@ import cosmetic.entity.ConfirmationToken;
 import cosmetic.entity.CustomerEntity;
 import cosmetic.repository.ConfirmationTokenRepository;
 import cosmetic.repository.CustomerRespository;
-import cosmetic.service.CustomerService;
 import cosmetic.service.EmailSenderService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.SimpleMailMessage;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import javax.validation.Valid;
 
 @Controller
 public class LoginController {
     @Autowired
-    private CustomerService customerService;
+    private CustomerRespository customerRespository;
     @Autowired
     EmailSenderService emailSenderService;
     @Autowired
@@ -47,7 +41,7 @@ public class LoginController {
 
     @RequestMapping("/forgotPassword")
     public String forgotPassword (@RequestParam String email,  RedirectAttributes redirectAttributes){
-        CustomerEntity existingUser = customerService.findOneByEmail(email);
+        CustomerEntity existingUser = customerRespository.findOneByEmail(email);
         emailPublic = email;
         if (existingUser != null) {
             // Create token
@@ -69,9 +63,9 @@ public class LoginController {
         ConfirmationToken token = confirmationTokenRepository.findByConfirmationToken(confirmationToken);
 
         if (token != null) {
-            CustomerEntity user = customerService.findOneByEmail(token.getUser().getEmail());
+            CustomerEntity user = customerRespository.findOneByEmail(token.getUser().getEmail());
             user.setEnabled(true);
-            customerService.save(user);
+            customerRespository.save(user);
             return "/web/resetPassword";
         } else {
             redirectAttributes.addFlashAttribute("msg", "The link is invalid or broken!!");
@@ -84,13 +78,13 @@ public class LoginController {
     public String resetPassword (RedirectAttributes redirectAttributes,Model model,@RequestParam String pass,@RequestParam String rePass){
         if(pass.length()>7 && rePass.length()>7){
             if(pass.equals(rePass)){
-                CustomerEntity customerEntity = customerService.findOneByEmail(emailPublic);
+                CustomerEntity customerEntity = customerRespository.findOneByEmail(emailPublic);
                 customerEntity.setPassword(passwordEncoder.encode(pass));
-                customerService.save(customerEntity);
-//                CustomerEntity tokenUser = customerService.findOneByEmail(customerEntity.getEmail());
+                customerRespository.save(customerEntity);
+//                CustomerEntity tokenUser = customerRepository.findOneByEmail(customerEntity.getEmail());
 //                System.out.println(tokenUser.getPhone()+"-"+tokenUser.getEmail());
 //                tokenUser.setPassword(passwordEncoder.encode(pass));
-//                customerService.save(tokenUser);
+//                customerRepository.save(tokenUser);
                 redirectAttributes.addFlashAttribute("msg", "Reset password is success! Please login again..");
 
             }else{

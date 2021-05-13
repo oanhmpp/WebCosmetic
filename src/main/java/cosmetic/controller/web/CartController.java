@@ -3,20 +3,20 @@ package cosmetic.controller.web;
 
 import cosmetic.entity.CartEntity;
 import cosmetic.entity.CustomerEntity;
-import cosmetic.entity.MyCustomerDetails;
 import cosmetic.entity.ProductEntity;
-import cosmetic.service.CartService;
-import cosmetic.service.CustomerService;
-import cosmetic.service.ProductDetailService;
-import cosmetic.service.ProductService;
+import cosmetic.repository.CartRepository;
+import cosmetic.repository.CustomerRespository;
+import cosmetic.repository.ProductDetailRepository;
+import cosmetic.repository.ProductRepository;
 import cosmetic.until.SecurityUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -24,13 +24,13 @@ import java.util.List;
 public class CartController {
 
     @Autowired
-    ProductDetailService productDetailService;
+    ProductDetailRepository productDetailRepository;
     @Autowired
-    ProductService productService;
+    ProductRepository productRepository;
     @Autowired
-    CartService cartService;
+    CartRepository cartRepository;
     @Autowired
-    CustomerService customerService;
+    CustomerRespository customerRepository;
 
     @GetMapping("/checkLogin")
     public boolean checkLogin (){
@@ -43,8 +43,8 @@ public class CartController {
 
     @RequestMapping("/cart")
     public String cart(Model model) {
-        CustomerEntity customerEntity = customerService.findOneByEmail(SecurityUtil.getPrincipal().getUsername());
-        List<CartEntity> cartEntities = cartService.findByCustomerEntity_Id(customerEntity.getIdCustomer());
+        CustomerEntity customerEntity = customerRepository.findOneByEmail(SecurityUtil.getPrincipal().getUsername());
+        List<CartEntity> cartEntities = cartRepository.findALlByCustomerEntity_IdCustomer(customerEntity.getIdCustomer());
         model.addAttribute("cart", cartEntities);
         return "web/cart";
     }
@@ -54,7 +54,7 @@ public class CartController {
     int getSize() {
         if (SecurityUtil.getPrincipal() != null) {
             String mail = SecurityUtil.getPrincipal().getUsername();
-            return cartService.getSize(mail);
+            return cartRepository.countAllByCustomerEntity_Email(mail);
         }
         return 0;
     }
@@ -63,18 +63,18 @@ public class CartController {
     public @ResponseBody
     String addToCart(CartEntity cartEntity, ProductEntity productEntity, @RequestParam("idProduct") Long idProduct) {
         if (SecurityUtil.getPrincipal() != null) {
-            CustomerEntity customerEntity = customerService.findOneByEmail(SecurityUtil.getPrincipal().getUsername());
+            CustomerEntity customerEntity = customerRepository.findOneByEmail(SecurityUtil.getPrincipal().getUsername());
             productEntity.setIdProduct(idProduct);
             cartEntity.setProductEntity(productEntity);
             cartEntity.setCustomerEntity(customerEntity);
-            CartEntity entity = cartService.findByCustomerEntity_IdCustomerAndProductEntity_IdProduct(customerEntity.getIdCustomer(),idProduct);
+            CartEntity entity = cartRepository.findByCustomerEntity_IdCustomerAndProductEntity_IdProduct(customerEntity.getIdCustomer(),idProduct);
             if (entity == null) {
                 cartEntity.setNumber(1);
             } else {
                 cartEntity = entity;
                 cartEntity.setNumber(cartEntity.getNumber() + 1);
             }
-            cartService.save(cartEntity);
+            cartRepository.save(cartEntity);
             return " Added to cart";
         } else {
             return "You need to login";
@@ -84,31 +84,31 @@ public class CartController {
     // nut tang
     @GetMapping("/increase")
     public @ResponseBody String increase (@RequestParam("id") Long id){
-        CartEntity cartEntity = cartService.findOneById(id);
+        CartEntity cartEntity = cartRepository.findById(id).get();
         System.out.println("-----------sss---------------");
         System.out.println(cartEntity.getNumber());
         System.out.println("--------------------------");
         cartEntity.setNumber(cartEntity.getNumber()+1);
-        cartService.save(cartEntity);
+        cartRepository.save(cartEntity);
         return "redirect:/cart";
     }
 
     // nut giam
     @GetMapping("/decrease")
     public @ResponseBody String decrease (@RequestParam("id") Long id){
-        CartEntity cartEntity = cartService.findOneById(id);
+        CartEntity cartEntity = cartRepository.findById(id).get();
         System.out.println("-----------sss---------------");
         System.out.println(cartEntity.getNumber());
         System.out.println("--------------------------");
         cartEntity.setNumber(cartEntity.getNumber()-1);
-        cartService.save(cartEntity);
+        cartRepository.save(cartEntity);
         return "redirect:/cart";
     }
 
     // nut delete
     @GetMapping("/cart/delete")
     public @ResponseBody String delete(@RequestParam("id") Long id){
-        cartService.deleteCart(id);
+        cartRepository.deleteById(id);
         return "redirect:/cart";
     }
 }

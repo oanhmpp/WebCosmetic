@@ -2,7 +2,7 @@ package cosmetic.controller.web;
 
 import com.mysql.fabric.Response;
 import cosmetic.entity.*;
-import cosmetic.service.*;
+import cosmetic.repository.*;
 import cosmetic.until.SecurityUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
@@ -25,19 +25,19 @@ import java.util.List;
 public class PaymentController {
 
     @Autowired
-    CustomerService customerService;
+    CustomerRespository customerRepository;
     @Autowired
-    OrderService orderService;
+    OrderRepository orderRepository;
     @Autowired
-    CartService cartService;
+    CartRepository cartRepository;
     @Autowired
-    ProductService productService;
+    ProductRepository productRepository;
     @Autowired
-    DetailOrderService detailOrderService;
+    DetailOrderRepository detailOrderRepository;
 
     @RequestMapping
     public String payment(Model model, @RequestParam("priceTotal") String priceTotal) {
-        CustomerEntity customerEntity = customerService.findOneByEmail(SecurityUtil.getPrincipal().getUsername());
+        CustomerEntity customerEntity = customerRepository.findOneByEmail(SecurityUtil.getPrincipal().getUsername());
         model.addAttribute("priceTotal", priceTotal);
         model.addAttribute("order", new OrdersEntity());
         return "/web/payment";
@@ -50,8 +50,8 @@ public class PaymentController {
                         throws UnsupportedEncodingException {
         customerEntity = SecurityUtil.getPrincipal().getCustomer();
         ordersEntity.setCustomerEntity(customerEntity);
-        orderService.save(ordersEntity);
-        List<CartEntity> cartEntity = cartService.findByCustomerEntity_Id(SecurityUtil.getPrincipal().getCustomer().getIdCustomer());
+        orderRepository.save(ordersEntity);
+        List<CartEntity> cartEntity = cartRepository.findALlByCustomerEntity_IdCustomer(SecurityUtil.getPrincipal().getCustomer().getIdCustomer());
 
         for (CartEntity entity : cartEntity) {
             detailOrderEntity.setId(null);
@@ -60,16 +60,16 @@ public class PaymentController {
             detailOrderEntity.setPrice(entity.getNumber() * entity.getProductEntity().getPrice());
             detailOrderEntity.setOrder(ordersEntity);
 
-            detailOrderService.save(detailOrderEntity);
+            detailOrderRepository.save(detailOrderEntity);
 
             // giam so luong sp trong product
-            productEntity = productService.findOneById(entity.getProductEntity().getIdProduct());
+            productEntity = productRepository.findById(entity.getProductEntity().getIdProduct()).get();
             productEntity.setAmount(productEntity.getAmount() - detailOrderEntity.getAmount());
-            productService.save(productEntity);
+            productRepository.save(productEntity);
 
-            cartService.deleteCart(entity.getId());
+            cartRepository.deleteById(entity.getId());
         }
-        List<DetailOrderEntity> listDetailOrder = detailOrderService.findByIDOrder(ordersEntity.getIdOrder());
+        List<DetailOrderEntity> listDetailOrder = detailOrderRepository.findByOrder_IdOrder(ordersEntity.getIdOrder());
         model.addAttribute("order", ordersEntity);
         model.addAttribute("detailOrderList", listDetailOrder);
         return "web/detailOrder";

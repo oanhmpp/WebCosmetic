@@ -8,12 +8,13 @@ import javax.validation.ConstraintValidatorContext;
 
 public class EmailConstraintValidator implements ConstraintValidator<Exist, String> {
 
-@Autowired
-CustomerService service;
-public boolean isValid(String value, ConstraintValidatorContext context){
+    @Autowired
+    CustomerService service;
 
-		if(service.findByEmail(value).isEmpty())
-		return true;
-		return false;
-		}
-		}
+    public boolean isValid(String value, ConstraintValidatorContext context) {
+
+        if (service.findByEmail(value).isEmpty())
+            return true;
+        return false;
+    }
+}
