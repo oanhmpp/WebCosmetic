@@ -1,11 +1,12 @@
 package cosmetic.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -22,6 +23,9 @@ public class OrdersEntity {
     private double totalPrice;
 
     private int phone;
+
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    private Date date;
 
     @OneToMany(mappedBy = "order")
     @JsonIgnore

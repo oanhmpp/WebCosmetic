@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.io.UnsupportedEncodingException;
 import java.net.http.HttpResponse;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -50,6 +51,7 @@ public class PaymentController {
                         throws UnsupportedEncodingException {
         customerEntity = SecurityUtil.getPrincipal().getCustomer();
         ordersEntity.setCustomerEntity(customerEntity);
+        ordersEntity.setDate(new Date());
         orderRepository.save(ordersEntity);
         List<CartEntity> cartEntity = cartRepository.findALlByCustomerEntity_IdCustomer(SecurityUtil.getPrincipal().getCustomer().getIdCustomer());
 
