@@ -20,7 +20,7 @@ public class CustomerController {
     private CustomerRespository customerRepository;
 
     @RequestMapping("list")
-    private String listBrand(Model model){
+    private String listCus(Model model){
         model.addAttribute("listCus", customerRepository.findAll());
         return "/admin/listCus";
     }

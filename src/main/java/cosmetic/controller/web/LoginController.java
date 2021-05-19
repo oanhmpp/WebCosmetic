@@ -24,6 +24,7 @@ public class LoginController {
     PasswordEncoder passwordEncoder;
 
     String emailPublic;
+
     @RequestMapping("/login")
     public String login(){
         return "web/index";
