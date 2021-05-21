@@ -22,9 +22,23 @@
                         data-feather="briefcase"></i><span>Revenue</span></a>
                 <ul class="dropdown-menu">
                     <li>
+                        <a class="nav-link" href="<c:url value ="/admin/revenue/brand"/>">Brand</a>
+                    </li>
+                    <li>
                         <a class="nav-link" href="<c:url value ="/admin/revenue/year"/>">Year</a>
                     </li>
-                    <li><a class="nav-link" href="<c:url value ="/admin/revenue/year"/>"></a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="menu-toggle nav-link has-dropdown"><i
+                        data-feather="briefcase"></i><span>Sales</span></a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a class="nav-link" href="<c:url value ="/admin/sales/brand"/>">Brand</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="<c:url value ="/admin/sales/year"/>">Year</a>
+                    </li>
                 </ul>
             </li>
         </ul>

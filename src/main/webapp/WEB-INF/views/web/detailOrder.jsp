@@ -11,7 +11,6 @@
 
 <div class="col-sm-12 d-flex justify-content-center">
     <div class="">
-        <h5 class="text-uppercase" style="color: #ff6f61">E Store</h5>
         <h4 class="mt-5 theme-color mb-5">Thanks for your order</h4>
         <div class="mb-3">
             <hr class="new1">
@@ -66,7 +65,7 @@
                 </div>
 
                 <div class="text-center mt-5 mb-5">
-                    <button class="btn btn-primary" > <a href="/">Go Home</a></button>
+                    <button class="btn btn-primary" style="    background: #ff6f61;" > <a href="/" style="color: aliceblue;">Go Home</a></button>
                 </div>
             </div>
         </div>

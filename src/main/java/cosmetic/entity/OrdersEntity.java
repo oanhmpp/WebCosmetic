@@ -32,7 +32,6 @@ public class OrdersEntity {
     private List<DetailOrderEntity> detailOrderEntities;
 
     @ManyToOne
-
     @JsonIgnore
 //    @JoinTable(
 //            joinColumns = @JoinColumn(name = "idOrder"),

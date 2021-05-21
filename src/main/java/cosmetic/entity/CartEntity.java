@@ -25,4 +25,5 @@ public class CartEntity implements Serializable {
     @ManyToOne
     @JsonIgnore
     private ProductEntity productEntity;
+
 }

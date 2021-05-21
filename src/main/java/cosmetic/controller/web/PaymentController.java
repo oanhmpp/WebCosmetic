@@ -61,7 +61,7 @@ public class PaymentController {
             detailOrderEntity.setNameProduct(entity.getProductEntity().getNameProduct());
             detailOrderEntity.setPrice(entity.getNumber() * entity.getProductEntity().getPrice());
             detailOrderEntity.setOrder(ordersEntity);
-
+            detailOrderEntity.setIdProduct(entity.getProductEntity().getIdProduct());
             detailOrderRepository.save(detailOrderEntity);
 
             // giam so luong sp trong product

@@ -24,7 +24,7 @@
 
         function revenueYear(year) {
             $.ajax({
-                url: '/admin/revenue/revenueByYear',
+                url: '/admin/sales/salesByYear',
                 type: 'POST',
                 data: {
                     year: year
@@ -35,17 +35,14 @@
                     $.each(result, function (index, value) {
                         dataChart[index] = {
                             label: value[0]+"/"+year,
-                            y: value[1],
+                            y: value[1]
                         }
                     });
 
 
                     var chart = new CanvasJS.Chart("chartContainer", {
                         title: {
-                            text: "Revenue by year"
-                        },
-                        axisY:{
-                            prefix:"$"
+                            text: "Sales by year"
                         },
                         data: [
                             {

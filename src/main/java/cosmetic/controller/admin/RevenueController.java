@@ -20,7 +20,7 @@ public class RevenueController {
     private OrderRepository orderRepository;
 
     @RequestMapping("/year")
-    public String revenueMonth(Model model) {
+    public String revenueYear(Model model) {
         model.addAttribute("listYear", orderRepository.findYear());
         return "admin/revenue_year";
     }
@@ -29,6 +29,17 @@ public class RevenueController {
     @ResponseBody
     public List<?> revenueByYear(@RequestParam String year) {
         return orderRepository.revenueByYear(year);
+    }
+
+    @RequestMapping("/brand")
+    public String revenueBrand(Model model) {
+        return "admin/revenue_brand";
+    }
+
+    @PostMapping("/revenueByBrand")
+    @ResponseBody
+    public List<?> revenueByBrand(@RequestParam String year1, @RequestParam String year2) {
+        return orderRepository.revenueByBrand(year1,year2);
     }
 
 }

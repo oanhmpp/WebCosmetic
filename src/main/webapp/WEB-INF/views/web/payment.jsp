@@ -39,10 +39,11 @@
                         <div class="col-md-6">
                             <label>Total price: </label>
                             <input hidden path="${priceTotal}"/>
-                            <form:input path="totalPrice" class="form-control" value="${priceTotal}" />
+                            <form:input disabled="true" path="totalPrice" class="form-control" value="${priceTotal}" />
                         </div>
                         <div style="padding: 20px;" class="col-md-12 d-flex justify-content-center">
-                            <form:button id="submit"  cssStyle="color: red" class="btn">Payment</form:button>
+                            <form:button id="submit"  cssStyle="color: red" class="btn">Payment on delivery</form:button>
+                            <form:button id="onl-pay"  cssStyle="color: red" class="btn">Online payment</form:button>
                         </div>
                         <form:hidden path="customerEntity.idCustomer"/>
                     </div>

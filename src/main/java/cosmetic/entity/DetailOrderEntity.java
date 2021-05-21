@@ -28,6 +28,9 @@ public class DetailOrderEntity implements Serializable {
     @Column
     private double price;
 
+    @Column
+    private Long idProduct;
+
     @ManyToOne
     @JsonIgnore
     @JoinColumn(name = "idOrder")
