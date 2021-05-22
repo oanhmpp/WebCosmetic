@@ -1,6 +1,6 @@
 package cosmetic.interceptor;
 
-import cosmetic.until.SecurityUtil;
+import cosmetic.util.SecurityUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;

@@ -1,4 +1,4 @@
-package cosmetic.until;
+package cosmetic.util;
 
 import cosmetic.entity.MyCustomerDetails;
 import org.springframework.security.core.context.SecurityContextHolder;

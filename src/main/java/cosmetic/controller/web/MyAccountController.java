@@ -4,7 +4,7 @@ import cosmetic.entity.CustomerEntity;
 import cosmetic.repository.CustomerRespository;
 import cosmetic.repository.DetailOrderRepository;
 import cosmetic.repository.OrderRepository;
-import cosmetic.until.SecurityUtil;
+import cosmetic.util.SecurityUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;

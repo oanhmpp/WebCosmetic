@@ -25,6 +25,9 @@
 <!-- Cart Start -->
 <div class="cart-page">
     <div class="container-fluid">
+        <c:if test="${not empty msg}">
+            <div align="center" class="text-success">${msg}</div>
+        </c:if>
         <div class="row">
             <div class="col-lg-8">
                 <div class="cart-page-inner">
@@ -61,10 +64,12 @@
                                         </div>
                                     </td>
 
-                                    <c:set var="priceTotal" value="${priceTotal + cart.productEntity.price*cart.number}" />
+                                    <c:set var="priceTotal"
+                                           value="${priceTotal + cart.productEntity.price*cart.number}"/>
                                     <td class="totalOneProduct">$${cart.productEntity.price*cart.number}</td>
                                     <td>
-                                        <button id="btn_delter" class="btn_delete"><span hidden>${cart.id}</span><i class="fa fa-trash"></i></button>
+                                        <button id="btn_delter" class="btn_delete"><span hidden>${cart.id}</span><i
+                                                class="fa fa-trash"></i></button>
                                     </td>
                                 </tr>
                             </c:forEach>
@@ -84,9 +89,17 @@
                                     <%--                                            <p>Shipping Cost<span>$1</span></p>--%>
                                     <h2>Grand Total<span>$${priceTotal}</span></h2>
                                 </div>
-<%--                                <input hidden name="priceTotal" value="${priceTotal}">--%>
+                                <%--                                <input hidden name="priceTotal" value="${priceTotal}">--%>
                                 <div class="cart-btn d-flex justify-content-center">
-                                    <button><a href="${pageContext.request.contextPath}/payment?priceTotal=${priceTotal}">Pay</a></button>
+                                    <div class="col-md-6 btn">
+                                      <a
+                                                href="${pageContext.request.contextPath}/payment/paymentOnDelivery?priceTotal=${priceTotal}">Pay on delivery</a>
+                                    </div>
+                                    <div class="col-md-6 btn">
+                                        <a
+                                                href="${pageContext.request.contextPath}/payment/paymentOnline?priceTotal=${priceTotal}">Payment
+                                            online</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>

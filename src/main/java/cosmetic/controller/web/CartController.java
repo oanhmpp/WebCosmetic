@@ -8,7 +8,7 @@ import cosmetic.repository.CartRepository;
 import cosmetic.repository.CustomerRespository;
 import cosmetic.repository.ProductDetailRepository;
 import cosmetic.repository.ProductRepository;
-import cosmetic.until.SecurityUtil;
+import cosmetic.util.SecurityUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

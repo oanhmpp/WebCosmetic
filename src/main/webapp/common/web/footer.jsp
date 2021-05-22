@@ -243,29 +243,6 @@
             $("#f").empty();
         })
 
-        // check email
-        // $('#submit').click(function (e) {
-        //     // var email = $('#email').val();
-        //     $.ajax({
-        //         url: '/register',
-        //         type: 'POST',
-        //         data: {
-        //             // email: email
-        //         },
-        //         success: function (result) {
-        //             alert(result)
-        //             if (result) {
-        //                 alert("Registor is success !!")
-        //             } else {
-        //                 alert("Registor is fail !!")
-        //             }
-        //         },
-        //         error: function (error) {
-        //             alert("Error")
-        //         }
-        //     });
-        // });
-
         // register
         $('#email').keyup(function (e) {
             var email = $('#email').val();

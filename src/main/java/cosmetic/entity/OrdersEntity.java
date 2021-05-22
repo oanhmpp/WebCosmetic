@@ -24,6 +24,8 @@ public class OrdersEntity {
 
     private int phone;
 
+    private String state;
+
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private Date date;
 

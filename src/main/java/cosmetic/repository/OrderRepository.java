@@ -28,4 +28,7 @@ public interface OrderRepository extends JpaRepository<OrdersEntity, Long> {
     List<?> salesByYear(String year);
     @Query(nativeQuery = true, value = "SELECT brand.nameBrand, sum(de_o.price) FROM  `detailorder` de_o join product pro on pro.idProduct = de_o.idProduct join brand on brand.idBrand = pro.idBrand join oders on oders.idOrder = de_o.idOrder where pro.idProduct = de_o.idProduct and oders.date BETWEEN ?1 AND ?2  GROUP BY brand.nameBrand")
     List<?> revenueByBrand(String year1, String year2);
+
+    OrdersEntity findOneByIdOrder(Long id);
+
 }
