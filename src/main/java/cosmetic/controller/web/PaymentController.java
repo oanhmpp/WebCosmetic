@@ -183,4 +183,7 @@ public class PaymentController {
         model.addAttribute("detailOrderList", listDetailOrder);
         return "web/detailOrder";
     }
+    public String orderOnline(){
+        return "web/detailOrderOnline";
+    }
 }

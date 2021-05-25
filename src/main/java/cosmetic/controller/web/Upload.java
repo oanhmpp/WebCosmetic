@@ -13,6 +13,7 @@ import java.io.File;
 @Controller
 public class Upload {
 
+    private static final String ROOT_UPLOAD_DIR = "D:";
     private static final String UPLOAD_DIR = File.separator + "upload" + File.separator;
 
     @GetMapping("/uploadpath")
@@ -23,7 +24,7 @@ public class Upload {
     @PostMapping("/uploadpath")
     @ResponseBody
     public String upload2(@RequestParam("file") MultipartFile file, HttpServletRequest request) {
-        String rootPath = request.getServletContext().getRealPath("") + UPLOAD_DIR;
+        String rootPath = ROOT_UPLOAD_DIR + UPLOAD_DIR;
         String fileName = file.getOriginalFilename();
         File descFile = new File(rootPath + fileName);
 
@@ -32,10 +33,10 @@ public class Upload {
         }
 
         int i = 1;
-        while (descFile.exists()){
+        while (descFile.exists()) {
             String path = descFile.getParent();
             fileName = i + fileName;
-            descFile = new File(path+File.separator+fileName);
+            descFile = new File(path + File.separator + fileName);
             i++;
 
         }

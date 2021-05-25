@@ -52,13 +52,13 @@ public class ProductController {
     @PostMapping("edit")
     public String edited(Model model, @Valid @ModelAttribute("product") ProductEntity productEntity) {
 
-        System.out.println("--------------------"+productEntity.getDetailProductEntity().getDescription()+"\n" +
-                productEntity.getIdProduct()+"\n"+
-                productEntity.getIdBrand().getIdBrand()+"\n"+
-                productEntity.getIdType()+"\n"+
-                productEntity.getNameProduct()+"\n"+
-                productEntity.getImage()+"\n"+
-                productEntity.getDetailProductEntity().getImage()+"--------------------");
+//        System.out.println("--------------------"+productEntity.getDetailProductEntity().getDescription()+"\n" +
+//                productEntity.getIdProduct()+"\n"+
+//                productEntity.getIdBrand().getIdBrand()+"\n"+
+//                productEntity.getIdType()+"\n"+
+//                productEntity.getNameProduct()+"\n"+
+//                productEntity.getImage()+"\n"+
+//                productEntity.getDetailProductEntity().getImage()+"--------------------");
         productRepository.save(productEntity);
         return "redirect:/admin/product/list";
     }
